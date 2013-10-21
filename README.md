@@ -1,4 +1,4 @@
-ifinder
+brujula
 =======
 
-Nueva aplicación de setas
+Programa para manejar una brújula
