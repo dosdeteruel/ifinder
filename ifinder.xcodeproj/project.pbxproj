@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AED775F318206C7E006CFBF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED775F218206C7E006CFBF1 /* Foundation.framework */; };
+		AED775F518206C7E006CFBF1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED775F418206C7E006CFBF1 /* CoreGraphics.framework */; };
+		AED775F718206C7E006CFBF1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED775F618206C7E006CFBF1 /* UIKit.framework */; };
+		AED775FD18206C7E006CFBF1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AED775FB18206C7E006CFBF1 /* InfoPlist.strings */; };
+		AED775FF18206C7E006CFBF1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AED775FE18206C7E006CFBF1 /* main.m */; };
+		AED7760318206C7E006CFBF1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AED7760218206C7E006CFBF1 /* AppDelegate.m */; };
+		AED7760618206C7E006CFBF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AED7760418206C7E006CFBF1 /* Main.storyboard */; };
+		AED7760B18206C7E006CFBF1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AED7760A18206C7E006CFBF1 /* Images.xcassets */; };
+		AED7761218206C7E006CFBF1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED7761118206C7E006CFBF1 /* XCTest.framework */; };
+		AED7761318206C7E006CFBF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED775F218206C7E006CFBF1 /* Foundation.framework */; };
+		AED7761418206C7E006CFBF1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED775F618206C7E006CFBF1 /* UIKit.framework */; };
+		AED7761C18206C7E006CFBF1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AED7761A18206C7E006CFBF1 /* InfoPlist.strings */; };
+		AED7761E18206C7E006CFBF1 /* ifinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AED7761D18206C7E006CFBF1 /* ifinderTests.m */; };
+		AED7762918206CE4006CFBF1 /* principalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED7762818206CE4006CFBF1 /* principalViewController.m */; };
+		AED7762E18206D3B006CFBF1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AED7762C18206D3B006CFBF1 /* Default-568h@2x.png */; };
+		AED7762F18206D3B006CFBF1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AED7762D18206D3B006CFBF1 /* Default@2x.png */; };
+		AED7763418206E35006CFBF1 /* brujula.png in Resources */ = {isa = PBXBuildFile; fileRef = AED7763018206E35006CFBF1 /* brujula.png */; };
+		AED7763518206E35006CFBF1 /* coche.png in Resources */ = {isa = PBXBuildFile; fileRef = AED7763118206E35006CFBF1 /* coche.png */; };
+		AED7763618206E35006CFBF1 /* monigote.png in Resources */ = {isa = PBXBuildFile; fileRef = AED7763218206E35006CFBF1 /* monigote.png */; };
+		AED7763718206E35006CFBF1 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = AED7763318206E35006CFBF1 /* pin.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AED7761518206C7E006CFBF1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AED775E718206C7E006CFBF1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AED775EE18206C7E006CFBF1;
+			remoteInfo = ifinder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AED775EF18206C7E006CFBF1 /* ifinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ifinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AED775F218206C7E006CFBF1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AED775F418206C7E006CFBF1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AED775F618206C7E006CFBF1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AED775FA18206C7E006CFBF1 /* ifinder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ifinder-Info.plist"; sourceTree = "<group>"; };
+		AED775FC18206C7E006CFBF1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AED775FE18206C7E006CFBF1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AED7760018206C7E006CFBF1 /* ifinder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ifinder-Prefix.pch"; sourceTree = "<group>"; };
+		AED7760118206C7E006CFBF1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AED7760218206C7E006CFBF1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AED7760518206C7E006CFBF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AED7760A18206C7E006CFBF1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AED7761018206C7E006CFBF1 /* ifinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ifinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AED7761118206C7E006CFBF1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		AED7761918206C7E006CFBF1 /* ifinderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ifinderTests-Info.plist"; sourceTree = "<group>"; };
+		AED7761B18206C7E006CFBF1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AED7761D18206C7E006CFBF1 /* ifinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ifinderTests.m; sourceTree = "<group>"; };
+		AED7762718206CE4006CFBF1 /* principalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = principalViewController.h; sourceTree = "<group>"; };
+		AED7762818206CE4006CFBF1 /* principalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = principalViewController.m; sourceTree = "<group>"; };
+		AED7762C18206D3B006CFBF1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		AED7762D18206D3B006CFBF1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		AED7763018206E35006CFBF1 /* brujula.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brujula.png; sourceTree = "<group>"; };
+		AED7763118206E35006CFBF1 /* coche.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coche.png; sourceTree = "<group>"; };
+		AED7763218206E35006CFBF1 /* monigote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monigote.png; sourceTree = "<group>"; };
+		AED7763318206E35006CFBF1 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AED775EC18206C7E006CFBF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AED775F518206C7E006CFBF1 /* CoreGraphics.framework in Frameworks */,
+				AED775F718206C7E006CFBF1 /* UIKit.framework in Frameworks */,
+				AED775F318206C7E006CFBF1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AED7760D18206C7E006CFBF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AED7761218206C7E006CFBF1 /* XCTest.framework in Frameworks */,
+				AED7761418206C7E006CFBF1 /* UIKit.framework in Frameworks */,
+				AED7761318206C7E006CFBF1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AED775E618206C7E006CFBF1 = {
+			isa = PBXGroup;
+			children = (
+				AED775F818206C7E006CFBF1 /* ifinder */,
+				AED7761718206C7E006CFBF1 /* ifinderTests */,
+				AED775F118206C7E006CFBF1 /* Frameworks */,
+				AED775F018206C7E006CFBF1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AED775F018206C7E006CFBF1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AED775EF18206C7E006CFBF1 /* ifinder.app */,
+				AED7761018206C7E006CFBF1 /* ifinderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AED775F118206C7E006CFBF1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AED775F218206C7E006CFBF1 /* Foundation.framework */,
+				AED775F418206C7E006CFBF1 /* CoreGraphics.framework */,
+				AED775F618206C7E006CFBF1 /* UIKit.framework */,
+				AED7761118206C7E006CFBF1 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AED775F818206C7E006CFBF1 /* ifinder */ = {
+			isa = PBXGroup;
+			children = (
+				AED7762B18206D22006CFBF1 /* images */,
+				AED7760118206C7E006CFBF1 /* AppDelegate.h */,
+				AED7760218206C7E006CFBF1 /* AppDelegate.m */,
+				AED7760418206C7E006CFBF1 /* Main.storyboard */,
+				AED7760A18206C7E006CFBF1 /* Images.xcassets */,
+				AED775F918206C7E006CFBF1 /* Supporting Files */,
+				AED7762A18206CFA006CFBF1 /* principalViewController */,
+			);
+			path = ifinder;
+			sourceTree = "<group>";
+		};
+		AED775F918206C7E006CFBF1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AED775FA18206C7E006CFBF1 /* ifinder-Info.plist */,
+				AED775FB18206C7E006CFBF1 /* InfoPlist.strings */,
+				AED775FE18206C7E006CFBF1 /* main.m */,
+				AED7760018206C7E006CFBF1 /* ifinder-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AED7761718206C7E006CFBF1 /* ifinderTests */ = {
+			isa = PBXGroup;
+			children = (
+				AED7761D18206C7E006CFBF1 /* ifinderTests.m */,
+				AED7761818206C7E006CFBF1 /* Supporting Files */,
+			);
+			path = ifinderTests;
+			sourceTree = "<group>";
+		};
+		AED7761818206C7E006CFBF1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AED7761918206C7E006CFBF1 /* ifinderTests-Info.plist */,
+				AED7761A18206C7E006CFBF1 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AED7762A18206CFA006CFBF1 /* principalViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AED7762718206CE4006CFBF1 /* principalViewController.h */,
+				AED7762818206CE4006CFBF1 /* principalViewController.m */,
+			);
+			name = principalViewController;
+			sourceTree = "<group>";
+		};
+		AED7762B18206D22006CFBF1 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				AED7763018206E35006CFBF1 /* brujula.png */,
+				AED7763118206E35006CFBF1 /* coche.png */,
+				AED7763218206E35006CFBF1 /* monigote.png */,
+				AED7763318206E35006CFBF1 /* pin.png */,
+				AED7762C18206D3B006CFBF1 /* Default-568h@2x.png */,
+				AED7762D18206D3B006CFBF1 /* Default@2x.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AED775EE18206C7E006CFBF1 /* ifinder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AED7762118206C7E006CFBF1 /* Build configuration list for PBXNativeTarget "ifinder" */;
+			buildPhases = (
+				AED775EB18206C7E006CFBF1 /* Sources */,
+				AED775EC18206C7E006CFBF1 /* Frameworks */,
+				AED775ED18206C7E006CFBF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ifinder;
+			productName = ifinder;
+			productReference = AED775EF18206C7E006CFBF1 /* ifinder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AED7760F18206C7E006CFBF1 /* ifinderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AED7762418206C7E006CFBF1 /* Build configuration list for PBXNativeTarget "ifinderTests" */;
+			buildPhases = (
+				AED7760C18206C7E006CFBF1 /* Sources */,
+				AED7760D18206C7E006CFBF1 /* Frameworks */,
+				AED7760E18206C7E006CFBF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AED7761618206C7E006CFBF1 /* PBXTargetDependency */,
+			);
+			name = ifinderTests;
+			productName = ifinderTests;
+			productReference = AED7761018206C7E006CFBF1 /* ifinderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AED775E718206C7E006CFBF1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "German Bonilla Monterde";
+				TargetAttributes = {
+					AED775EE18206C7E006CFBF1 = {
+						DevelopmentTeam = F3WW7CD638;
+					};
+					AED7760F18206C7E006CFBF1 = {
+						TestTargetID = AED775EE18206C7E006CFBF1;
+					};
+				};
+			};
+			buildConfigurationList = AED775EA18206C7E006CFBF1 /* Build configuration list for PBXProject "ifinder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AED775E618206C7E006CFBF1;
+			productRefGroup = AED775F018206C7E006CFBF1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AED775EE18206C7E006CFBF1 /* ifinder */,
+				AED7760F18206C7E006CFBF1 /* ifinderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AED775ED18206C7E006CFBF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AED7760B18206C7E006CFBF1 /* Images.xcassets in Resources */,
+				AED7763618206E35006CFBF1 /* monigote.png in Resources */,
+				AED7763518206E35006CFBF1 /* coche.png in Resources */,
+				AED7763418206E35006CFBF1 /* brujula.png in Resources */,
+				AED7762E18206D3B006CFBF1 /* Default-568h@2x.png in Resources */,
+				AED7762F18206D3B006CFBF1 /* Default@2x.png in Resources */,
+				AED7763718206E35006CFBF1 /* pin.png in Resources */,
+				AED775FD18206C7E006CFBF1 /* InfoPlist.strings in Resources */,
+				AED7760618206C7E006CFBF1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AED7760E18206C7E006CFBF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AED7761C18206C7E006CFBF1 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AED775EB18206C7E006CFBF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AED7762918206CE4006CFBF1 /* principalViewController.m in Sources */,
+				AED7760318206C7E006CFBF1 /* AppDelegate.m in Sources */,
+				AED775FF18206C7E006CFBF1 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AED7760C18206C7E006CFBF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AED7761E18206C7E006CFBF1 /* ifinderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AED7761618206C7E006CFBF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AED775EE18206C7E006CFBF1 /* ifinder */;
+			targetProxy = AED7761518206C7E006CFBF1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AED775FB18206C7E006CFBF1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AED775FC18206C7E006CFBF1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AED7760418206C7E006CFBF1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AED7760518206C7E006CFBF1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AED7761A18206C7E006CFBF1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AED7761B18206C7E006CFBF1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AED7761F18206C7E006CFBF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AED7762018206C7E006CFBF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AED7762218206C7E006CFBF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ifinder/ifinder-Prefix.pch";
+				INFOPLIST_FILE = "ifinder/ifinder-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AED7762318206C7E006CFBF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ifinder/ifinder-Prefix.pch";
+				INFOPLIST_FILE = "ifinder/ifinder-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		AED7762518206C7E006CFBF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ifinder.app/ifinder";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ifinder/ifinder-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ifinderTests/ifinderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		AED7762618206C7E006CFBF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ifinder.app/ifinder";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ifinder/ifinder-Prefix.pch";
+				INFOPLIST_FILE = "ifinderTests/ifinderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AED775EA18206C7E006CFBF1 /* Build configuration list for PBXProject "ifinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AED7761F18206C7E006CFBF1 /* Debug */,
+				AED7762018206C7E006CFBF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AED7762118206C7E006CFBF1 /* Build configuration list for PBXNativeTarget "ifinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AED7762218206C7E006CFBF1 /* Debug */,
+				AED7762318206C7E006CFBF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AED7762418206C7E006CFBF1 /* Build configuration list for PBXNativeTarget "ifinderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AED7762518206C7E006CFBF1 /* Debug */,
+				AED7762618206C7E006CFBF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AED775E718206C7E006CFBF1 /* Project object */;
+}
