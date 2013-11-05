@@ -17,16 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="L3D-gU-C39">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fondo-campo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="L3D-gU-C39">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="brujula.png" translatesAutoresizingMaskIntoConstraints="NO" id="w0I-Mx-SSu">
-                                <rect key="frame" x="40" y="151" width="240" height="243"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHc-Vo-X3N">
-                                <rect key="frame" x="40" y="494" width="82" height="63"/>
+                                <rect key="frame" x="40" y="499" width="69" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Coche" image="coche.png">
@@ -42,7 +38,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8i-I6-FfB">
-                                <rect key="frame" x="252" y="494" width="28" height="63"/>
+                                <rect key="frame" x="228" y="494" width="64" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="pin" image="pin.png">
@@ -59,11 +55,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Default.png" width="288" height="432"/>
-        <image name="brujula.png" width="143" height="142"/>
-        <image name="coche.png" width="173" height="106"/>
+        <image name="coche.png" width="154" height="93"/>
+        <image name="fondo-campo.jpg" width="640" height="1136"/>
         <image name="monigote.png" width="59" height="109"/>
-        <image name="pin.png" width="47" height="147"/>
+        <image name="pin.png" width="143" height="155"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

@@ -12,6 +12,11 @@
 
 @end
 
+UIView *brujula;
+
+CGRect screen;
+
+
 @implementation principalViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -26,7 +31,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    screen = [[UIScreen mainScreen]bounds];
+    
 }
 
 - (void)didReceiveMemoryWarning
