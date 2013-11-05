@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface principalViewController : UIViewController
+@interface principalViewController : UIViewController{
+    float angulo;
+}
+@property (weak, nonatomic) IBOutlet UIImageView *compassImage;
+
+-(IBAction) cambiarAngulo:(id)sender;
+
 
 @end

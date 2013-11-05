@@ -18,6 +18,8 @@ CGRect screen;
 
 
 @implementation principalViewController
+@synthesize compassImage;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,7 +35,29 @@ CGRect screen;
     [super viewDidLoad];
     
     screen = [[UIScreen mainScreen]bounds];
+    angulo =0;
     
+    
+}
+-(IBAction) cambiarAngulo:(id)sender{
+    UIButton *botonGrados = (UIButton *) sender;
+    int tagHoyo = botonGrados.tag;
+    
+    if (tagHoyo == 1) {
+    
+        angulo-=5.0;
+    } else {
+        angulo+=5.0;
+    }
+    [self dibujaBrujula];
+    NSLog(@"angulo : %f", angulo);
+}
+
+-(void) dibujaBrujula{
+    float rad = angulo * M_PI / 180.0f;
+    self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
+    self.compassImage.transform = CGAffineTransformMakeRotation (rad);
+ 
 }
 
 - (void)didReceiveMemoryWarning
