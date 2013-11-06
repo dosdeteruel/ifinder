@@ -1,13 +1,13 @@
 //
-//  TableViewController.h
+//  tableViewController.h
 //  ifinder
 //
-//  Created by pablete on 06/11/13.
+//  Created by German Bonilla Monterde on 06/11/13.
 //  Copyright (c) 2013 German Bonilla Monterde. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface TableViewController : UITableViewController
+@interface tableViewController : UIViewController
 
 @end

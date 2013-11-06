@@ -77,21 +77,21 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9Eq-Iq-OkQ">
-                                            <rect key="frame" x="85" y="9" width="34" height="22"/>
+                                            <rect key="frame" x="70" y="9" width="34" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ks1-bS-N8R">
-                                            <rect key="frame" x="85" y="31" width="32" height="15"/>
+                                            <rect key="frame" x="70" y="31" width="32" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="brujula.png" id="vT6-Js-qmX">
-                                            <rect key="frame" x="15" y="0.0" width="55" height="55"/>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="icono40.png" id="vT6-Js-qmX">
+                                            <rect key="frame" x="15" y="7" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
@@ -129,11 +129,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="brujula.png" width="700" height="700"/>
         <image name="campo.jpg" width="640" height="1136"/>
         <image name="coche.png" width="154" height="93"/>
         <image name="flecha-brujula.png" width="252" height="250"/>
         <image name="fondo-brujula.png" width="250" height="250"/>
+        <image name="icono40.png" width="40" height="40"/>
         <image name="monigote.png" width="59" height="109"/>
         <image name="pin.png" width="143" height="155"/>
     </resources>
