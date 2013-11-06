@@ -114,9 +114,9 @@ NSString *nombrezona;
     
     
     // Le aplicamos la animación a la imagen de la brújula.
-    [compassImage.layer addAnimation:theAnimation forKey:@"animateMyRotation"];
+ //   [compassImage.layer addAnimation:theAnimation forKey:@"animateMyRotation"];
     
-    compassImage.transform = CGAffineTransformMakeRotation(newRad);
+ //   compassImage.transform = CGAffineTransformMakeRotation(newRad);
     
     
 }
