@@ -24,7 +24,7 @@ CGRect screen;
 @synthesize latitudLabel;
 @synthesize longitudLabel;
 @synthesize locationManager;
-@synthesize compassImage;
+//@synthesize compassImage;
 NSUserDefaults *userDefaults;
 int tipoAccion;
 
