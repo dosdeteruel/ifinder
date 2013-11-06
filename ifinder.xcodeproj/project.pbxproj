@@ -97,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D967D66182940C60099D435 /* CoreLocation.framework in Frameworks */,
 				AED775F518206C7E006CFBF1 /* CoreGraphics.framework in Frameworks */,
 				AED775F718206C7E006CFBF1 /* UIKit.framework in Frameworks */,
 				AED775F318206C7E006CFBF1 /* Foundation.framework in Frameworks */,
@@ -147,6 +148,7 @@
 		AED775F118206C7E006CFBF1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2D967D65182940C60099D435 /* CoreLocation.framework */,
 				AED775F218206C7E006CFBF1 /* Foundation.framework */,
 				AED775F418206C7E006CFBF1 /* CoreGraphics.framework */,
 				AED775F618206C7E006CFBF1 /* UIKit.framework */,
@@ -158,6 +160,7 @@
 		AED775F818206C7E006CFBF1 /* ifinder */ = {
 			isa = PBXGroup;
 			children = (
+				2D967D6A182941810099D435 /* clasepunto */,
 				AED7762B18206D22006CFBF1 /* images */,
 				764F4B6B182AD3130066EB43 /* PuntoList.plist */,
 				AED7760118206C7E006CFBF1 /* AppDelegate.h */,
@@ -349,6 +352,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D967D691829417B0099D435 /* punto.m in Sources */,
+				2D967D6D1829423A0099D435 /* puntosTableViewController.m in Sources */,
 				AED7762918206CE4006CFBF1 /* principalViewController.m in Sources */,
 				AED7760318206C7E006CFBF1 /* AppDelegate.m in Sources */,
 				AED775FF18206C7E006CFBF1 /* main.m in Sources */,
