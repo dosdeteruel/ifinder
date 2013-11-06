@@ -24,7 +24,6 @@ CGRect screen;
 @synthesize latitudLabel;
 @synthesize longitudLabel;
 @synthesize locationManager;
-//@synthesize compassImage;
 NSUserDefaults *userDefaults;
 int tipoAccion;
 
@@ -163,8 +162,11 @@ NSString *nombrezona;
         case irCoche:
             //ahora comprobar si hay que coger
             rumbo = [self calculaelRumbo:location];
+            float angulo =  rumbo * M_PI / 180.0f;
             
-            NSLog(@"rumbo: %f",rumbo);
+            //NSLog(@"rumbo: %f",rumbo);
+            self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
+            self.compassImage.transform = CGAffineTransformMakeRotation (angulo);
             
         case guardaPunto:
             [userDefaults setFloat:location.coordinate.latitude forKey:@"puntolatitud"];
