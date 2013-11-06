@@ -119,11 +119,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2D967D6A182941810099D435 /* clasepunto */ = {
+		764F4B70182AD3750066EB43 /* TableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2D967D671829417B0099D435 /* punto.h */,
-				2D967D681829417B0099D435 /* punto.m */,
+				764F4B6D182AD36F0066EB43 /* TableViewController.h */,
+				764F4B6E182AD36F0066EB43 /* TableViewController.m */,
 			);
 			name = clasepunto;
 			sourceTree = "<group>";
@@ -164,6 +164,7 @@
 			children = (
 				2D967D6A182941810099D435 /* clasepunto */,
 				AED7762B18206D22006CFBF1 /* images */,
+				764F4B6B182AD3130066EB43 /* PuntoList.plist */,
 				AED7760118206C7E006CFBF1 /* AppDelegate.h */,
 				AED7760218206C7E006CFBF1 /* AppDelegate.m */,
 				AED7760418206C7E006CFBF1 /* Main.storyboard */,
@@ -357,6 +358,7 @@
 				AED7762918206CE4006CFBF1 /* principalViewController.m in Sources */,
 				AED7760318206C7E006CFBF1 /* AppDelegate.m in Sources */,
 				AED775FF18206C7E006CFBF1 /* main.m in Sources */,
+				764F4B6F182AD36F0066EB43 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
