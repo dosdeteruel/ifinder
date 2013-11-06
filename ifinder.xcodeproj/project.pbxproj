@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D967D66182940C60099D435 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D967D65182940C60099D435 /* CoreLocation.framework */; };
 		2D967D691829417B0099D435 /* punto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D967D681829417B0099D435 /* punto.m */; };
+		2DA08803182AFD02008FB414 /* punto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA08802182AFD02008FB414 /* punto.m */; };
 		AE5266D5182AF47800402D46 /* campo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE5266C4182AF47800402D46 /* campo.jpg */; };
 		AE5266D6182AF47800402D46 /* ciudad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE5266C5182AF47800402D46 /* ciudad.jpg */; };
 		AE5266D7182AF47800402D46 /* coche.png in Resources */ = {isa = PBXBuildFile; fileRef = AE5266C6182AF47800402D46 /* coche.png */; };
@@ -58,6 +59,8 @@
 /* Begin PBXFileReference section */
 		2D967D65182940C60099D435 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2D967D681829417B0099D435 /* punto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = punto.m; sourceTree = "<group>"; };
+		2DA08801182AFD02008FB414 /* punto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = punto.h; path = ifinder/punto.h; sourceTree = "<group>"; };
+		2DA08802182AFD02008FB414 /* punto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = punto.m; path = ifinder/punto.m; sourceTree = "<group>"; };
 		AE5266C4182AF47800402D46 /* campo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = campo.jpg; sourceTree = "<group>"; };
 		AE5266C5182AF47800402D46 /* ciudad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ciudad.jpg; sourceTree = "<group>"; };
 		AE5266C6182AF47800402D46 /* coche.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coche.png; sourceTree = "<group>"; };
@@ -126,7 +129,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		764F4B70182AD3750066EB43 /* TableViewController */ = {
+		2DA08804182AFD0F008FB414 /* punto */ = {
 			isa = PBXGroup;
 			children = (
 				AE5266E6182AFCDC00402D46 /* tableViewController.h */,
@@ -302,7 +305,7 @@
 				ORGANIZATIONNAME = "German Bonilla Monterde";
 				TargetAttributes = {
 					AED775EE18206C7E006CFBF1 = {
-						DevelopmentTeam = F3WW7CD638;
+						DevelopmentTeam = XAET4E576S;
 					};
 					AED7760F18206C7E006CFBF1 = {
 						TestTargetID = AED775EE18206C7E006CFBF1;
