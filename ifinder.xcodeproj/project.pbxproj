@@ -24,12 +24,6 @@
 		AED7761C18206C7E006CFBF1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AED7761A18206C7E006CFBF1 /* InfoPlist.strings */; };
 		AED7761E18206C7E006CFBF1 /* ifinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AED7761D18206C7E006CFBF1 /* ifinderTests.m */; };
 		AED7762918206CE4006CFBF1 /* principalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED7762818206CE4006CFBF1 /* principalViewController.m */; };
-		AED7762E18206D3B006CFBF1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AED7762C18206D3B006CFBF1 /* Default-568h@2x.png */; };
-		AED7762F18206D3B006CFBF1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AED7762D18206D3B006CFBF1 /* Default@2x.png */; };
-		AED7763418206E35006CFBF1 /* brujula.png in Resources */ = {isa = PBXBuildFile; fileRef = AED7763018206E35006CFBF1 /* brujula.png */; };
-		AED7763518206E35006CFBF1 /* coche.png in Resources */ = {isa = PBXBuildFile; fileRef = AED7763118206E35006CFBF1 /* coche.png */; };
-		AED7763618206E35006CFBF1 /* monigote.png in Resources */ = {isa = PBXBuildFile; fileRef = AED7763218206E35006CFBF1 /* monigote.png */; };
-		AED7763718206E35006CFBF1 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = AED7763318206E35006CFBF1 /* pin.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,12 +61,6 @@
 		AED7761D18206C7E006CFBF1 /* ifinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ifinderTests.m; sourceTree = "<group>"; };
 		AED7762718206CE4006CFBF1 /* principalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = principalViewController.h; sourceTree = "<group>"; };
 		AED7762818206CE4006CFBF1 /* principalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = principalViewController.m; sourceTree = "<group>"; };
-		AED7762C18206D3B006CFBF1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		AED7762D18206D3B006CFBF1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		AED7763018206E35006CFBF1 /* brujula.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brujula.png; sourceTree = "<group>"; };
-		AED7763118206E35006CFBF1 /* coche.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coche.png; sourceTree = "<group>"; };
-		AED7763218206E35006CFBF1 /* monigote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monigote.png; sourceTree = "<group>"; };
-		AED7763318206E35006CFBF1 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,12 +194,22 @@
 		AED7762B18206D22006CFBF1 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				AED7763018206E35006CFBF1 /* brujula.png */,
-				AED7763118206E35006CFBF1 /* coche.png */,
-				AED7763218206E35006CFBF1 /* monigote.png */,
-				AED7763318206E35006CFBF1 /* pin.png */,
-				AED7762C18206D3B006CFBF1 /* Default-568h@2x.png */,
-				AED7762D18206D3B006CFBF1 /* Default@2x.png */,
+				AECF598B18286F9E00D07F06 /* flecha-brujula.png */,
+				AECF598C18286F9E00D07F06 /* fondo-brujula.png */,
+				AECF598718286F0800D07F06 /* fondo-campo.jpg */,
+				AECF598818286F0800D07F06 /* fondo-ciudad.jpg */,
+				AE45E3A4182471310004CA2F /* icon.png */,
+				AE45E3A5182471310004CA2F /* icon@2x.png */,
+				AE45E3A6182471310004CA2F /* iconos60.png */,
+				AE45E38E18246F800004CA2F /* brujula.png */,
+				AE45E38F18246F800004CA2F /* campo.jpg */,
+				AE45E39018246F800004CA2F /* ciudad.jpg */,
+				AE45E39118246F800004CA2F /* coche.png */,
+				AE45E39218246F800004CA2F /* Default-568h@2x.png */,
+				AE45E39318246F800004CA2F /* Default@2x.png */,
+				AE45E39618246F800004CA2F /* logo.png */,
+				AE45E39718246F800004CA2F /* monigote.png */,
+				AE45E39818246F800004CA2F /* pin.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -296,14 +294,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				AED7760B18206C7E006CFBF1 /* Images.xcassets in Resources */,
-				AED7763618206E35006CFBF1 /* monigote.png in Resources */,
-				AED7763518206E35006CFBF1 /* coche.png in Resources */,
-				AED7763418206E35006CFBF1 /* brujula.png in Resources */,
-				AED7762E18206D3B006CFBF1 /* Default-568h@2x.png in Resources */,
-				AED7762F18206D3B006CFBF1 /* Default@2x.png in Resources */,
-				AED7763718206E35006CFBF1 /* pin.png in Resources */,
+				AECF598918286F0800D07F06 /* fondo-campo.jpg in Resources */,
+				AE45E3A9182471310004CA2F /* iconos60.png in Resources */,
+				AE45E39C18246F800004CA2F /* coche.png in Resources */,
+				AE45E39B18246F800004CA2F /* ciudad.jpg in Resources */,
+				AE45E3A318246F800004CA2F /* pin.png in Resources */,
+				AECF598E18286F9E00D07F06 /* fondo-brujula.png in Resources */,
+				AE45E39E18246F800004CA2F /* Default@2x.png in Resources */,
 				AED775FD18206C7E006CFBF1 /* InfoPlist.strings in Resources */,
 				AED7760618206C7E006CFBF1 /* Main.storyboard in Resources */,
+				AE45E39D18246F800004CA2F /* Default-568h@2x.png in Resources */,
+				AE45E39918246F800004CA2F /* brujula.png in Resources */,
+				AE45E3A118246F800004CA2F /* logo.png in Resources */,
+				AECF598A18286F0800D07F06 /* fondo-ciudad.jpg in Resources */,
+				AE45E3A8182471310004CA2F /* icon@2x.png in Resources */,
+				AE45E39A18246F800004CA2F /* campo.jpg in Resources */,
+				AE45E3A218246F800004CA2F /* monigote.png in Resources */,
+				AECF598D18286F9E00D07F06 /* flecha-brujula.png in Resources */,
+				AE45E3A7182471310004CA2F /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,8 +459,8 @@
 		AED7762218206C7E006CFBF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ifinder/ifinder-Prefix.pch";
@@ -466,8 +474,8 @@
 		AED7762318206C7E006CFBF1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ifinder/ifinder-Prefix.pch";

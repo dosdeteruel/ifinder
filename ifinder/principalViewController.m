@@ -12,7 +12,14 @@
 {}
 @end
 
+UIView *brujula;
+
+CGRect screen;
+
+
 @implementation principalViewController
+@synthesize compassImage;
+
 
 @synthesize latitudLabel;
 @synthesize longitudLabel;
