@@ -7,9 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D967D66182940C60099D435 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D967D65182940C60099D435 /* CoreLocation.framework */; };
-		2D967D691829417B0099D435 /* punto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D967D681829417B0099D435 /* punto.m */; };
-		2D967D6D1829423A0099D435 /* puntosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D967D6C1829423A0099D435 /* puntosTableViewController.m */; };
+		AE45E39918246F800004CA2F /* brujula.png in Resources */ = {isa = PBXBuildFile; fileRef = AE45E38E18246F800004CA2F /* brujula.png */; };
+		AE45E39A18246F800004CA2F /* campo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE45E38F18246F800004CA2F /* campo.jpg */; };
+		AE45E39B18246F800004CA2F /* ciudad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE45E39018246F800004CA2F /* ciudad.jpg */; };
+		AE45E39C18246F800004CA2F /* coche.png in Resources */ = {isa = PBXBuildFile; fileRef = AE45E39118246F800004CA2F /* coche.png */; };
+		AE45E39D18246F800004CA2F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE45E39218246F800004CA2F /* Default-568h@2x.png */; };
+		AE45E39E18246F800004CA2F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE45E39318246F800004CA2F /* Default@2x.png */; };
+		AE45E3A118246F800004CA2F /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = AE45E39618246F800004CA2F /* logo.png */; };
+		AE45E3A218246F800004CA2F /* monigote.png in Resources */ = {isa = PBXBuildFile; fileRef = AE45E39718246F800004CA2F /* monigote.png */; };
+		AE45E3A318246F800004CA2F /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = AE45E39818246F800004CA2F /* pin.png */; };
+		AE45E3A7182471310004CA2F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AE45E3A4182471310004CA2F /* icon.png */; };
+		AE45E3A8182471310004CA2F /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE45E3A5182471310004CA2F /* icon@2x.png */; };
+		AE45E3A9182471310004CA2F /* iconos60.png in Resources */ = {isa = PBXBuildFile; fileRef = AE45E3A6182471310004CA2F /* iconos60.png */; };
+		AECF598918286F0800D07F06 /* fondo-campo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AECF598718286F0800D07F06 /* fondo-campo.jpg */; };
+		AECF598A18286F0800D07F06 /* fondo-ciudad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AECF598818286F0800D07F06 /* fondo-ciudad.jpg */; };
+		AECF598D18286F9E00D07F06 /* flecha-brujula.png in Resources */ = {isa = PBXBuildFile; fileRef = AECF598B18286F9E00D07F06 /* flecha-brujula.png */; };
+		AECF598E18286F9E00D07F06 /* fondo-brujula.png in Resources */ = {isa = PBXBuildFile; fileRef = AECF598C18286F9E00D07F06 /* fondo-brujula.png */; };
 		AED775F318206C7E006CFBF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED775F218206C7E006CFBF1 /* Foundation.framework */; };
 		AED775F518206C7E006CFBF1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED775F418206C7E006CFBF1 /* CoreGraphics.framework */; };
 		AED775F718206C7E006CFBF1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED775F618206C7E006CFBF1 /* UIKit.framework */; };
@@ -37,11 +50,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2D967D65182940C60099D435 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		2D967D671829417B0099D435 /* punto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = punto.h; sourceTree = "<group>"; };
-		2D967D681829417B0099D435 /* punto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = punto.m; sourceTree = "<group>"; };
-		2D967D6B1829423A0099D435 /* puntosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = puntosTableViewController.h; sourceTree = "<group>"; };
-		2D967D6C1829423A0099D435 /* puntosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = puntosTableViewController.m; sourceTree = "<group>"; };
+		AE45E38E18246F800004CA2F /* brujula.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brujula.png; sourceTree = "<group>"; };
+		AE45E38F18246F800004CA2F /* campo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = campo.jpg; sourceTree = "<group>"; };
+		AE45E39018246F800004CA2F /* ciudad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ciudad.jpg; sourceTree = "<group>"; };
+		AE45E39118246F800004CA2F /* coche.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coche.png; sourceTree = "<group>"; };
+		AE45E39218246F800004CA2F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		AE45E39318246F800004CA2F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		AE45E39618246F800004CA2F /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		AE45E39718246F800004CA2F /* monigote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monigote.png; sourceTree = "<group>"; };
+		AE45E39818246F800004CA2F /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
+		AE45E3A4182471310004CA2F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		AE45E3A5182471310004CA2F /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		AE45E3A6182471310004CA2F /* iconos60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconos60.png; sourceTree = "<group>"; };
+		AECF598718286F0800D07F06 /* fondo-campo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fondo-campo.jpg"; sourceTree = "<group>"; };
+		AECF598818286F0800D07F06 /* fondo-ciudad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fondo-ciudad.jpg"; sourceTree = "<group>"; };
+		AECF598B18286F9E00D07F06 /* flecha-brujula.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flecha-brujula.png"; sourceTree = "<group>"; };
+		AECF598C18286F9E00D07F06 /* fondo-brujula.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fondo-brujula.png"; sourceTree = "<group>"; };
 		AED775EF18206C7E006CFBF1 /* ifinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ifinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED775F218206C7E006CFBF1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AED775F418206C7E006CFBF1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -68,7 +92,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D967D66182940C60099D435 /* CoreLocation.framework in Frameworks */,
 				AED775F518206C7E006CFBF1 /* CoreGraphics.framework in Frameworks */,
 				AED775F718206C7E006CFBF1 /* UIKit.framework in Frameworks */,
 				AED775F318206C7E006CFBF1 /* Foundation.framework in Frameworks */,
@@ -91,8 +114,6 @@
 		2D967D6A182941810099D435 /* clasepunto */ = {
 			isa = PBXGroup;
 			children = (
-				2D967D671829417B0099D435 /* punto.h */,
-				2D967D681829417B0099D435 /* punto.m */,
 			);
 			name = clasepunto;
 			sourceTree = "<group>";
@@ -100,8 +121,6 @@
 		2D967D6E182942400099D435 /* puntosTableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2D967D6B1829423A0099D435 /* puntosTableViewController.h */,
-				2D967D6C1829423A0099D435 /* puntosTableViewController.m */,
 			);
 			name = puntosTableViewController;
 			sourceTree = "<group>";
@@ -128,7 +147,6 @@
 		AED775F118206C7E006CFBF1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2D967D65182940C60099D435 /* CoreLocation.framework */,
 				AED775F218206C7E006CFBF1 /* Foundation.framework */,
 				AED775F418206C7E006CFBF1 /* CoreGraphics.framework */,
 				AED775F618206C7E006CFBF1 /* UIKit.framework */,
@@ -262,7 +280,7 @@
 				ORGANIZATIONNAME = "German Bonilla Monterde";
 				TargetAttributes = {
 					AED775EE18206C7E006CFBF1 = {
-						DevelopmentTeam = F3WW7CD638;
+						DevelopmentTeam = XAET4E576S;
 					};
 					AED7760F18206C7E006CFBF1 = {
 						TestTargetID = AED775EE18206C7E006CFBF1;
@@ -330,8 +348,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D967D691829417B0099D435 /* punto.m in Sources */,
-				2D967D6D1829423A0099D435 /* puntosTableViewController.m in Sources */,
 				AED7762918206CE4006CFBF1 /* principalViewController.m in Sources */,
 				AED7760318206C7E006CFBF1 /* AppDelegate.m in Sources */,
 				AED775FF18206C7E006CFBF1 /* main.m in Sources */,

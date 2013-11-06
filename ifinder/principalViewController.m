@@ -18,7 +18,7 @@ CGRect screen;
 
 
 @implementation principalViewController
-@synthesize compassImage;
+
 
 
 @synthesize latitudLabel;
