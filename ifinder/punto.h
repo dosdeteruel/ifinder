@@ -17,4 +17,5 @@
 @property (nonatomic,retain) NSString *zona;
 @property (nonatomic,retain) NSString *imagen;
 
+
 @end
