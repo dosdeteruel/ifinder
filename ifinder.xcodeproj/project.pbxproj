@@ -140,13 +140,13 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		AE5266EE182AFD1300402D46 /* punto */ = {
+		76E68F2D182C102700FF604C /* TableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				AE5266E9182AFD0900402D46 /* punto.h */,
-				AE5266EA182AFD0900402D46 /* punto.m */,
+				76E68F2A182C101F00FF604C /* TableViewController.h */,
+				76E68F2B182C101F00FF604C /* TableViewController.m */,
 			);
-			name = punto;
+			name = TableViewController;
 			sourceTree = "<group>";
 		};
 		AED775E618206C7E006CFBF1 = {

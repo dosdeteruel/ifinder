@@ -90,8 +90,8 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="icono40.png" id="vT6-Js-qmX">
-                                            <rect key="frame" x="15" y="7" width="40" height="40"/>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="flecha-brujula.png" id="vT6-Js-qmX">
+                                            <rect key="frame" x="15" y="0.0" width="55" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
