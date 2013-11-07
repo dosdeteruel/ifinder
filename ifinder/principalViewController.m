@@ -16,11 +16,7 @@ UIView *brujula;
 
 CGRect screen;
 
-
 @implementation principalViewController
-
-
-
 @synthesize latitudLabel;
 @synthesize longitudLabel;
 @synthesize locationManager;
@@ -33,8 +29,6 @@ typedef NS_ENUM(NSInteger, TipoPuntoDef){
     irCoche = 2,
     guardaPunto=3,
     guardaCoche=4
-    
-    
 };
 
 NSMutableArray *arrayPuntos;
@@ -53,14 +47,8 @@ NSString *nombrezona;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    
-    
-    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
-    nombrezona= [defaults stringForKey:@"zona"];
-    
-    
-    
+    //NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    //nombrezona= [defaults stringForKey:@"zona"];
 	// Do any additional setup after loading the view, typically from a nib.
     
     locationManager=[[CLLocationManager alloc] init];
@@ -71,10 +59,8 @@ NSString *nombrezona;
     // El ángulo mínimo que debe cambiar para que se actualize el valor y así iOS informe al sistema del cambio.
     locationManager.headingFilter = 1;
     
-    
     // Establecemos al propio controlador como el delegado de localización.
     locationManager.delegate=self;
-    
     
     // Al igual que con los ángulos, con la posición ponemos que se avise de cambios en cuanto haya uno mínimo.
     locationManager.distanceFilter = 1;
@@ -88,7 +74,6 @@ NSString *nombrezona;
     // Dispose of any resources that can be recreated.
 }
 
-
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading{
     
     // Convertimos a Radianes el angulo anterior y el nuevo.
@@ -96,7 +81,6 @@ NSString *nombrezona;
     float oldRad =  -manager.heading.trueHeading * M_PI / 180.0f;
     
     float newRad =  -newHeading.trueHeading * M_PI / 180.0f;
-    
     
     // Creamos una animación.
     CABasicAnimation *theAnimation;
@@ -178,22 +162,16 @@ NSString *nombrezona;
             [locationManager stopUpdatingLocation];
             
             //guardar en plist
-            
-            
-            
             miPunto.x = [NSNumber numberWithDouble:location.coordinate.longitude];
             miPunto.y = [NSNumber numberWithDouble:location.coordinate.latitude];
-            miPunto.zona = nombrezona;
+            //miPunto.imagen =@"flecha-brujula.png";
             
             //   miPunto.fecha = [NSNumber numberWithInteger:NSDate date];
             //   miPunto.dato ="";
             [arrayPuntos addObject:miPunto];
             
-            
             //guardo?? creo que si
-            
             [self guardarAPlist: miPunto];
-            
             
         case guardaCoche:
             [userDefaults setFloat:location.coordinate.latitude forKey:@"cochelatitud"];
@@ -202,8 +180,14 @@ NSString *nombrezona;
             [userDefaults synchronize];
             tipoAccion=hacerNada;
             [locationManager stopUpdatingLocation];
+            //añado el punto del coche al array
+            miPunto.x = [NSNumber numberWithDouble:location.coordinate.longitude];
+            miPunto.y = [NSNumber numberWithDouble:location.coordinate.latitude];
+           // miPunto.imagen =@"coche.png";
             
+           //[arrayPuntos addObject:miPunto];
             
+           // [self guardarAPlist: miPunto];
     }
     
     
@@ -228,8 +212,6 @@ NSString *nombrezona;
     {
         puntoFin.latitude = [userDefaults doubleForKey:@"cochelatitude"];
         puntoFin.longitude= [userDefaults doubleForKey:@"cochelongitude"];
-        
-        
     }
     
     float fLat = puntoInicio.latitude;
@@ -238,10 +220,6 @@ NSString *nombrezona;
     float tLng = puntoFin.longitude;
     
     return atan2(sin(fLng-tLng)*cos(tLat), cos(fLat)*sin(tLat)-sin(fLat)*cos(tLat)*cos(fLng-tLng));
-    
-    
-    
-    
 }
 - (IBAction)iraCoche
 {
@@ -249,9 +227,6 @@ NSString *nombrezona;
     [locationManager startUpdatingLocation];
     
 }
-
-
-
 - (IBAction)marcaCoche
 {
     
@@ -261,12 +236,9 @@ NSString *nombrezona;
 
 - (IBAction)marcaPunto
 {
-    
     tipoAccion=guardaPunto;  //punto marcar coche
     [locationManager startUpdatingLocation];
 }
-
-
 
 - (double) calculaRumbo:(double) lat longitud:(double ) lon
 {
@@ -289,16 +261,12 @@ NSString *nombrezona;
     float tLng = puntoFin.longitude;
     
     //   NSLog(@"Bearing: %f", x); // bearing is 180
-    
     return atan2(sin(fLng-tLng)*cos(tLat), cos(fLat)*sin(tLat)-sin(fLat)*cos(tLat)*cos(fLng-tLng));
-    
-    
+
 }
 
 - (void) Calculadistancia
 {
-    
-    
     //   CLLocationCoordinate2D annocoord = annotation.coordinate;
     //   CLLocationCoordinate2D usercoord = self.mapView.userLocation.coordinate;
     
@@ -326,34 +294,25 @@ NSString *nombrezona;
     NSString *ruta;
     NSString *pathArray =    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
-    ruta= [pathArray stringByAppendingPathComponent:@"zonas.plist"];
+    ruta= [pathArray stringByAppendingPathComponent:@"PuntosList.plist"];
     
     NSArray *auxPunto=[[NSArray alloc] initWithObjects:miPunto.x, miPunto.y, miPunto.zona, nil ];
     
     
     //tengo el punto a guardar y la zona
     //si grabo solo un punto....
-    
-    
-    
-    
-    
     NSError *error = [[NSError alloc]init];
     
     
     plistData = [NSPropertyListSerialization dataWithPropertyList:auxPunto format:NSPropertyListXMLFormat_v1_0 options:0 error:&error];
     
-    
     if (plistData)
     {
         [plistData writeToFile:ruta atomically:YES];
     }
-    
-    
-    
 }
 
-
+/*
 - (NSMutableArray *) leerDePlist
 {
     //puedo sacar solo las zonas
@@ -361,7 +320,7 @@ NSString *nombrezona;
     int i;
     i=0;
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"zonas" ofType:@"plist"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"PuntosList" ofType:@"plist"];
     NSMutableArray *arrayzonas =[[NSMutableArray alloc] init];
     NSMutableArray *arraynombrezonas =[[NSMutableArray alloc] init];
     
@@ -376,20 +335,12 @@ NSString *nombrezona;
         [arrayzonas addObject: [arrayConDatos objectAtIndex:i]];
         //  NSLog(@"elemento - %d en myArray: %@", i, element);
         [arraynombrezonas addObject:[arrayzonas objectAtIndex:2]];
-        
     }
-    
-    
     return arraynombrezonas;
-    
 }
-
-
 
 - (NSMutableArray *) leerDePlistunaZona: (NSString *) nombrezona
 {
-    
-    
     int i;
     i=0;
     
@@ -413,19 +364,9 @@ NSString *nombrezona;
         {
             [arraypuntoszonas addObject: [arrayzonas objectAtIndex:i]];
         }
-        
-        
-        
     }
-    
-    
     return arraypuntoszonas;
-    
-    
-    
-    
-    
 }
 
-
+*/
 @end

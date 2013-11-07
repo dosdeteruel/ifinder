@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fJC-XS-1Tj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fJC-XS-1Tj">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
         <!--Principal View Controller-->
@@ -90,7 +90,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="brujula.png" id="vT6-Js-qmX">
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="flecha-brujula.png" id="vT6-Js-qmX">
                                             <rect key="frame" x="15" y="0.0" width="55" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
@@ -129,7 +129,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="brujula.png" width="700" height="700"/>
         <image name="campo.jpg" width="640" height="1136"/>
         <image name="coche.png" width="154" height="93"/>
         <image name="flecha-brujula.png" width="252" height="250"/>

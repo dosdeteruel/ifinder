@@ -2,14 +2,14 @@
 //  TableViewController.m
 //  ifinder
 //
-//  Created by pablete on 06/11/13.
+//  Created by pablete on 07/11/13.
 //  Copyright (c) 2013 German Bonilla Monterde. All rights reserved.
 //
 
 #import "TableViewController.h"
 
 @interface TableViewController ()
-//
+
 @end
 
 @implementation TableViewController
@@ -44,16 +44,16 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+//#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+//#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
