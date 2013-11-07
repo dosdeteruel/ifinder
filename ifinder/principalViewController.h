@@ -15,15 +15,10 @@
 
 @interface principalViewController : UIViewController <CLLocationManagerDelegate>
 {
-    
-    
-    
 }
 
 @property (retain,nonatomic) IBOutlet UILabel *latitudLabel;
 @property (retain,nonatomic) IBOutlet UILabel *longitudLabel;
-
-
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, retain) IBOutlet UIImageView *compassImage;
 

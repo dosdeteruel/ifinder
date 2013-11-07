@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "punto.h"
+#import "principalViewController.h"
 
 @interface tableViewController : UIViewController
 
