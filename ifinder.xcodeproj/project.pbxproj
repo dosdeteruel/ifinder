@@ -27,8 +27,6 @@
 		AE5266E3182AF47800402D46 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = AE5266D2182AF47800402D46 /* logo.png */; };
 		AE5266E4182AF47800402D46 /* monigote.png in Resources */ = {isa = PBXBuildFile; fileRef = AE5266D3182AF47800402D46 /* monigote.png */; };
 		AE5266E5182AF47800402D46 /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = AE5266D4182AF47800402D46 /* pin.png */; };
-		AE5266E8182AFCDC00402D46 /* tableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5266E7182AFCDC00402D46 /* tableViewController.m */; };
-		AE5266EC182AFD0900402D46 /* punto.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5266EA182AFD0900402D46 /* punto.m */; };
 		AE5266ED182AFD0900402D46 /* PuntoList.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE5266EB182AFD0900402D46 /* PuntoList.plist */; };
 		AED775F318206C7E006CFBF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED775F218206C7E006CFBF1 /* Foundation.framework */; };
 		AED775F518206C7E006CFBF1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AED775F418206C7E006CFBF1 /* CoreGraphics.framework */; };
@@ -78,8 +76,6 @@
 		AE5266D2182AF47800402D46 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		AE5266D3182AF47800402D46 /* monigote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = monigote.png; sourceTree = "<group>"; };
 		AE5266D4182AF47800402D46 /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
-		AE5266E6182AFCDC00402D46 /* tableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tableViewController.h; sourceTree = "<group>"; };
-		AE5266E7182AFCDC00402D46 /* tableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tableViewController.m; sourceTree = "<group>"; };
 		AE5266E9182AFD0900402D46 /* punto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = punto.h; sourceTree = "<group>"; };
 		AE5266EA182AFD0900402D46 /* punto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = punto.m; sourceTree = "<group>"; };
 		AE5266EB182AFD0900402D46 /* PuntoList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PuntoList.plist; sourceTree = "<group>"; };
@@ -132,10 +128,11 @@
 		2DA08804182AFD0F008FB414 /* punto */ = {
 			isa = PBXGroup;
 			children = (
-				AE5266E6182AFCDC00402D46 /* tableViewController.h */,
-				AE5266E7182AFCDC00402D46 /* tableViewController.m */,
+				2DA08801182AFD02008FB414 /* punto.h */,
+				2DA08802182AFD02008FB414 /* punto.m */,
 			);
-			name = TableViewController;
+			name = punto;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		AE5266EE182AFD1300402D46 /* punto */ = {
@@ -181,6 +178,7 @@
 		AED775F818206C7E006CFBF1 /* ifinder */ = {
 			isa = PBXGroup;
 			children = (
+				2DA08804182AFD0F008FB414 /* punto */,
 				AED7762B18206D22006CFBF1 /* images */,
 				AED7760118206C7E006CFBF1 /* AppDelegate.h */,
 				AED7760218206C7E006CFBF1 /* AppDelegate.m */,
@@ -188,7 +186,6 @@
 				AED7760A18206C7E006CFBF1 /* Images.xcassets */,
 				AED775F918206C7E006CFBF1 /* Supporting Files */,
 				AED7762A18206CFA006CFBF1 /* principalViewController */,
-				764F4B70182AD3750066EB43 /* TableViewController */,
 			);
 			path = ifinder;
 			sourceTree = "<group>";
@@ -305,7 +302,7 @@
 				ORGANIZATIONNAME = "German Bonilla Monterde";
 				TargetAttributes = {
 					AED775EE18206C7E006CFBF1 = {
-						DevelopmentTeam = XAET4E576S;
+						DevelopmentTeam = F3WW7CD638;
 					};
 					AED7760F18206C7E006CFBF1 = {
 						TestTargetID = AED775EE18206C7E006CFBF1;
@@ -375,8 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE5266EC182AFD0900402D46 /* punto.m in Sources */,
-				AE5266E8182AFCDC00402D46 /* tableViewController.m in Sources */,
+				2DA08803182AFD02008FB414 /* punto.m in Sources */,
 				2D967D691829417B0099D435 /* punto.m in Sources */,
 				AED7762918206CE4006CFBF1 /* principalViewController.m in Sources */,
 				AED7760318206C7E006CFBF1 /* AppDelegate.m in Sources */,
@@ -508,11 +504,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ifinder/ifinder-Prefix.pch";
 				INFOPLIST_FILE = "ifinder/ifinder-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -523,11 +521,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ifinder/ifinder-Prefix.pch";
 				INFOPLIST_FILE = "ifinder/ifinder-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
