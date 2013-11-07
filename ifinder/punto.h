@@ -9,6 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface punto : NSObject
+{
+    NSNumber *x;
+    NSNumber *y;
+    NSNumber *fecha;
+    NSString *dato;
+    NSString *zona;
+    NSString *imagen;
+}
 
 @property (nonatomic,retain) NSNumber *x;
 @property (nonatomic,retain) NSNumber *y;
