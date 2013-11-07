@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		2D967D66182940C60099D435 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D967D65182940C60099D435 /* CoreLocation.framework */; };
 		2D967D691829417B0099D435 /* punto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D967D681829417B0099D435 /* punto.m */; };
-		2DA08803182AFD02008FB414 /* punto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA08802182AFD02008FB414 /* punto.m */; };
 		76E68F2C182C101F00FF604C /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E68F2B182C101F00FF604C /* TableViewController.m */; };
 		76E68F2F182C10B200FF604C /* PuntosList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 76E68F2E182C10B200FF604C /* PuntosList.plist */; };
+		76E68F32182C1BBF00FF604C /* punto.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E68F31182C1BBF00FF604C /* punto.m */; };
 		AE5266D5182AF47800402D46 /* campo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE5266C4182AF47800402D46 /* campo.jpg */; };
 		AE5266D6182AF47800402D46 /* ciudad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE5266C5182AF47800402D46 /* ciudad.jpg */; };
 		AE5266D7182AF47800402D46 /* coche.png in Resources */ = {isa = PBXBuildFile; fileRef = AE5266C6182AF47800402D46 /* coche.png */; };
@@ -58,11 +58,11 @@
 /* Begin PBXFileReference section */
 		2D967D65182940C60099D435 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2D967D681829417B0099D435 /* punto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = punto.m; sourceTree = "<group>"; };
-		2DA08801182AFD02008FB414 /* punto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = punto.h; path = ifinder/punto.h; sourceTree = "<group>"; };
-		2DA08802182AFD02008FB414 /* punto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = punto.m; path = ifinder/punto.m; sourceTree = "<group>"; };
 		76E68F2A182C101F00FF604C /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		76E68F2B182C101F00FF604C /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		76E68F2E182C10B200FF604C /* PuntosList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PuntosList.plist; sourceTree = "<group>"; };
+		76E68F30182C1BBF00FF604C /* punto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = punto.h; path = ifinder/punto.h; sourceTree = "<group>"; };
+		76E68F31182C1BBF00FF604C /* punto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = punto.m; path = ifinder/punto.m; sourceTree = "<group>"; };
 		AE5266C4182AF47800402D46 /* campo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = campo.jpg; sourceTree = "<group>"; };
 		AE5266C5182AF47800402D46 /* ciudad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ciudad.jpg; sourceTree = "<group>"; };
 		AE5266C6182AF47800402D46 /* coche.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coche.png; sourceTree = "<group>"; };
@@ -129,8 +129,8 @@
 		2DA08804182AFD0F008FB414 /* punto */ = {
 			isa = PBXGroup;
 			children = (
-				2DA08801182AFD02008FB414 /* punto.h */,
-				2DA08802182AFD02008FB414 /* punto.m */,
+				76E68F30182C1BBF00FF604C /* punto.h */,
+				76E68F31182C1BBF00FF604C /* punto.m */,
 			);
 			name = punto;
 			path = ..;
@@ -373,7 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DA08803182AFD02008FB414 /* punto.m in Sources */,
+				76E68F32182C1BBF00FF604C /* punto.m in Sources */,
 				76E68F2C182C101F00FF604C /* TableViewController.m in Sources */,
 				2D967D691829417B0099D435 /* punto.m in Sources */,
 				AED7762918206CE4006CFBF1 /* principalViewController.m in Sources */,
@@ -509,7 +509,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ifinder/ifinder-Prefix.pch";
 				INFOPLIST_FILE = "ifinder/ifinder-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -524,7 +524,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ifinder/ifinder-Prefix.pch";
 				INFOPLIST_FILE = "ifinder/ifinder-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
