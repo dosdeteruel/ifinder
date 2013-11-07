@@ -13,6 +13,6 @@
 @synthesize  y;
 @synthesize  fecha;
 @synthesize dato;
-@synthesize zona;
+@synthesize imagen;
 
 @end
