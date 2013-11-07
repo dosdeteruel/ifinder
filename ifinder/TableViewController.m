@@ -1,12 +1,12 @@
 //
-//  TableViewController.m
+//  tableViewController.m
 //  ifinder
 //
 //  Created by pablete on 07/11/13.
 //  Copyright (c) 2013 German Bonilla Monterde. All rights reserved.
 //
 
-#import "TableViewController.h"
+#import "tableViewController.h"
 
 @interface TableViewController ()
 
@@ -14,9 +14,9 @@
 
 @implementation TableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -26,12 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning

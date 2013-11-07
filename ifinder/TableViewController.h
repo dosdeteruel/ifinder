@@ -1,5 +1,5 @@
 //
-//  TableViewController.h
+//  tableViewController.h
 //  ifinder
 //
 //  Created by pablete on 07/11/13.
