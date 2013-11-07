@@ -14,5 +14,6 @@
 @synthesize fecha;
 @synthesize dato;
 @synthesize imagen;
+@synthesize zona;
 
 @end

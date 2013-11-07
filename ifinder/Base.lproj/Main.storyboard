@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fJC-XS-1Tj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fJC-XS-1Tj">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
@@ -18,20 +18,26 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oHc-Vo-X3N">
-                                <rect key="frame" x="40" y="494" width="82" height="63"/>
+                                <rect key="frame" x="15" y="121" width="82" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Coche" image="coche.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="marcaCoche" destination="fJC-XS-1Tj" eventType="touchUpInside" id="dji-kI-LLg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AxP-QD-uCd">
-                                <rect key="frame" x="159" y="494" width="43" height="63"/>
+                                <rect key="frame" x="139" y="73" width="43" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="monigote" image="monigote.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="iraCoche" destination="fJC-XS-1Tj" eventType="touchUpInside" id="VsM-IK-5jW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="T8i-I6-FfB">
                                 <rect key="frame" x="228" y="494" width="64" height="63"/>
@@ -131,6 +137,7 @@
     <resources>
         <image name="campo.jpg" width="640" height="1136"/>
         <image name="coche.png" width="154" height="93"/>
+        <image name="flecha-brujula.png" width="252" height="250"/>
         <image name="flecha-brujula.png" width="252" height="250"/>
         <image name="fondo-brujula.png" width="250" height="250"/>
         <image name="monigote.png" width="135" height="250"/>
