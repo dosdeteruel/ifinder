@@ -9,5 +9,10 @@
 #import "punto.h"
 
 @implementation punto
+@synthesize x;
+@synthesize y;
+@synthesize fecha;
+@synthesize dato;
+@synthesize imagen;
 
 @end
