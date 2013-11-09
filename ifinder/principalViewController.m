@@ -74,36 +74,37 @@ NSString *nombrezona;
     // Dispose of any resources that can be recreated.
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading{
+//- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading{
     
     // Convertimos a Radianes el angulo anterior y el nuevo.
     
-    float oldRad =  -manager.heading.trueHeading * M_PI / 180.0f;
+  //  float oldRad =  -manager.heading.trueHeading * M_PI / 180.0f;
     
-    float newRad =  -newHeading.trueHeading * M_PI / 180.0f;
+ //   float newRad =  -newHeading.trueHeading * M_PI / 180.0f;
     
     // Creamos una animación.
-    CABasicAnimation *theAnimation;
+ //   CABasicAnimation *theAnimation;
     
     // Será de tipo rotación
-    theAnimation=[CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+  //  theAnimation=[CABasicAnimation animationWithKeyPath:@"transform.rotation"];
     
     // Establecemos los valores del giro.
-    theAnimation.fromValue = [NSNumber numberWithFloat:oldRad];
+  //  theAnimation.fromValue = [NSNumber numberWithFloat:oldRad];
     
-    theAnimation.toValue=[NSNumber numberWithFloat:newRad];
+  //  theAnimation.toValue=[NSNumber numberWithFloat:newRad];
     
     // Podemos poner una duración, pero puede resultar retrasado si ponemos tiempo.
-    theAnimation.duration = 0.0;
+  //  theAnimation.duration = 0.0;
     
-    
+  //  self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
+  //  self.compassImage.transform = CGAffineTransformMakeRotation (newRad);
     // Le aplicamos la animación a la imagen de la brújula.
  //   [compassImage.layer addAnimation:theAnimation forKey:@"animateMyRotation"];
     
  //   compassImage.transform = CGAffineTransformMakeRotation(newRad);
     
     
-}
+//}
 
 
 - (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
@@ -130,27 +131,31 @@ NSString *nombrezona;
         
         
     }
+    rumbo = [self calculaelRumbo:location];
+    
     NSLog(@"entrando");
     
     switch (tipoAccion) {
             
             
         case hacerNada:
+            break;
             
         case irPunto:
             //ahora comprobar si hay que coger
-            rumbo = [self calculaelRumbo:location];
+            //rumbo = [self calculaelRumbo:location];
             
             NSLog(@"rumbo: %f",rumbo);
+            break;
             
         case irCoche:
             //ahora comprobar si hay que coger
-            rumbo = [self calculaelRumbo:location];
+            //rumbo = [self calculaelRumbo:location];
+            NSLog(@"rumbo: %f",rumbo);
             float angulo =  rumbo * M_PI / 180.0f;
-            
-            //NSLog(@"rumbo: %f",rumbo);
             self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
             self.compassImage.transform = CGAffineTransformMakeRotation (angulo);
+            break;
             
         case guardaPunto:
             [userDefaults setFloat:location.coordinate.latitude forKey:@"puntolatitud"];
@@ -172,6 +177,7 @@ NSString *nombrezona;
             
             //guardo?? creo que si
             [self guardarAPlist: miPunto];
+            break;
             
         case guardaCoche:
             [userDefaults setFloat:location.coordinate.latitude forKey:@"cochelatitud"];
@@ -188,6 +194,8 @@ NSString *nombrezona;
            //[arrayPuntos addObject:miPunto];
             
            // [self guardarAPlist: miPunto];
+            break;
+            
     }
     
     
