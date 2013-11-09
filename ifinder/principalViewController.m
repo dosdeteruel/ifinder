@@ -75,7 +75,7 @@ NSString *nombrezona;
     // Dispose of any resources that can be recreated.
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading{
+//- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading{
     
     // Convertimos a Radianes el angulo anterior y el nuevo.
     
@@ -98,13 +98,15 @@ NSString *nombrezona;
 //    theAnimation.duration = 0.0;
     
     
+  //  self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
+  //  self.compassImage.transform = CGAffineTransformMakeRotation (newRad);
     // Le aplicamos la animación a la imagen de la brújula.
  //   [compassImage.layer addAnimation:theAnimation forKey:@"animateMyRotation"];
     
  //   compassImage.transform = CGAffineTransformMakeRotation(newRad);
     
     
-}
+//}
 
 
 - (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
@@ -147,7 +149,7 @@ NSString *nombrezona;
             
         case irPunto:
             //ahora comprobar si hay que coger
-            rumbo = [self calculaelRumbo:location];
+            //rumbo = [self calculaelRumbo:location];
             
             NSLog(@"rumbo: %f",rumbo);
             rumboLabel.text = [NSString stringWithFormat:@"%f",rumbo];
@@ -155,7 +157,8 @@ NSString *nombrezona;
             break;
         case irCoche:
             //ahora comprobar si hay que coger
-            rumbo = [self calculaelRumbo:location];
+            //rumbo = [self calculaelRumbo:location];
+            NSLog(@"rumbo: %f",rumbo);
             float angulo =  rumbo * M_PI / 180.0f;
             
             NSLog(@"rumbo: %f",rumbo);
