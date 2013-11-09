@@ -22,6 +22,8 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, retain) IBOutlet UIImageView *compassImage;
 
+@property (nonatomic, retain) IBOutlet UILabel *rumboLabel;
+
 - (double) calculaRumbo:(double) lat longitud:(double) lon;
 - (double) calculaelRumbo:(CLLocation *)posicion;
 - (IBAction)iraCoche;

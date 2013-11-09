@@ -19,6 +19,7 @@ CGRect screen;
 @implementation principalViewController
 @synthesize latitudLabel;
 @synthesize longitudLabel;
+@synthesize rumboLabel;
 @synthesize locationManager;
 NSUserDefaults *userDefaults;
 int tipoAccion;
@@ -78,23 +79,23 @@ NSString *nombrezona;
     
     // Convertimos a Radianes el angulo anterior y el nuevo.
     
-    float oldRad =  -manager.heading.trueHeading * M_PI / 180.0f;
+//    float oldRad =  -manager.heading.trueHeading * M_PI / 180.0f;
     
-    float newRad =  -newHeading.trueHeading * M_PI / 180.0f;
+ //   float newRad =  -newHeading.trueHeading * M_PI / 180.0f;
     
     // Creamos una animación.
-    CABasicAnimation *theAnimation;
+//    CABasicAnimation *theAnimation;
     
     // Será de tipo rotación
-    theAnimation=[CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+//    theAnimation=[CABasicAnimation animationWithKeyPath:@"transform.rotation"];
     
     // Establecemos los valores del giro.
-    theAnimation.fromValue = [NSNumber numberWithFloat:oldRad];
+//    theAnimation.fromValue = [NSNumber numberWithFloat:oldRad];
     
-    theAnimation.toValue=[NSNumber numberWithFloat:newRad];
+//    theAnimation.toValue=[NSNumber numberWithFloat:newRad];
     
     // Podemos poner una duración, pero puede resultar retrasado si ponemos tiempo.
-    theAnimation.duration = 0.0;
+//    theAnimation.duration = 0.0;
     
     
     // Le aplicamos la animación a la imagen de la brújula.
@@ -111,50 +112,62 @@ NSString *nombrezona;
     
     double rumbo;
     punto *miPunto;
+    double posx;
+    double posy;
+    
     
     CLLocation *location =[locations lastObject];
     NSDate *eventDate =location.timestamp;
     NSTimeInterval transcurrido=[eventDate timeIntervalSinceNow];
     if (abs(transcurrido) < 15.0) {
         // es reciente
+    }
+        posy= location.coordinate.latitude;
+        posx =location.coordinate.longitude;
         
-        self.latitudLabel.text =[NSString stringWithFormat:@"%f", location.coordinate.latitude];
-        self.longitudLabel.text = [NSString stringWithFormat:@"%f", location.coordinate.longitude];
+        self.latitudLabel.text =[NSString stringWithFormat:@"%f", posy];
+        self.longitudLabel.text = [NSString stringWithFormat:@"%f", posx];
         
         
-        NSLog(@"Latitud: %f Longitud: %f",  location.coordinate.latitude, location.coordinate.longitude);
+        NSLog(@"Latitud: %f Longitud: %f",  posy, posx);
         
         MKCoordinateRegion region;
         //  region.span = MKCoordinateSpanMake(0.1, 0.1);
         region.center = location.coordinate;
         
         
-    }
+  
     NSLog(@"entrando");
     
     switch (tipoAccion) {
             
             
         case hacerNada:
+            break;
             
         case irPunto:
             //ahora comprobar si hay que coger
             rumbo = [self calculaelRumbo:location];
             
             NSLog(@"rumbo: %f",rumbo);
+            rumboLabel.text = [NSString stringWithFormat:@"%f",rumbo];
             
+            break;
         case irCoche:
             //ahora comprobar si hay que coger
             rumbo = [self calculaelRumbo:location];
             float angulo =  rumbo * M_PI / 180.0f;
             
-            //NSLog(@"rumbo: %f",rumbo);
+            NSLog(@"rumbo: %f",rumbo);
             self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
             self.compassImage.transform = CGAffineTransformMakeRotation (angulo);
+            rumboLabel.text = [NSString stringWithFormat:@"%f",angulo];
+
+            break;
             
         case guardaPunto:
-            [userDefaults setFloat:location.coordinate.latitude forKey:@"puntolatitud"];
-            [userDefaults setFloat:location.coordinate.longitude forKey:@"puntolongitud"];
+            [userDefaults setFloat:posx forKey:@"puntolatitud"];
+            [userDefaults setFloat:posy forKey:@"puntolongitud"];
             
             [userDefaults synchronize];
             
@@ -162,8 +175,8 @@ NSString *nombrezona;
             [locationManager stopUpdatingLocation];
             
             //guardar en plist
-            miPunto.x = [NSNumber numberWithDouble:location.coordinate.longitude];
-            miPunto.y = [NSNumber numberWithDouble:location.coordinate.latitude];
+            miPunto.x = [NSNumber numberWithDouble:posx];
+            miPunto.y = [NSNumber numberWithDouble:posy];
             //miPunto.imagen =@"flecha-brujula.png";
             
             //   miPunto.fecha = [NSNumber numberWithInteger:NSDate date];
@@ -172,25 +185,28 @@ NSString *nombrezona;
             
             //guardo?? creo que si
             [self guardarAPlist: miPunto];
+            break;
             
         case guardaCoche:
-            [userDefaults setFloat:location.coordinate.latitude forKey:@"cochelatitud"];
-            [userDefaults setFloat:location.coordinate.longitude forKey:@"cochelongitud"];
+            [userDefaults setFloat:posy forKey:@"cochelatitud"];
+            [userDefaults setFloat:posx forKey:@"cochelongitud"];
             
             [userDefaults synchronize];
             tipoAccion=hacerNada;
             [locationManager stopUpdatingLocation];
             //añado el punto del coche al array
-            miPunto.x = [NSNumber numberWithDouble:location.coordinate.longitude];
-            miPunto.y = [NSNumber numberWithDouble:location.coordinate.latitude];
+            miPunto.x = [NSNumber numberWithDouble:posx];
+            miPunto.y = [NSNumber numberWithDouble:posy];
            // miPunto.imagen =@"coche.png";
             
            //[arrayPuntos addObject:miPunto];
             
            // [self guardarAPlist: miPunto];
+            break;
+            
     }
     
-    
+   
     
 }
 
