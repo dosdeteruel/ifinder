@@ -7,7 +7,7 @@
 //
 
 #import "principalViewController.h"
-
+#import "puntoAnotacion.h"
 @interface principalViewController()
 {
 
@@ -24,6 +24,7 @@ CGRect screen;
 @synthesize longitudLabel;
 @synthesize rumboLabel;
 @synthesize locationManager;
+@synthesize mapaView;
 NSUserDefaults *userDefaults;
 int tipoAccion;
 
@@ -70,10 +71,10 @@ NSString *nombrezona;
     locationManager.distanceFilter = 1;
     
     
-    MKCoordinateRegion region;
-    region.span = MKCoordinateSpanMake(0.2, 0.1);
-    region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
-                                               locationManager.location.coordinate.longitude);
+ //   MKCoordinateRegion region;
+ //   region.span = MKCoordinateSpanMake(0.2, 0.1);
+ //   region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
+ //                                              locationManager.location.coordinate.longitude);
     
     self.mapaView.showsUserLocation = YES;
     tipoAccion=hacerNada;
@@ -142,9 +143,9 @@ NSString *nombrezona;
         
         NSLog(@"Latitud: %f Longitud: %f",  posy, posx);
         
-        MKCoordinateRegion region;
-        //  region.span = MKCoordinateSpanMake(0.1, 0.1);
-        region.center = location.coordinate;
+     //   MKCoordinateRegion region;
+     //     region.span = MKCoordinateSpanMake(0.1, 0.1);
+    //    region.center = location.coordinate;
         
         
   
@@ -168,14 +169,14 @@ NSString *nombrezona;
             //ahora comprobar si hay que coger
             rumbo = [self calculaelRumbo:location];
          NSLog(@"rumbo: %f",rumbo);
-            float angulo =  (rumbo * M_PI) / 180.0f;
+            float angulo =  (rumbo * M_PI) / 180.0;
             
             NSLog(@"angulo: %f",angulo);
             self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
             self.compassImage.transform = CGAffineTransformMakeRotation (angulo);
                 
             [self Calculadistancia];
-           // rumboLabel.text = [NSString stringWithFormat:@"%f",rumbo];
+            rumboLabel.text = [NSString stringWithFormat:@"%f",angulo];
 
             break;
             
@@ -191,10 +192,7 @@ NSString *nombrezona;
             //guardar en plist
             miPunto.x = [NSNumber numberWithDouble:posx];
             miPunto.y = [NSNumber numberWithDouble:posy];
-            //miPunto.imagen =@"flecha-brujula.png";
-            
-            //   miPunto.fecha = [NSNumber numberWithInteger:NSDate date];
-            //   miPunto.dato ="";
+        
             [arrayPuntos addObject:miPunto];
             
             //guardo?? creo que si
@@ -209,27 +207,35 @@ NSString *nombrezona;
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             
-            
-                      tipoAccion=hacerNada;
+            tipoAccion=hacerNada;
             [locationManager stopUpdatingLocation];
             //añado el punto del coche al array
             miPunto.x = [NSNumber numberWithDouble:posx];
             miPunto.y = [NSNumber numberWithDouble:posy];
-           // miPunto.imagen =@"coche.png";
-            
-           //[arrayPuntos addObject:miPunto];
+          
+            //[arrayPuntos addObject:miPunto];
             
            // [self guardarAPlist: miPunto];
             break;
             
     }
+    MKCoordinateRegion region2;
+    region2.span = MKCoordinateSpanMake(0.2, 0.1);
+    region2.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
+                                               locationManager.location.coordinate.longitude);
     
-   
+    region2.center = location.coordinate;
+    
+    [mapaView setRegion:region2];
+    self.mapaView.showsUserLocation = YES;
+
     
 }
 
 - (double) calculaelRumbo:(CLLocation *)posicion
 {
+    
+    NSString *punto;
     
     CLLocationCoordinate2D puntoInicio;
     CLLocationCoordinate2D puntoFin;
@@ -237,19 +243,35 @@ NSString *nombrezona;
     puntoInicio.latitude = posicion.coordinate.latitude;
     puntoInicio.longitude = posicion.coordinate.longitude;
     
-    if (tipoAccion==irPunto)
+    
+       if (tipoAccion==irPunto)
     {
         puntoFin.latitude = [[NSUserDefaults standardUserDefaults] doubleForKey:@"puntolatitud"];
         puntoFin.longitude= [[NSUserDefaults standardUserDefaults] doubleForKey:@"puntolongitud"];
+        
+       punto = @"Punto";
     }
     else if (tipoAccion==irCoche)
     {
         puntoFin.latitude = [[NSUserDefaults standardUserDefaults] doubleForKey:@"cochelatitud"];
         puntoFin.longitude= [[NSUserDefaults standardUserDefaults] doubleForKey:@"cochelongitud"];
-        
+          punto = @"Coche";
         
     }
     
+    
+       puntoAnotacion *elpunto =[[puntoAnotacion alloc] initWithTitle: punto
+                                  
+                                                         andCoordinate:puntoFin];
+   
+   
+       [self.mapaView addAnnotation:elpunto];
+
+    
+    
+    
+    
+
     float fLat = (puntoInicio.latitude *  M_PI)/ 180.0;
     float fLng = (puntoInicio.longitude * M_PI)/ 180.0;
     float tLat = (puntoFin.latitude * M_PI)/ 180.0;
@@ -266,7 +288,10 @@ NSString *nombrezona;
     }
 
     
-}
+    // ahora quiero pintar el punto destino
+  
+    
+   }
 - (IBAction)iraCoche
 {
     tipoAccion=irCoche;  // ¡r coche
@@ -286,32 +311,6 @@ NSString *nombrezona;
     [locationManager startUpdatingLocation];
 }
 
-- (double) calculaRumbo:(double) lat longitud:(double ) lon
-{
-    
-    CLLocationCoordinate2D puntoInicio;
-    CLLocationCoordinate2D puntoFin;
-    
-    puntoInicio.latitude = lat;
-    puntoInicio.longitude = lon;
-    
-  //  puntoFin.latitude = [userDefaults doubleForKey:@"latitude"];
-  //  puntoFin.longitude= [userDefaults doubleForKey:@"longitude"];
-    puntoFin.latitude = [[NSUserDefaults standardUserDefaults] doubleForKey:@"cochelatitud"];
-    puntoFin.longitude= [[NSUserDefaults standardUserDefaults] doubleForKey:@"cochelongitud"];
-    
-    
-    //    x = atan2(cos(puntoInicio.latitude)*sin(puntoFin.latitude)-sin(puntoInicio.latitude)*cos(puntoFin.latitude)*cos(puntoFin.longitude-puntoInicio.longitude), sin(puntoFin.longitude-puntoInicio.longitude)*cos(puntoFin.latitude));
-    
-    float fLat = puntoInicio.latitude;
-    float fLng = puntoInicio.longitude;
-    float tLat = puntoFin.latitude;
-    float tLng = puntoFin.longitude;
-    
-    //   NSLog(@"Bearing: %f", x); // bearing is 180
-    return atan2(sin(fLng-tLng)*cos(tLat), cos(fLat)*sin(tLat)-sin(fLat)*cos(tLat)*cos(fLng-tLng));
-
-}
 
 - (void) Calculadistancia
 {
@@ -320,15 +319,21 @@ NSString *nombrezona;
     
     CLLocationCoordinate2D puntoFin ;
     
-    puntoFin.latitude = [[NSUserDefaults standardUserDefaults] doubleForKey:@"cochelatitud"];
-    puntoFin.longitude= [[NSUserDefaults standardUserDefaults] doubleForKey:@"cochelongitud"];
+    
+    if (tipoAccion==irPunto)
+    {
+        puntoFin.latitude = [[NSUserDefaults standardUserDefaults] doubleForKey:@"puntolatitud"];
+        puntoFin.longitude= [[NSUserDefaults standardUserDefaults] doubleForKey:@"puntolongitud"];
+    }
+    else if (tipoAccion==irCoche)
+    {
+        puntoFin.latitude = [[NSUserDefaults standardUserDefaults] doubleForKey:@"cochelatitud"];
+        puntoFin.longitude= [[NSUserDefaults standardUserDefaults] doubleForKey:@"cochelongitud"];
+        
+        
+    }
     
     
-    //   CLLocationCoordinate2D annocoord = annotation.coordinate;
-   //    CLLocationCoordinate2D usercoord = self.mapaView.userLocation.coordinate;
-    
-    //    NSLog(@"ANNO  = %f, %f", annocoord.latitude, annocoord.longitude);
-    //    NSLog(@"USER = %f, %f", usercoord.latitude, usercoord.longitude);
     
         CLLocation *loc = [[CLLocation alloc] initWithLatitude:puntoFin.latitude longitude:puntoFin.longitude];
        CLLocation *loc2 = [[CLLocation alloc] initWithLatitude:self.mapaView.userLocation.coordinate.latitude longitude:self.mapaView.userLocation.coordinate.longitude];
@@ -345,6 +350,8 @@ NSString *nombrezona;
     
     
 }
+
+
 
 
 - (void) guardarAPlist:(punto *)miPunto

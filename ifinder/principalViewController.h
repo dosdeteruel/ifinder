@@ -26,7 +26,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *rumboLabel;
 @property (retain, nonatomic) IBOutlet MKMapView *mapaView;
 
-- (double) calculaRumbo:(double) lat longitud:(double) lon;
+
 - (double) calculaelRumbo:(CLLocation *)posicion;
 - (IBAction)iraCoche;
 - (IBAction)marcaCoche;
