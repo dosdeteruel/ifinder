@@ -168,7 +168,7 @@ NSString *nombrezona;
             //ahora comprobar si hay que coger
             rumbo = [self calculaelRumbo:location];
          NSLog(@"rumbo: %f",rumbo);
-            float angulo =  rumbo * (M_PI / 180.0f);
+            float angulo =  (rumbo * M_PI) / 180.0f;
             
             NSLog(@"angulo: %f",angulo);
             self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
@@ -250,12 +250,22 @@ NSString *nombrezona;
         
     }
     
-    float fLat = puntoInicio.latitude;
-    float fLng = puntoInicio.longitude;
-    float tLat = puntoFin.latitude;
-    float tLng = puntoFin.longitude;
+    float fLat = (puntoInicio.latitude *  M_PI)/ 180.0;
+    float fLng = (puntoInicio.longitude * M_PI)/ 180.0;
+    float tLat = (puntoFin.latitude * M_PI)/ 180.0;
+    float tLng = (puntoFin.longitude * M_PI)/ 180.0;
     
-    return atan2(sin(fLng-tLng)*cos(tLat), cos(fLat)*sin(tLat)-sin(fLat)*cos(tLat)*cos(fLng-tLng));
+    float degree= atan2(sin(fLng-tLng)*cos(tLat), cos(fLat)*sin(tLat)-sin(fLat)*cos(tLat)*cos(fLng-tLng));
+    degree =  degree * 180.0 / M_PI;
+    if (degree >=0) {
+        return degree;
+        
+    }
+    else {
+        return degree + 360;
+    }
+
+    
 }
 - (IBAction)iraCoche
 {

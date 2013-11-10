@@ -17,8 +17,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.84999999999999987" contentMode="scaleToFill" mapType="standard" id="yyw-A6-YpF">
-                                <rect key="frame" x="7" y="94" width="308" height="377"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.099999999999999686" contentMode="scaleToFill" mapType="standard" id="yyw-A6-YpF">
+                                <rect key="frame" x="7" y="93.999999999999943" width="308" height="377"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oHc-Vo-X3N">
@@ -164,6 +164,7 @@
     <resources>
         <image name="campo.jpg" width="640" height="1136"/>
         <image name="coche.png" width="154" height="93"/>
+        <image name="flecha-brujula.png" width="252" height="250"/>
         <image name="flecha-brujula.png" width="252" height="250"/>
         <image name="fondo-brujula.png" width="250" height="250"/>
         <image name="monigote.png" width="135" height="250"/>
