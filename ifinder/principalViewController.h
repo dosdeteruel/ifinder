@@ -22,12 +22,13 @@
 @property (retain,nonatomic) IBOutlet UILabel *longitudLabel;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, retain) IBOutlet UIImageView *compassImage;
+@property (strong, nonatomic) IBOutlet UILabel *distanciaLabel;
 
 @property (nonatomic, retain) IBOutlet UILabel *rumboLabel;
 @property (retain, nonatomic) IBOutlet MKMapView *mapaView;
 
 
-- (double) calculaelRumbo:(CLLocation *)posicion;
+- (void) calculaelRumbo:(CLLocation *)posicion;
 - (IBAction)iraCoche;
 - (IBAction)marcaCoche;
 - (IBAction)marcaPunto;
