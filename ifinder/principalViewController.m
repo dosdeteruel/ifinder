@@ -296,7 +296,23 @@ double miRumbo;
   
     
     
+
+  //  float tLat = (puntoInicio.latitude *  M_PI)/ 180.0;
+  //  float tLng = (puntoInicio.longitude * M_PI)/ 180.0;
+ //   float fLat = (puntoFin.latitude * M_PI)/ 180.0;
+ //   float fLng = (puntoFin.longitude * M_PI)/ 180.0;
     
+    //float degree= atan2(sin(fLng-tLng)*cos(tLat), cos(fLat)*sin(tLat)-sin(fLat)*cos(tLat)*cos(fLng-tLng));
+ //   float tc= fmod(atan2(fLng-tLng,log(tan(tLat/2+M_PI/4)/tan(fLat/2+M_PI/4))),2*M_PI);
+    //degree =  degree * 180.0 / M_PI;
+    //if (degree >=0) {
+      //  return degree;
+        
+    //}
+    //else {
+      //  return degree + 360;
+    //}
+
     
     miRumbo = miRumbo + atan2(sin(fLng-tLng)*cos(tLat), cos(fLat)*sin(tLat)-sin(fLat)*cos(tLat)*cos(fLng-tLng));
    
