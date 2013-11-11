@@ -334,6 +334,7 @@ double miRumbo;
 //   }
 
    }
+
 - (IBAction)iraCoche
 {
     tipoAccion=irCoche;  // ¡r coche
