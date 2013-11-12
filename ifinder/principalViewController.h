@@ -13,21 +13,26 @@
 #import "punto.h"
 
 
-@interface principalViewController : UIViewController <CLLocationManagerDelegate>
+@interface principalViewController : UIViewController <CLLocationManagerDelegate,MKMapViewDelegate>
 {
-}
+   
+   }
 
 @property (retain,nonatomic) IBOutlet UILabel *latitudLabel;
 @property (retain,nonatomic) IBOutlet UILabel *longitudLabel;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, retain) IBOutlet UIImageView *compassImage;
+@property (strong, nonatomic) IBOutlet UILabel *distanciaLabel;
 
-- (double) calculaRumbo:(double) lat longitud:(double) lon;
-- (double) calculaelRumbo:(CLLocation *)posicion;
+@property (nonatomic, retain) IBOutlet UILabel *rumboLabel;
+@property (retain, nonatomic) IBOutlet MKMapView *mapaView;
+
+
+- (void) calculaelRumbo:(CLLocation *)posicion;
 - (IBAction)iraCoche;
 - (IBAction)marcaCoche;
 - (IBAction)marcaPunto;
 - (void) guardarAPlist:(punto *) miPunto;
-
+- (void) Calculadistancia;
 
 @end
