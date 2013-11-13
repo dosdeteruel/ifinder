@@ -27,6 +27,17 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.zonasMutableArray = [[NSMutableArray alloc]init];
+    self.contentArray=[[NSMutableArray alloc]init];
+    //self.title = @"zonas";
+    self.botonEditarBarButtonItem.enabled=NO;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    
+    NSString *fooPath = [documentsPath stringByAppendingPathComponent:@"zonas.plist"];
+    NSLog(@"%@",fooPath);
+    self.zonasMutableArray  = [NSMutableArray arrayWithContentsOfFile:fooPath];
+    NSLog(@"%d Registros recuperados en zonas.plist",self.zonasMutableArray.count);
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,7 +59,7 @@
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 1;
+    return self.zonasMutableArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -60,7 +71,83 @@
     
     return cell;
 }
+#pragma mark - Prepare for sEgue
 
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"GoToDetalle"])
+    {
+            }
+    else if([segue.identifier isEqualToString:@"GoToNew"])
+    {
+        
+    }
+    
+    
+    
+}
+
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     ; *detailViewController = [[ alloc] initWithNibName:@" " bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
+}
+#pragma mark - Boton Editar.
+// pregunta si la tableview es editable.
+- (BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+// metodo que se ejecuta al pulsar el boton borrar en estado de edicion.
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        [self.zonasMutableArray removeObjectAtIndex:indexPath.row];
+        [self.tableView reloadData];
+        
+        if ([self.zonasMutableArray count] ==0)
+        {
+            [self.tableView setEditing:NO animated:YES];
+            self.botonEditarBarButtonItem.tag=0;
+            self.botonEditarBarButtonItem.title=@"Editar";
+            self.botonEditarBarButtonItem.style=UIBarButtonItemStyleBordered;
+            self.botonEditarBarButtonItem.enabled=NO;
+            
+        }
+        
+        
+    }
+}
+#pragma mark - IBAction
+- (IBAction)EditarListado:(id)sender
+{
+    if (self.botonEditarBarButtonItem.tag == 0)
+    {
+        [self.tableView setEditing:YES animated:YES];
+        self.botonEditarBarButtonItem.tag=1;
+        self.botonEditarBarButtonItem.title=@"OK";
+        self.botonEditarBarButtonItem.style=UIBarButtonItemStyleDone;
+    }
+    else
+    {
+        [self.tableView setEditing:NO animated:YES];
+        self.botonEditarBarButtonItem.tag=0;
+        self.botonEditarBarButtonItem.title=@"Editar";
+        self.botonEditarBarButtonItem.style=UIBarButtonItemStyleBordered;
+    }
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

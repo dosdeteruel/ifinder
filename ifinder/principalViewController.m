@@ -123,19 +123,8 @@ double miRumbo;
     NSLog(@"angulo: %f",miRumbo);
     self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
     self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo-newHeading.trueHeading) * M_PI / 180);
-    
-    
-    
-    
  //   [self Calculadistancia];
     rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
-    
-    
-    
-    
-    
-    
-    
 }
 
 
