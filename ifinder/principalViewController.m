@@ -90,35 +90,6 @@ double miRumbo;
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading{
     
-    // Convertimos a Radianes el angulo anterior y el nuevo.
-    
- //  float oldRad =  -manager.heading.trueHeading * M_PI / 180.0f;
-    
- //   float newRad =  -newHeading.trueHeading * M_PI / 180.0f;
-    
-    // Creamos una animación.
- //   CABasicAnimation *theAnimation;
-    
-    // Será de tipo rotación
-  //  theAnimation=[CABasicAnimation animationWithKeyPath:@"transform.rotation"];
-    
-    // Establecemos los valores del giro.
-  //  theAnimation.fromValue = [NSNumber numberWithFloat:oldRad];
-    
-  //  theAnimation.toValue=[NSNumber numberWithFloat:newRad];
-    
-    // Podemos poner una duración, pero puede resultar retrasado si ponemos tiempo.
-  //  theAnimation.duration = 0.0;
-
-
-
-  //  self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
-  //  self.compassImage.transform = CGAffineTransformMakeRotation (newRad);
-    // Le aplicamos la animación a la imagen de la brújula.
- //   [compassImage.layer addAnimation:theAnimation forKey:@"animateMyRotation"];
-    
- //   compassImage.transform = CGAffineTransformMakeRotation(newRad);
-  //  float angulo =  (miRumbo * M_PI) / 180.0;
     
     NSLog(@"angulo: %f",miRumbo);
    
@@ -130,10 +101,7 @@ double miRumbo;
  //   self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo-newHeading.trueHeading) * M_PI / 180);
     
     
-    
-    
- //   [self Calculadistancia];
-    rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
+        rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
 }
 
 
@@ -179,18 +147,17 @@ double miRumbo;
             //ahora comprobar si hay que coger
             [self calculaelRumbo:location];
             
-        //    NSLog(@"rumbo: %f",rumbo);
+      
             rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
             
             break;
         case irCoche:
             //ahora comprobar si hay que coger
-      
             
          [self calculaelRumbo:location];
             NSLog(@"rumbo: %f",miRumbo);
            [self Calculadistancia];
-          //  rumboLabel.text = rumboLabel.text && [NSString stringWithFormat:@"%f",miRumbo];
+         
             rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
             
             
@@ -294,31 +261,13 @@ double miRumbo;
   
     
     
-
-  //  float tLat = (puntoInicio.latitude *  M_PI)/ 180.0;
-  //  float tLng = (puntoInicio.longitude * M_PI)/ 180.0;
- //   float fLat = (puntoFin.latitude * M_PI)/ 180.0;
- //   float fLng = (puntoFin.longitude * M_PI)/ 180.0;
-    
-    //float degree= atan2(sin(fLng-tLng)*cos(tLat), cos(fLat)*sin(tLat)-sin(fLat)*cos(tLat)*cos(fLng-tLng));
- //   float tc= fmod(atan2(fLng-tLng,log(tan(tLat/2+M_PI/4)/tan(fLat/2+M_PI/4))),2*M_PI);
-    //degree =  degree * 180.0 / M_PI;
-    //if (degree >=0) {
-      //  return degree;
-        
-    //}
-    //else {
-      //  return degree + 360;
-    //}
-
     
     miRumbo =  atan2(sin(fLng-uLng)*cos(fLat), cos(uLat)*sin(fLat)-sin(uLat)*cos(fLat)*cos(fLng-uLng));
     miRumbo = (miRumbo * 180.0 /M_PI);
     
     
     if (miRumbo >=0) {
-        // return miRumbo;
-          }
+                 }
           else {
              miRumbo = miRumbo  + 360;
          }
@@ -329,25 +278,9 @@ double miRumbo;
     
     
     
-    
-    //   [self Calculadistancia];
     rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
     
     
-    
-    
-    
-    
-    
-    
-//    degree =  degree * 180.0 / M_PI;
-//   if (degree >=0) {
-      // return miRumbo;
-//   }
-//   else {
-//       return degree + 360;
-//   }
-
    }
 
 - (IBAction)iraCoche
@@ -413,11 +346,7 @@ double miRumbo;
         distanciaLabel.text = [[NSString stringWithFormat:@"%f",dist] stringByAppendingString:@" Km"] ;
         
     }
-        NSLog(@"DIST: %f", dist); // Wrong formatting may show wrong value!
-    
-    
-   // distanciaLabel.text = [NSString  stringWithFormat:@"%f",dist];
-    
+        NSLog(@"DIST: %f", dist);
     
     
 }
