@@ -16,6 +16,7 @@
     NSString *dato;
     NSString *zona;
     NSString *imagen;
+    NSNumber *marca;
 }
 
 @property (nonatomic,retain) NSNumber *x;
@@ -24,6 +25,7 @@
 @property (nonatomic,retain) NSString *dato;
 @property (nonatomic,retain) NSString *zona;
 @property (nonatomic,retain) NSString *imagen;
+@property (nonatomic,retain) NSNumber *marca;
 
 
 @end

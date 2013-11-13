@@ -134,13 +134,6 @@ double miRumbo;
     
  //   [self Calculadistancia];
     rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
-    
-    
-    
-    
-    
-    
-    
 }
 
 
