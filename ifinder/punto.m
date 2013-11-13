@@ -15,5 +15,5 @@
 @synthesize dato;
 @synthesize imagen;
 @synthesize zona;
-
+@synthesize marca;
 @end

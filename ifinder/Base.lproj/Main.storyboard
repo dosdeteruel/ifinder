@@ -114,7 +114,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" editingAccessoryType="checkmark" textLabel="9Eq-Iq-OkQ" detailTextLabel="ks1-bS-N8R" imageView="vT6-Js-qmX" rowHeight="56" style="IBUITableViewCellStyleSubtitle" id="APP-Jq-pbX">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" editingAccessoryType="checkmark" textLabel="9Eq-Iq-OkQ" detailTextLabel="ks1-bS-N8R" imageView="vT6-Js-qmX" rowHeight="56" style="IBUITableViewCellStyleSubtitle" id="APP-Jq-pbX">
                                 <rect key="frame" x="0.0" y="86" width="320" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="APP-Jq-pbX" id="jmq-Dm-60I">
@@ -148,7 +148,16 @@
                             <outlet property="delegate" destination="nlE-Ns-mSb" id="Ap8-Fx-vUd"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="IFm-d6-aSl"/>
+                    <navigationItem key="navigationItem" id="IFm-d6-aSl">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="h0f-RK-4fJ">
+                            <connections>
+                                <action selector="EditarListado:" destination="nlE-Ns-mSb" id="E3P-QC-hzV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="botonEditarBarButtonItem" destination="h0f-RK-4fJ" id="m9n-Y7-LGc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZi-yn-34w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

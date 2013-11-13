@@ -12,4 +12,12 @@
 
 @interface TableViewController : UITableViewController
 
+@property (nonatomic,strong) IBOutlet UIBarButtonItem *botonEditarBarButtonItem;
+
+@property (nonatomic,strong) NSMutableArray *zonasMutableArray,*contentArray;
+
+- (IBAction)EditarListado:(id)sender;
+
+
 @end
+
