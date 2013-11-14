@@ -64,7 +64,7 @@ double miRumbo;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
     // El ángulo mínimo que debe cambiar para que se actualize el valor y así iOS informe al sistema del cambio.
-    locationManager.headingFilter = 0;
+    locationManager.headingFilter = 1;
     
     // Establecemos al propio controlador como el delegado de localización.
     locationManager.delegate=self;
@@ -121,8 +121,17 @@ double miRumbo;
   //  float angulo =  (miRumbo * M_PI) / 180.0;
     
     NSLog(@"angulo: %f",miRumbo);
-    self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
-    self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo-newHeading.trueHeading) * M_PI / 180);
+   
+   
+
+    
+  //  self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
+  
+ //   self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo-newHeading.trueHeading) * M_PI / 180);
+    
+    
+    
+    
  //   [self Calculadistancia];
     rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
 }
@@ -277,8 +286,8 @@ double miRumbo;
   
     
    
-    float tLat = (puntoInicio.latitude * M_PI)/ 180.0;
-    float tLng = (puntoInicio.longitude * M_PI)/ 180.0;
+    float uLat = (puntoInicio.latitude * M_PI)/ 180.0;
+    float uLng = (puntoInicio.longitude * M_PI)/ 180.0;
     
     float fLat = (puntoFin.latitude *  M_PI)/ 180.0;
     float fLng = (puntoFin.longitude * M_PI)/ 180.0;
@@ -303,8 +312,9 @@ double miRumbo;
     //}
 
     
-    miRumbo = miRumbo + atan2(sin(fLng-tLng)*cos(tLat), cos(fLat)*sin(tLat)-sin(fLat)*cos(tLat)*cos(fLng-tLng));
-   
+    miRumbo =  atan2(sin(fLng-uLng)*cos(fLat), cos(uLat)*sin(fLat)-sin(uLat)*cos(fLat)*cos(fLng-uLng));
+    miRumbo = (miRumbo * 180.0 /M_PI);
+    
     
     if (miRumbo >=0) {
         // return miRumbo;
@@ -314,8 +324,8 @@ double miRumbo;
          }
     
     NSLog(@"angulo: %f",miRumbo);
-    self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
-   self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo) * M_PI / 180);
+   self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
+  self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo) * M_PI / 180);
     
     
     
