@@ -236,7 +236,7 @@ double miRumbo;
             
     }
     MKCoordinateRegion region2;
-    region2.span = MKCoordinateSpanMake(0.2, 0.1);
+    region2.span = MKCoordinateSpanMake(0.05, 0.1);
     region2.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
                                                locationManager.location.coordinate.longitude);
     
@@ -324,8 +324,8 @@ double miRumbo;
          }
     
     NSLog(@"angulo: %f",miRumbo);
-   self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
-  self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo) * M_PI / 180);
+    self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
+    self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo) * M_PI / 180);
     
     
     
