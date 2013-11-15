@@ -34,10 +34,10 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0];
     
-    NSString *fooPath = [documentsPath stringByAppendingPathComponent:@"zonas.plist"];
+    NSString *fooPath = [documentsPath stringByAppendingPathComponent:@"PuntosList.plist"];
     NSLog(@"%@",fooPath);
     self.zonasMutableArray  = [NSMutableArray arrayWithContentsOfFile:fooPath];
-    NSLog(@"%d Registros recuperados en zonas.plist",self.zonasMutableArray.count);
+    NSLog(@"%d Registros recuperados en PuntosList.plist",self.zonasMutableArray.count);
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,7 +66,9 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+    cell.textLabel.text=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"];
+    cell.tag=indexPath.row;
+
     // Configure the cell...
     
     return cell;
