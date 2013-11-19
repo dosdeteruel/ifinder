@@ -32,6 +32,7 @@
     self.contentArray=[[NSMutableArray alloc]init];
     //self.title = @"zonas";´
     self.botonEditarBarButtonItem.enabled=NO;
+    self.botonEditarBarButtonItem.title=@"Marcar";
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0];
     
@@ -114,14 +115,15 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if(cell.accessoryType == UITableViewCellAccessoryNone) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [self.contentArray addObject:indexPath];
+        [contentArray addObject:indexPath];
         NSLog(@"%d registros seled", self.contentArray.count);
         self.botonEditarBarButtonItem.enabled=YES;
+        self.botonEditarBarButtonItem.title=@"Marcar";
         
     }
     else {
         cell.accessoryType = UITableViewCellAccessoryNone;
-        [self.contentArray removeObject:indexPath];
+        [contentArray removeObject:indexPath];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];}
 #pragma mark - Boton Editar.
@@ -139,7 +141,6 @@
     {
         [self.zonasMutableArray removeObjectAtIndex:indexPath.row];
         [self.tableView reloadData];
-        
         if ([self.zonasMutableArray count] ==0)
         {
             [self.tableView setEditing:NO animated:YES];
