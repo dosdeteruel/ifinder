@@ -13,7 +13,6 @@
 @end
 
 @implementation TableViewController
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,11 +25,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //NSInteger *Contador;
+    //Contador=0;
 	// Do any additional setup after loading the view.
     self.zonasMutableArray = [[NSMutableArray alloc]init];
     self.contentArray=[[NSMutableArray alloc]init];
-    //self.title = @"zonas";
+    //self.title = @"zonas";´
     self.botonEditarBarButtonItem.enabled=NO;
+    self.botonEditarBarButtonItem.title=@"Marcar";
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0];
     
@@ -38,6 +40,16 @@
     NSLog(@"%@",fooPath);
     self.zonasMutableArray  = [NSMutableArray arrayWithContentsOfFile:fooPath];
     NSLog(@"%d Registros recuperados en PuntosList.plist",self.zonasMutableArray.count);
+    NSInteger *Contador = [self.zonasMutableArray count];
+    if (Contador==0)
+    {
+        NSLog(@"El contador vale %d", Contador);
+        self.zonasMutableArray  =  [ [ NSMutableArray  alloc ]  init ] ;
+        for (int i=1; i<=5; i++)
+        {
+            [self.zonasMutableArray addObject: [ NSString  stringWithFormat: @ "Opción% i" , i ] ] ;
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,6 +71,7 @@
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
+    NSLog(@"%d registros en zonasMutableArray", self.zonasMutableArray.count );
     return self.zonasMutableArray.count;
 }
 
@@ -66,13 +79,23 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    cell.textLabel.text=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"];
-    cell.tag=indexPath.row;
-
-    // Configure the cell...
+   // cell.textLabel.text=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"];
+    cell.textLabel.text=[self.zonasMutableArray objectAtIndex:indexPath.row];
+    //cell.detailTextLabel.text=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"];
+    //cell.textLabel.text = [self.contentArray objectAtIndex:indexPath.row];
     
+ /*   if([contentArray containsObject:indexPath]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }*/
+    cell.tag=indexPath.row;
+    // Configure the cell...
     return cell;
 }
+
+
 #pragma mark - Prepare for sEgue
 
 
@@ -83,26 +106,26 @@
             }
     else if([segue.identifier isEqualToString:@"GoToNew"])
     {
-        
     }
-    
-    
-    
 }
-
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     ; *detailViewController = [[ alloc] initWithNibName:@" " bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if(cell.accessoryType == UITableViewCellAccessoryNone) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [contentArray addObject:indexPath];
+        NSLog(@"%d registros seled", self.contentArray.count);
+        self.botonEditarBarButtonItem.enabled=YES;
+        self.botonEditarBarButtonItem.title=@"Marcar";
+        
+    }
+    else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [contentArray removeObject:indexPath];
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];}
 #pragma mark - Boton Editar.
 // pregunta si la tableview es editable.
 - (BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -118,7 +141,6 @@
     {
         [self.zonasMutableArray removeObjectAtIndex:indexPath.row];
         [self.tableView reloadData];
-        
         if ([self.zonasMutableArray count] ==0)
         {
             [self.tableView setEditing:NO animated:YES];
@@ -126,12 +148,12 @@
             self.botonEditarBarButtonItem.title=@"Editar";
             self.botonEditarBarButtonItem.style=UIBarButtonItemStyleBordered;
             self.botonEditarBarButtonItem.enabled=NO;
-            
         }
-        
-        
     }
 }
+#pragma mark - marcando
+
+
 #pragma mark - IBAction
 - (IBAction)EditarListado:(id)sender
 {
