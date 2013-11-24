@@ -12,6 +12,11 @@
 
 @end
 
+
+
+NSMutableArray *zonasMutableArray;
+
+
 @implementation TableViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -187,9 +192,55 @@
 }
 */
 
-/*
-#pragma mark - Navigation
 
+#pragma mark - de plist
+
+- (void) cargardePlist
+{
+    
+    
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
+    zonasMutableArray = [[NSMutableArray alloc]init];
+    
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    
+    NSString *documentsPath = [paths objectAtIndex:0];
+    
+    
+    
+    NSString *fooPath = [documentsPath stringByAppendingPathComponent:@"zonas.plist"];
+    
+    NSLog(@"%@",fooPath);
+    
+    zonasMutableArray  = [NSMutableArray arrayWithContentsOfFile:fooPath];
+    
+    NSLog(@"%d Registros recuperados en zonas.plist",zonasMutableArray.count);
+    
+    
+    
+    {
+        
+    //    mirray.nombre=[self.contentArray objectAtIndex:0];
+        
+    }
+    
+    
+    
+ //   [self.zonasMutableArray addObject:mirray];
+    
+    
+    
+}
+/*
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

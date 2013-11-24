@@ -32,7 +32,10 @@
 - (IBAction)iraCoche;
 - (IBAction)marcaCoche;
 - (IBAction)marcaPunto;
-- (void) guardarAPlist:(punto *) miPunto;
+
 - (void) Calculadistancia;
+
+
+- (void) volcarArrayPlist:(punto *) miPunto;
 
 @end

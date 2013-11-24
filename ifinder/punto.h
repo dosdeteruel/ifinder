@@ -12,7 +12,7 @@
 {
     NSNumber *x;
     NSNumber *y;
-    NSNumber *fecha;
+NSDate *fecha;
     NSString *dato;
     NSString *zona;
     NSString *imagen;
@@ -21,7 +21,7 @@
 
 @property (nonatomic,retain) NSNumber *x;
 @property (nonatomic,retain) NSNumber *y;
-@property (nonatomic,retain) NSNumber *fecha;
+@property (nonatomic,retain) NSDate *fecha;
 @property (nonatomic,retain) NSString *dato;
 @property (nonatomic,retain) NSString *zona;
 @property (nonatomic,retain) NSString *imagen;
