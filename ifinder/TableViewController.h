@@ -10,7 +10,15 @@
 #import "punto.h"
 #import "principalViewController.h"
 
-@interface TableViewController : UITableViewController
+@interface TableViewController : UITableViewController < UITableViewDelegate , UITableViewDataSource >
+{
+    NSMutableArray *arOptions;
+    NSMutableArray *contentArray;
+    NSMutableArray *zonasMutableArray;
+    
+    
+}
+
 
 @property (nonatomic,strong) IBOutlet UIBarButtonItem *botonEditarBarButtonItem;
 
