@@ -283,8 +283,8 @@ double miRumbo;
          }
     
     NSLog(@"angulo: %f",miRumbo);
-   self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
-  self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo) * M_PI / 180);
+    self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
+    self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo) * M_PI / 180);
     
     
     

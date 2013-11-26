@@ -321,7 +321,7 @@
 				ORGANIZATIONNAME = "German Bonilla Monterde";
 				TargetAttributes = {
 					AED775EE18206C7E006CFBF1 = {
-						DevelopmentTeam = XAET4E576S;
+						DevelopmentTeam = F3WW7CD638;
 					};
 					AED7760F18206C7E006CFBF1 = {
 						TestTargetID = AED775EE18206C7E006CFBF1;

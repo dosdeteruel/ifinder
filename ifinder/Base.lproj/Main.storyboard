@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="21K-DU-ROi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fJC-XS-1Tj">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
@@ -53,6 +53,7 @@
                                 </state>
                                 <connections>
                                     <action selector="marcaPunto" destination="fJC-XS-1Tj" eventType="touchUpInside" id="pK5-zI-RuY"/>
+                                    <segue destination="21K-DU-ROi" kind="modal" id="fKM-zT-UwF"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo-brujula.png" id="6TF-3O-maM">
@@ -126,6 +127,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <imageView key="tableFooterView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo-campo.jpg" id="T9b-yS-MGV">
+                            <rect key="frame" x="0.0" y="142" width="320" height="429"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" editingAccessoryType="checkmark" rowHeight="68" id="APP-Jq-pbX" customClass="CelldePuntos">
                                 <rect key="frame" x="0.0" y="86" width="320" height="68"/>
@@ -237,6 +242,7 @@
         <image name="coche.png" width="154" height="93"/>
         <image name="flecha-brujula.png" width="252" height="250"/>
         <image name="fondo-brujula.png" width="250" height="250"/>
+        <image name="fondo-campo.jpg" width="640" height="1136"/>
         <image name="monigote.png" width="135" height="250"/>
         <image name="pin.png" width="143" height="155"/>
     </resources>
