@@ -84,19 +84,18 @@ NSMutableArray *zonasMutableArray;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-   // cell.textLabel.text=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"];
-    cell.textLabel.text=[self.zonasMutableArray objectAtIndex:indexPath.row];
-    //cell.detailTextLabel.text=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"];
-    //cell.textLabel.text = [self.contentArray objectAtIndex:indexPath.row];
+    CelldePuntos *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    cell.CellX.text=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"];
+    cell.CellY.text=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"];
+    cell.CellDate.text=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"];
     
- /*   if([contentArray containsObject:indexPath]) {
+    /*   if([contentArray containsObject:indexPath]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     else {
         cell.accessoryType = UITableViewCellAccessoryNone;
     }*/
-    cell.tag=indexPath.row;
+    //cell.tag=indexPath.row;
     // Configure the cell...
     return cell;
 }
@@ -225,14 +224,7 @@ NSMutableArray *zonasMutableArray;
     
     
     // self.clearsSelectionOnViewWillAppear = NO;
-    
-    
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    
+  
     zonasMutableArray = [[NSMutableArray alloc]init];
     
     
