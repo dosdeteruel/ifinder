@@ -45,7 +45,7 @@ NSMutableArray *zonasMutableArray;
     NSLog(@"%@",fooPath);
     self.zonasMutableArray  = [NSMutableArray arrayWithContentsOfFile:fooPath];
     NSLog(@"%d Registros recuperados en PuntosList.plist",self.zonasMutableArray.count);
-    NSInteger *Contador = [self.zonasMutableArray count];
+   /* NSInteger *Contador = [self.zonasMutableArray count];
     if (Contador==0)
     {
         NSLog(@"El contador vale %d", Contador);
@@ -54,7 +54,7 @@ NSMutableArray *zonasMutableArray;
         {
             [self.zonasMutableArray addObject: [ NSString  stringWithFormat: @ "Opción% i" , i ] ] ;
         }
-    }
+    }*/
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,11 +84,25 @@ NSMutableArray *zonasMutableArray;
 {
     static NSString *CellIdentifier = @"Cell";
     CelldePuntos *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    cell.CellX.text=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"];
-    cell.CellY.text=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"];
-    cell.CellDate.text=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"];
+    NSNumber * numero=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"];
+    NSString  * cadena=[ NSString stringWithFormat : @ "%d" , numero ];
+    cell.CellX.text=cadena;
     
-    /*   if([contentArray containsObject:indexPath]) {
+    // AQUI ME FALLA, PUES TENGO QUE CONVERTIR FLOAT --> STRING PARA ASIGNGARLO AL LABEL DE LA CELDA...
+    
+    
+    //cell.CellX.text=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"];
+    //cell.CellY.text=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"];
+    //cell.CellDate.text=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"];
+    /*
+     
+     0
+     abajo voto
+     favorita
+     NSNumber  * abc =  [[ NSNumber alloc ] initWithInt : 123 ];
+     NSString  * número =  [ NSString stringWithFormat : @ "% d" , abc ];
+     */
+    /*   if([conttArray containsObject:indexPath]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     else {

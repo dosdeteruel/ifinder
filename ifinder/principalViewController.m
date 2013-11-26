@@ -387,10 +387,10 @@ double miRumbo;
             BOOL success = [plistArray writeToFile: ruta atomically: YES];
             if( success == NO)
             {
-                NSLog( @"No grabo" );
+                NSLog( @"No grabo en plist" );
             }
             else{
-                NSLog( @"Hecho" );
+                NSLog( @"Hecho plist" );
             }
        
            
