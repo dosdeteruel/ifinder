@@ -221,16 +221,7 @@ double miRumbo;
             break;
             
     }
-    MKCoordinateRegion region2;
-    region2.span = MKCoordinateSpanMake(0.05, 0.1);
-    region2.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
-                                               locationManager.location.coordinate.longitude);
-    
-    region2.center = location.coordinate;
-    
-    [mapaView setRegion:region2];
-    self.mapaView.showsUserLocation = YES;
-
+  
     
 }
 

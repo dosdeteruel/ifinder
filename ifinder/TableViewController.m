@@ -33,6 +33,7 @@ NSMutableArray *zonasMutableArray;
     //NSInteger *Contador;
     //Contador=0;
 	// Do any additional setup after loading the view.
+    //[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"fondo-campo.jpg"]]];
     self.zonasMutableArray = [[NSMutableArray alloc]init];
     self.contentArray=[[NSMutableArray alloc]init];
     //self.title = @"zonas";´
