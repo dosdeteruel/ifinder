@@ -12,13 +12,11 @@
 
 @end
 
-
-
 NSMutableArray *zonasMutableArray;
 
 
 @implementation TableViewController
-@synthesize zonasMutableArray;
+//@synthesize zonasMutableArray;
 @synthesize contentArray;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -87,8 +85,7 @@ NSMutableArray *zonasMutableArray;
 {
     static NSString *CellIdentifier = @"Cell";
     CelldePuntos *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    //NSNumber * numero=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"];
-    //=[ numero stringValue ];
+    
     cell.CellX.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"] stringValue];
     cell.CellY.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
     NSDateFormatter* df = [[NSDateFormatter alloc]init];
@@ -142,8 +139,7 @@ NSMutableArray *zonasMutableArray;
         cell.accessoryType = UITableViewCellAccessoryNone;
         [self.contentArray removeObject:indexPath];
         NSLog(@"celda borrada.. :-(");
-    }
-    
+        }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -170,6 +166,44 @@ NSMutableArray *zonasMutableArray;
             self.botonEditarBarButtonItem.style=UIBarButtonItemStyleBordered;
             self.botonEditarBarButtonItem.enabled=NO;
         }
+        // aqui empieza el guardado al plist...
+        
+        NSString *rootPath =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        
+        // busca el fichero plist concreto.
+        
+        NSString *path_a_plist =[rootPath stringByAppendingPathComponent:@"PuntosList.plist"];
+        NSLog(@"Ruta al fichero: %@", path_a_plist);
+        
+        //creo el dictionary que sirve de structura para añadir al array que luego se volcara en el plist.
+        
+        NSDictionary *diccionarioplist;
+        NSMutableArray *diccionariozonas=[[NSMutableArray alloc] init];
+        NSData *ficheroPlist;
+        // NSMutableArray *myArrayElement;
+        
+        for (punto *puntos in self.zonasMutableArray)
+            // for (id myArrayElement in self.zonasMutableArray)
+        {
+            //guarda datos en estructura
+            NSLog(@"esta es la zona:%@",puntos);
+            diccionarioplist = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: puntos.fecha, puntos.x, puntos.y, nil] forKeys:[NSArray arrayWithObjects:@"fecha",@"x",@"y",nil]];
+            //guardo estructura en array.
+            //
+            NSLog(@"fallo aqui");
+            [diccionariozonas addObject:diccionarioplist];
+        }
+        
+        //ficheroPlist =[NSPropertyListSerialization dataFromPropertyList:diccionariozonas format:NSPropertyListBinaryFormat_v1_0 errorDescription:nil];
+        ficheroPlist =[NSPropertyListSerialization dataFromPropertyList:self.zonasMutableArray format:NSPropertyListBinaryFormat_v1_0 errorDescription:nil];
+        
+        if (ficheroPlist)
+        {
+            NSLog(@"grabado fichero...");
+            [ficheroPlist writeToFile:path_a_plist atomically:YES];
+        }
+
+        
     }
 }
 #pragma mark - marcando
@@ -207,26 +241,24 @@ NSMutableArray *zonasMutableArray;
     
     if (buttonIndex==[actionSheet cancelButtonIndex])
     {
-        NSLog(@"Cancelled");
+        NSLog(@"Cancelled");//2
     }
     
     if (buttonIndex == [actionSheet firstOtherButtonIndex])
     {
-        NSLog(@"primer boton de otros: %@",[actionSheet buttonTitleAtIndex:buttonIndex]);
+        NSLog(@"primer boton de otros: %@",[actionSheet buttonTitleAtIndex:buttonIndex]);//1
+        //
+        // aqui enviar contentarray al mapkit para que pinte los puntos en el y regresar al mapkit.
+        //
+        
     }
     if (buttonIndex == 0)
     {
-        NSLog(@"boton 0");
-    }
-
-    
-    if (buttonIndex == 1)
-    {
-        NSLog(@"primer boton");
-    }
-    if (buttonIndex ==2)
-    {
-        NSLog(@" segundo boton");
+        NSLog(@"boton 0 borrando todos...");
+        self.zonasMutableArray = [[NSMutableArray alloc]init];
+        contentArray=[[NSMutableArray alloc] init];
+        
+        // falta borrar el fichero PuntosList.plist
     }
 }
 /*

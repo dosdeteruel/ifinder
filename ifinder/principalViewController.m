@@ -406,10 +406,10 @@ double miRumbo;
             BOOL success = [plistvacio writeToFile: ruta atomically: YES];
             if( success == NO)
             {
-                NSLog( @"No grabo" );
+                NSLog( @"No grabo en plist vacio" );
             }
             else{
-                NSLog( @"Hecho" );
+                NSLog( @"Hecho plist desde vacio" );
             }
          
 
