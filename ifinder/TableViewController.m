@@ -85,24 +85,15 @@ NSMutableArray *zonasMutableArray;
 {
     static NSString *CellIdentifier = @"Cell";
     CelldePuntos *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    NSNumber * numero=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"];
-    NSString  * cadena=[ NSString stringWithFormat : @ "%d" , numero ];
-    cell.CellX.text=cadena;
+    //NSNumber * numero=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"];
+    //=[ numero stringValue ];
+    cell.CellX.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"] stringValue];
+    cell.CellY.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
+    cell.CellDate.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
+   // NSLog(@"esto ha salio %@",result);
     
-    // AQUI ME FALLA, PUES TENGO QUE CONVERTIR FLOAT --> STRING PARA ASIGNGARLO AL LABEL DE LA CELDA...
-    
-    
-    //cell.CellX.text=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"];
-    //cell.CellY.text=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"];
-    //cell.CellDate.text=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"];
-    /*
-     
-     0
-     abajo voto
-     favorita
-     NSNumber  * abc =  [[ NSNumber alloc ] initWithInt : 123 ];
-     NSString  * número =  [ NSString stringWithFormat : @ "% d" , abc ];
-     */
     /*   if([conttArray containsObject:indexPath]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
