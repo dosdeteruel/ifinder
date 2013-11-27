@@ -18,6 +18,8 @@ NSMutableArray *zonasMutableArray;
 
 
 @implementation TableViewController
+@synthesize zonasMutableArray;
+@synthesize contentArray;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -35,7 +37,7 @@ NSMutableArray *zonasMutableArray;
 	// Do any additional setup after loading the view.
     //[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"fondo-campo.jpg"]]];
     self.zonasMutableArray = [[NSMutableArray alloc]init];
-    _contentArray=[[NSMutableArray alloc]init];
+    self.contentArray=[[NSMutableArray alloc]init];
     //self.title = @"zonas";´
     self.botonEditarBarButtonItem.enabled=NO;
     self.botonEditarBarButtonItem.title=@"";
@@ -93,7 +95,7 @@ NSMutableArray *zonasMutableArray;
     [df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
     cell.CellDate.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
     
-    if([_contentArray containsObject:indexPath])
+    if([self.contentArray containsObject:indexPath])
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
@@ -129,7 +131,7 @@ NSMutableArray *zonasMutableArray;
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         
-        [_contentArray addObject:indexPath];
+        [self.contentArray addObject:indexPath];
         
         NSLog(@"%d registros seled", self.contentArray.count);
         self.botonEditarBarButtonItem.enabled=YES;
@@ -138,7 +140,7 @@ NSMutableArray *zonasMutableArray;
     }
     else {
         cell.accessoryType = UITableViewCellAccessoryNone;
-        [_contentArray removeObject:indexPath];
+        [self.contentArray removeObject:indexPath];
         NSLog(@"celda borrada.. :-(");
     }
     
