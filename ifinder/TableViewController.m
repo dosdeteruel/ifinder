@@ -35,10 +35,10 @@ NSMutableArray *zonasMutableArray;
 	// Do any additional setup after loading the view.
     //[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"fondo-campo.jpg"]]];
     self.zonasMutableArray = [[NSMutableArray alloc]init];
-    self.contentArray=[[NSMutableArray alloc]init];
+    _contentArray=[[NSMutableArray alloc]init];
     //self.title = @"zonas";´
     self.botonEditarBarButtonItem.enabled=NO;
-    self.botonEditarBarButtonItem.title=@"Marcar";
+    self.botonEditarBarButtonItem.title=@"";
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0];
     
@@ -92,14 +92,15 @@ NSMutableArray *zonasMutableArray;
     NSDateFormatter* df = [[NSDateFormatter alloc]init];
     [df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
     cell.CellDate.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
-   // NSLog(@"esto ha salio %@",result);
     
-    /*   if([conttArray containsObject:indexPath]) {
+    if([_contentArray containsObject:indexPath])
+    {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
-    else {
+    else
+    {
         cell.accessoryType = UITableViewCellAccessoryNone;
-    }*/
+    }
     //cell.tag=indexPath.row;
     // Configure the cell...
     return cell;
@@ -120,22 +121,30 @@ NSMutableArray *zonasMutableArray;
 }
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *) indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if(cell.accessoryType == UITableViewCellAccessoryNone) {
+    
+    if(cell.accessoryType == UITableViewCellAccessoryNone)
+    {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [contentArray addObject:indexPath];
+        
+        [_contentArray addObject:indexPath];
+        
         NSLog(@"%d registros seled", self.contentArray.count);
         self.botonEditarBarButtonItem.enabled=YES;
-        self.botonEditarBarButtonItem.title=@"Marcar";
         
+        self.botonEditarBarButtonItem.title=@"Acción";
     }
     else {
         cell.accessoryType = UITableViewCellAccessoryNone;
-        [contentArray removeObject:indexPath];
+        [_contentArray removeObject:indexPath];
+        NSLog(@"celda borrada.. :-(");
     }
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];}
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 #pragma mark - Boton Editar.
 // pregunta si la tableview es editable.
 - (BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -167,7 +176,14 @@ NSMutableArray *zonasMutableArray;
 #pragma mark - IBAction
 - (IBAction)EditarListado:(id)sender
 {
-    if (self.botonEditarBarButtonItem.tag == 0)
+    UIActionSheet *myActionSheet=[[UIActionSheet alloc]initWithTitle:@"Acciones"
+                                                            delegate:self
+                                                   cancelButtonTitle:@"Cancel"
+                                              destructiveButtonTitle:@"Borrar Todos"
+                                                   otherButtonTitles:@"Pintar puntos en mapa", nil];///
+    [myActionSheet showInView:self.view];
+    
+    /*if (self.botonEditarBarButtonItem.tag == 0)
     {
         [self.tableView setEditing:YES animated:YES];
         self.botonEditarBarButtonItem.tag=1;
@@ -180,6 +196,35 @@ NSMutableArray *zonasMutableArray;
         self.botonEditarBarButtonItem.tag=0;
         self.botonEditarBarButtonItem.title=@"Editar";
         self.botonEditarBarButtonItem.style=UIBarButtonItemStyleBordered;
+    }*/
+}
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex: (NSInteger )buttonIndex
+{
+    
+    NSLog(@"ButtonsIndex: %i",buttonIndex);
+    
+    if (buttonIndex==[actionSheet cancelButtonIndex])
+    {
+        NSLog(@"Cancelled");
+    }
+    
+    if (buttonIndex == [actionSheet firstOtherButtonIndex])
+    {
+        NSLog(@"primer boton de otros: %@",[actionSheet buttonTitleAtIndex:buttonIndex]);
+    }
+    if (buttonIndex == 0)
+    {
+        NSLog(@"boton 0");
+    }
+
+    
+    if (buttonIndex == 1)
+    {
+        NSLog(@"primer boton");
+    }
+    if (buttonIndex ==2)
+    {
+        NSLog(@" segundo boton");
     }
 }
 /*
@@ -231,14 +276,8 @@ NSMutableArray *zonasMutableArray;
     // self.clearsSelectionOnViewWillAppear = NO;
   
     zonasMutableArray = [[NSMutableArray alloc]init];
-    
-    
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
-    
     NSString *documentsPath = [paths objectAtIndex:0];
-    
-    
-    
     NSString *fooPath = [documentsPath stringByAppendingPathComponent:@"zonas.plist"];
     
     NSLog(@"%@",fooPath);
@@ -246,30 +285,7 @@ NSMutableArray *zonasMutableArray;
     zonasMutableArray  = [NSMutableArray arrayWithContentsOfFile:fooPath];
     
     NSLog(@"%d Registros recuperados en zonas.plist",zonasMutableArray.count);
-    
-    
-    
-    {
-        
-    //    mirray.nombre=[self.contentArray objectAtIndex:0];
-        
-    }
-    
-    
-    
- //   [self.zonasMutableArray addObject:mirray];
-    
-    
-    
-}
-/*
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
 
- */
 
 @end
