@@ -38,6 +38,7 @@
 
 - (void) Calculadistancia;
 
+- (void) pintarArrayPuntos:(NSMutableArray *) losPuntos;
 
 - (void) volcarArrayPlist:(punto *) miPunto;
 
