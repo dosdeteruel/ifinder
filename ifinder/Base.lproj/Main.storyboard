@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="21K-DU-ROi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fJC-XS-1Tj">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--Principal View Controller-->
@@ -53,7 +53,6 @@
                                 </state>
                                 <connections>
                                     <action selector="marcaPunto" destination="fJC-XS-1Tj" eventType="touchUpInside" id="pK5-zI-RuY"/>
-                                    <segue destination="21K-DU-ROi" kind="modal" id="fKM-zT-UwF"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo-brujula.png" id="6TF-3O-maM">
@@ -100,7 +99,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="21K-DU-ROi" kind="push" id="aX1-Kq-KIf"/>
+                                    <segue destination="nlE-Ns-mSb" kind="modal" id="Lyc-68-GfM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -127,12 +126,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <imageView key="tableFooterView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo-campo.jpg" id="T9b-yS-MGV">
-                            <rect key="frame" x="0.0" y="154" width="320" height="429"/>
+                        <imageView key="tableFooterView" userInteractionEnabled="NO" alpha="0.44999999999999962" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo-campo.jpg" id="T9b-yS-MGV">
+                            <rect key="frame" x="0.0" y="142" width="320" height="429"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="9Eq-Iq-OkQ" detailTextLabel="ks1-bS-N8R" imageView="vT6-Js-qmX" rowHeight="56" style="IBUITableViewCellStyleSubtitle" id="APP-Jq-pbX">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="56" style="IBUITableViewCellStyleSubtitle" id="APP-Jq-pbX" customClass="CelldePuntos">
                                 <rect key="frame" x="0.0" y="86" width="320" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="APP-Jq-pbX" id="jmq-Dm-60I">
@@ -234,7 +233,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aqT-fc-d1i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="210" y="-249"/>
+            <point key="canvasLocation" x="272" y="-249"/>
         </scene>
     </scenes>
     <resources>
@@ -252,6 +251,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="fKM-zT-UwF"/>
+        <segue reference="E2T-F2-Cza"/>
     </inferredMetricsTieBreakers>
 </document>
