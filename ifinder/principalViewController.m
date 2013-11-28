@@ -225,6 +225,37 @@ double miRumbo;
     
 }
 
+- (void) pintarArrayPuntos:(NSMutableArray *) losPuntos
+
+{
+    
+    NSString *texto;
+    CLLocationCoordinate2D punto;
+  double x;
+double y;
+    
+    for (NSDictionary *unpunto in losPuntos)
+    {
+    
+        texto = [unpunto objectForKey:@"fecha"];
+                  
+        x = [[unpunto objectForKey:@"x"] doubleValue];
+        punto.longitude = x;
+                            
+        y = [[unpunto objectForKey:@"y"] doubleValue];
+        punto.longitude = y;
+                            
+       
+         puntoAnotacion *elpunto =[[puntoAnotacion alloc] initWithTitle: @"punto"
+                              
+                                                     andCoordinate:punto];
+   
+    
+        [self.mapaView addAnnotation:elpunto];
+ 
+       }
+}
+
 - (void) calculaelRumbo:(CLLocation *)posicion
 {
     
@@ -393,9 +424,10 @@ double miRumbo;
                 NSLog( @"Hecho" );
             }
        
-           
-              
-              
+       [self pintarArrayPuntos: plistArray];
+            
+            
+            
 
         }
         else
