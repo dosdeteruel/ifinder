@@ -16,7 +16,7 @@ NSMutableArray *zonasMutableArray;
 
 
 @implementation TableViewController
-//@synthesize zonasMutableArray;
+@synthesize zonasMutableArray;
 @synthesize contentArray;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
