@@ -314,8 +314,8 @@ double y;
          }
     
     NSLog(@"angulo: %f",miRumbo);
-   self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
-  self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo) * M_PI / 180);
+    self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
+    self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo) * M_PI / 180);
     
     
     
@@ -418,10 +418,10 @@ double y;
             BOOL success = [plistArray writeToFile: ruta atomically: YES];
             if( success == NO)
             {
-                NSLog( @"No grabo" );
+                NSLog( @"No grabo en plist" );
             }
             else{
-                NSLog( @"Hecho" );
+                NSLog( @"Hecho plist" );
             }
        
        [self pintarArrayPuntos: plistArray];
@@ -438,10 +438,10 @@ double y;
             BOOL success = [plistvacio writeToFile: ruta atomically: YES];
             if( success == NO)
             {
-                NSLog( @"No grabo" );
+                NSLog( @"No grabo en plist vacio" );
             }
             else{
-                NSLog( @"Hecho" );
+                NSLog( @"Hecho plist desde vacio" );
             }
          
 

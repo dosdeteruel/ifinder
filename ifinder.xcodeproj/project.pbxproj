@@ -10,6 +10,7 @@
 		2D967D66182940C60099D435 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D967D65182940C60099D435 /* CoreLocation.framework */; };
 		2DA08806182F71F7008FB414 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DA08805182F71F7008FB414 /* MapKit.framework */; };
 		2DA08809182FF041008FB414 /* puntoAnotacion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA08808182FF041008FB414 /* puntoAnotacion.m */; };
+		76E3026C184522DA00B74C97 /* CelldePuntos.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E3026B184522DA00B74C97 /* CelldePuntos.m */; };
 		76E68F2C182C101F00FF604C /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E68F2B182C101F00FF604C /* TableViewController.m */; };
 		76E68F2F182C10B200FF604C /* PuntosList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 76E68F2E182C10B200FF604C /* PuntosList.plist */; };
 		76E68F32182C1BBF00FF604C /* punto.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E68F31182C1BBF00FF604C /* punto.m */; };
@@ -60,6 +61,8 @@
 		2DA08805182F71F7008FB414 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2DA08807182FF041008FB414 /* puntoAnotacion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = puntoAnotacion.h; sourceTree = "<group>"; };
 		2DA08808182FF041008FB414 /* puntoAnotacion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = puntoAnotacion.m; sourceTree = "<group>"; };
+		76E3026A184522DA00B74C97 /* CelldePuntos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CelldePuntos.h; sourceTree = "<group>"; };
+		76E3026B184522DA00B74C97 /* CelldePuntos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CelldePuntos.m; sourceTree = "<group>"; };
 		76E68F2A182C101F00FF604C /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		76E68F2B182C101F00FF604C /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		76E68F2E182C10B200FF604C /* PuntosList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PuntosList.plist; sourceTree = "<group>"; };
@@ -153,6 +156,8 @@
 			children = (
 				76E68F2A182C101F00FF604C /* TableViewController.h */,
 				76E68F2B182C101F00FF604C /* TableViewController.m */,
+				76E3026A184522DA00B74C97 /* CelldePuntos.h */,
+				76E3026B184522DA00B74C97 /* CelldePuntos.m */,
 			);
 			name = TableViewController;
 			sourceTree = "<group>";
@@ -316,7 +321,7 @@
 				ORGANIZATIONNAME = "German Bonilla Monterde";
 				TargetAttributes = {
 					AED775EE18206C7E006CFBF1 = {
-						DevelopmentTeam = XAET4E576S;
+						DevelopmentTeam = F3WW7CD638;
 					};
 					AED7760F18206C7E006CFBF1 = {
 						TestTargetID = AED775EE18206C7E006CFBF1;
@@ -391,6 +396,7 @@
 				AED7760318206C7E006CFBF1 /* AppDelegate.m in Sources */,
 				AED775FF18206C7E006CFBF1 /* main.m in Sources */,
 				2DA08809182FF041008FB414 /* puntoAnotacion.m in Sources */,
+				76E3026C184522DA00B74C97 /* CelldePuntos.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

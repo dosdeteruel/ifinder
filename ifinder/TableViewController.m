@@ -12,12 +12,12 @@
 
 @end
 
-
-
 NSMutableArray *zonasMutableArray;
 
 
 @implementation TableViewController
+//@synthesize zonasMutableArray;
+@synthesize contentArray;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -33,11 +33,12 @@ NSMutableArray *zonasMutableArray;
     //NSInteger *Contador;
     //Contador=0;
 	// Do any additional setup after loading the view.
+    //[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"fondo-campo.jpg"]]];
     self.zonasMutableArray = [[NSMutableArray alloc]init];
     self.contentArray=[[NSMutableArray alloc]init];
     //self.title = @"zonas";´
     self.botonEditarBarButtonItem.enabled=NO;
-    self.botonEditarBarButtonItem.title=@"Marcar";
+    self.botonEditarBarButtonItem.title=@"";
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0];
     
@@ -45,7 +46,7 @@ NSMutableArray *zonasMutableArray;
     NSLog(@"%@",fooPath);
     self.zonasMutableArray  = [NSMutableArray arrayWithContentsOfFile:fooPath];
     NSLog(@"%d Registros recuperados en PuntosList.plist",self.zonasMutableArray.count);
-    NSInteger *Contador = [self.zonasMutableArray count];
+   /* NSInteger *Contador = [self.zonasMutableArray count];
     if (Contador==0)
     {
         NSLog(@"El contador vale %d", Contador);
@@ -54,7 +55,7 @@ NSMutableArray *zonasMutableArray;
         {
             [self.zonasMutableArray addObject: [ NSString  stringWithFormat: @ "Opción% i" , i ] ] ;
         }
-    }
+    }*/
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,19 +84,23 @@ NSMutableArray *zonasMutableArray;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-   // cell.textLabel.text=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"];
-    cell.textLabel.text=[self.zonasMutableArray objectAtIndex:indexPath.row];
-    //cell.detailTextLabel.text=[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"];
-    //cell.textLabel.text = [self.contentArray objectAtIndex:indexPath.row];
+    CelldePuntos *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
- /*   if([contentArray containsObject:indexPath]) {
+    cell.CellX.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"] stringValue];
+    cell.CellY.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
+    cell.CellDate.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
+    
+    if([self.contentArray containsObject:indexPath])
+    {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
-    else {
+    else
+    {
         cell.accessoryType = UITableViewCellAccessoryNone;
-    }*/
-    cell.tag=indexPath.row;
+    }
+    //cell.tag=indexPath.row;
     // Configure the cell...
     return cell;
 }
@@ -115,22 +120,29 @@ NSMutableArray *zonasMutableArray;
 }
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *) indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if(cell.accessoryType == UITableViewCellAccessoryNone) {
+    
+    if(cell.accessoryType == UITableViewCellAccessoryNone)
+    {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [contentArray addObject:indexPath];
+        
+        [self.contentArray addObject:indexPath];
+        
         NSLog(@"%d registros seled", self.contentArray.count);
         self.botonEditarBarButtonItem.enabled=YES;
-        self.botonEditarBarButtonItem.title=@"Marcar";
         
+        self.botonEditarBarButtonItem.title=@"Acción";
     }
     else {
         cell.accessoryType = UITableViewCellAccessoryNone;
-        [contentArray removeObject:indexPath];
-    }
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];}
+        [self.contentArray removeObject:indexPath];
+        NSLog(@"celda borrada.. :-(");
+        }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 #pragma mark - Boton Editar.
 // pregunta si la tableview es editable.
 - (BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -154,6 +166,44 @@ NSMutableArray *zonasMutableArray;
             self.botonEditarBarButtonItem.style=UIBarButtonItemStyleBordered;
             self.botonEditarBarButtonItem.enabled=NO;
         }
+        // aqui empieza el guardado al plist...
+        
+        NSString *rootPath =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        
+        // busca el fichero plist concreto.
+        
+        NSString *path_a_plist =[rootPath stringByAppendingPathComponent:@"PuntosList.plist"];
+        NSLog(@"Ruta al fichero: %@", path_a_plist);
+        
+        //creo el dictionary que sirve de structura para añadir al array que luego se volcara en el plist.
+        
+        NSDictionary *diccionarioplist;
+        NSMutableArray *diccionariozonas=[[NSMutableArray alloc] init];
+        NSData *ficheroPlist;
+        // NSMutableArray *myArrayElement;
+        
+        for (punto *puntos in self.zonasMutableArray)
+            // for (id myArrayElement in self.zonasMutableArray)
+        {
+            //guarda datos en estructura
+            NSLog(@"esta es la zona:%@",puntos);
+            diccionarioplist = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: puntos.fecha, puntos.x, puntos.y, nil] forKeys:[NSArray arrayWithObjects:@"fecha",@"x",@"y",nil]];
+            //guardo estructura en array.
+            //
+            NSLog(@"fallo aqui");
+            [diccionariozonas addObject:diccionarioplist];
+        }
+        
+        //ficheroPlist =[NSPropertyListSerialization dataFromPropertyList:diccionariozonas format:NSPropertyListBinaryFormat_v1_0 errorDescription:nil];
+        ficheroPlist =[NSPropertyListSerialization dataFromPropertyList:self.zonasMutableArray format:NSPropertyListBinaryFormat_v1_0 errorDescription:nil];
+        
+        if (ficheroPlist)
+        {
+            NSLog(@"grabado fichero...");
+            [ficheroPlist writeToFile:path_a_plist atomically:YES];
+        }
+
+        
     }
 }
 #pragma mark - marcando
@@ -162,7 +212,14 @@ NSMutableArray *zonasMutableArray;
 #pragma mark - IBAction
 - (IBAction)EditarListado:(id)sender
 {
-    if (self.botonEditarBarButtonItem.tag == 0)
+    UIActionSheet *myActionSheet=[[UIActionSheet alloc]initWithTitle:@"Acciones"
+                                                            delegate:self
+                                                   cancelButtonTitle:@"Cancel"
+                                              destructiveButtonTitle:@"Borrar Todos"
+                                                   otherButtonTitles:@"Pintar puntos en mapa", nil];///
+    [myActionSheet showInView:self.view];
+    
+    /*if (self.botonEditarBarButtonItem.tag == 0)
     {
         [self.tableView setEditing:YES animated:YES];
         self.botonEditarBarButtonItem.tag=1;
@@ -175,6 +232,33 @@ NSMutableArray *zonasMutableArray;
         self.botonEditarBarButtonItem.tag=0;
         self.botonEditarBarButtonItem.title=@"Editar";
         self.botonEditarBarButtonItem.style=UIBarButtonItemStyleBordered;
+    }*/
+}
+-(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex: (NSInteger )buttonIndex
+{
+    
+    NSLog(@"ButtonsIndex: %i",buttonIndex);
+    
+    if (buttonIndex==[actionSheet cancelButtonIndex])
+    {
+        NSLog(@"Cancelled");//2
+    }
+    
+    if (buttonIndex == [actionSheet firstOtherButtonIndex])
+    {
+        NSLog(@"primer boton de otros: %@",[actionSheet buttonTitleAtIndex:buttonIndex]);//1
+        //
+        // aqui enviar contentarray al mapkit para que pinte los puntos en el y regresar al mapkit.
+        //
+        
+    }
+    if (buttonIndex == 0)
+    {
+        NSLog(@"boton 0 borrando todos...");
+        self.zonasMutableArray = [[NSMutableArray alloc]init];
+        contentArray=[[NSMutableArray alloc] init];
+        
+        // falta borrar el fichero PuntosList.plist
     }
 }
 /*
@@ -224,23 +308,10 @@ NSMutableArray *zonasMutableArray;
     
     
     // self.clearsSelectionOnViewWillAppear = NO;
-    
-    
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    
+  
     zonasMutableArray = [[NSMutableArray alloc]init];
-    
-    
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
-    
     NSString *documentsPath = [paths objectAtIndex:0];
-    
-    
-    
     NSString *fooPath = [documentsPath stringByAppendingPathComponent:@"zonas.plist"];
     
     NSLog(@"%@",fooPath);
@@ -248,30 +319,7 @@ NSMutableArray *zonasMutableArray;
     zonasMutableArray  = [NSMutableArray arrayWithContentsOfFile:fooPath];
     
     NSLog(@"%d Registros recuperados en zonas.plist",zonasMutableArray.count);
-    
-    
-    
-    {
-        
-    //    mirray.nombre=[self.contentArray objectAtIndex:0];
-        
-    }
-    
-    
-    
- //   [self.zonasMutableArray addObject:mirray];
-    
-    
-    
-}
-/*
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
 
- */
 
 @end

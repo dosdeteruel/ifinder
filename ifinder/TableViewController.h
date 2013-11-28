@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "punto.h"
 #import "principalViewController.h"
+#import "CelldePuntos.h"
 
-@interface TableViewController : UITableViewController < UITableViewDelegate , UITableViewDataSource >
+@interface TableViewController : UITableViewController < UITableViewDelegate , UITableViewDataSource, UIActionSheetDelegate>
 {
     NSMutableArray *arOptions;
     NSMutableArray *contentArray;
