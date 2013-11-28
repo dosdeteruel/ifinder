@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="21K-DU-ROi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fJC-XS-1Tj">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
@@ -53,7 +53,6 @@
                                 </state>
                                 <connections>
                                     <action selector="marcaPunto" destination="fJC-XS-1Tj" eventType="touchUpInside" id="pK5-zI-RuY"/>
-                                    <segue destination="21K-DU-ROi" kind="modal" id="fKM-zT-UwF"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo-brujula.png" id="6TF-3O-maM">
@@ -94,13 +93,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RUL-g0-3Rw">
-                                <rect key="frame" x="272" y="22" width="37" height="30"/>
+                                <rect key="frame" x="243" y="20" width="37" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Tabla">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="21K-DU-ROi" kind="push" id="aX1-Kq-KIf"/>
+                                    <action selector="irTabla:" destination="fJC-XS-1Tj" eventType="touchUpInside" id="5KL-b5-D8m"/>
+                                    <segue destination="UTl-k5-YkC" kind="modal" identifier="tabla" id="vir-f5-54x"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -117,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Akq-K0-kUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-204" y="-237"/>
+            <point key="canvasLocation" x="172" y="-253"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="9eK-yi-q0f">
@@ -127,10 +127,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <imageView key="tableFooterView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo-campo.jpg" id="T9b-yS-MGV">
-                            <rect key="frame" x="0.0" y="154" width="320" height="429"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" editingAccessoryType="checkmark" rowHeight="68" id="APP-Jq-pbX" customClass="CelldePuntos">
                                 <rect key="frame" x="0.0" y="86" width="320" height="68"/>
@@ -203,6 +199,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="IFm-d6-aSl">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="Tnn-MD-WrJ">
+                            <connections>
+                                <action selector="volver:" destination="nlE-Ns-mSb" id="Et7-n2-sOF"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="h0f-RK-4fJ">
                             <connections>
                                 <action selector="EditarListado:" destination="nlE-Ns-mSb" id="E3P-QC-hzV"/>
@@ -215,26 +216,25 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZi-yn-34w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="684" y="-249"/>
+            <point key="canvasLocation" x="896" y="-253"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="J6G-TC-W2o">
+        <scene sceneID="8Nx-9g-DIl">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="21K-DU-ROi" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UTl-k5-YkC" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="nVD-Bm-dKJ"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fgj-eK-9RT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lvR-If-WeV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="nlE-Ns-mSb" kind="relationship" relationship="rootViewController" id="E2T-F2-Cza"/>
+                        <segue destination="nlE-Ns-mSb" kind="relationship" relationship="rootViewController" id="ayB-Za-hqb"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aqT-fc-d1i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="prc-GM-AW8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="210" y="-249"/>
+            <point key="canvasLocation" x="540" y="-253"/>
         </scene>
     </scenes>
     <resources>
@@ -242,7 +242,6 @@
         <image name="coche.png" width="154" height="93"/>
         <image name="flecha-brujula.png" width="252" height="250"/>
         <image name="fondo-brujula.png" width="250" height="250"/>
-        <image name="fondo-campo.jpg" width="640" height="1136"/>
         <image name="monigote.png" width="135" height="250"/>
         <image name="pin.png" width="143" height="155"/>
     </resources>
@@ -251,7 +250,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="fKM-zT-UwF"/>
-    </inferredMetricsTieBreakers>
 </document>

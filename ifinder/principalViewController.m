@@ -418,4 +418,7 @@ double miRumbo;
     }
     
 }
+- (IBAction)irTabla:(id)sender
+{
+}
 @end
