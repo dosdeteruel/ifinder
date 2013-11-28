@@ -11,6 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 #import "punto.h"
+#import "TableViewController.h"
 
 
 @interface principalViewController : UIViewController <CLLocationManagerDelegate,MKMapViewDelegate>
@@ -23,6 +24,8 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, retain) IBOutlet UIImageView *compassImage;
 @property (strong, nonatomic) IBOutlet UILabel *distanciaLabel;
+
+- (IBAction)irTabla:(UIStoryboard *)segue;
 
 @property (nonatomic, retain) IBOutlet UILabel *rumboLabel;
 @property (retain, nonatomic) IBOutlet MKMapView *mapaView;

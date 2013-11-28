@@ -450,4 +450,7 @@ double y;
     }
     
 }
+- (IBAction)irTabla:(id)sender
+{
+}
 @end

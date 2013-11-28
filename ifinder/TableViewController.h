@@ -11,22 +11,28 @@
 #import "principalViewController.h"
 #import "CelldePuntos.h"
 
-@interface TableViewController : UITableViewController < UITableViewDelegate , UITableViewDataSource, UIActionSheetDelegate>
+//@protocol pintarDsenMapa <NSObject>
+
+//-(void)pintarRutasenMapa:(NSArray *)listadodepuntos;
+
+//@end
+
+
+@interface TableViewController : UITableViewController < UITableViewDelegate , UITableViewDataSource>
 {
-    NSMutableArray *arOptions;
-    NSMutableArray *contentArray;
+    NSMutableArray *elegidosArray;
     NSMutableArray *zonasMutableArray;
-    
-    
 }
 
-
+//@property (nonatomic,strong) id <pintarRutasenMapa> delegate;
 @property (nonatomic,strong) IBOutlet UIBarButtonItem *botonEditarBarButtonItem;
 
-@property (nonatomic,strong) NSMutableArray *zonasMutableArray,*contentArray;
+@property (nonatomic,strong) NSMutableArray * zonasMutableArray;
+@property (nonatomic,strong) NSMutableArray * elegidosArray;
 
 - (IBAction)EditarListado:(id)sender;
 
+- (IBAction)volver:(id)sender;
 
 @end
 
