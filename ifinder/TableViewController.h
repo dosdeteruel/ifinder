@@ -11,20 +11,12 @@
 #import "principalViewController.h"
 #import "CelldePuntos.h"
 
-//@protocol pintarDsenMapa <NSObject>
-
-//-(void)pintarRutasenMapa:(NSArray *)listadodepuntos;
-
-//@end
-
-
 @interface TableViewController : UITableViewController < UITableViewDelegate , UITableViewDataSource>
 {
     NSMutableArray *elegidosArray;
     NSMutableArray *zonasMutableArray;
 }
 
-//@property (nonatomic,strong) id <pintarRutasenMapa> delegate;
 @property (nonatomic,strong) IBOutlet UIBarButtonItem *botonEditarBarButtonItem;
 
 @property (nonatomic,strong) NSMutableArray * zonasMutableArray;

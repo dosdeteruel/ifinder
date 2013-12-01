@@ -29,9 +29,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //NSInteger *Contador;
-    //Contador=0;
-	// Do any additional setup after loading the view.
     //[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"fondo-campo.jpg"]]];
     self.zonasMutableArray = [[NSMutableArray alloc]init];
     self.elegidosArray=[[NSMutableArray alloc]init];
@@ -224,21 +221,7 @@
                                               destructiveButtonTitle:@"Borrar todos los puntos"
                                                    otherButtonTitles:@"Pintar puntos en mapa", nil];
     [myActionSheet showInView:self.view];
-    
-    /*if (self.botonEditarBarButtonItem.tag == 0)
-    {
-        [self.tableView setEditing:YES animated:YES];
-        self.botonEditarBarButtonItem.tag=1;
-        self.botonEditarBarButtonItem.title=@"OK";
-        self.botonEditarBarButtonItem.style=UIBarButtonItemStyleDone;
-    }
-    else
-    {
-        [self.tableView setEditing:NO animated:YES];
-        self.botonEditarBarButtonItem.tag=0;
-        self.botonEditarBarButtonItem.title=@"Editar";
-        self.botonEditarBarButtonItem.style=UIBarButtonItemStyleBordered;
-    }*/
+
 }
 
 - (IBAction)volver:(id)sender
