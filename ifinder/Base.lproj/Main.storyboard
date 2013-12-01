@@ -60,7 +60,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flecha-brujula.png" id="GMM-UC-HYG">
-                                <rect key="frame" x="112" y="456" width="96" height="96"/>
+                                <rect key="frame" x="112" y="456" width="96" height="96.000000000000014"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rumbo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sMv-U4-HSO">
@@ -93,7 +93,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RUL-g0-3Rw">
-                                <rect key="frame" x="272" y="22" width="37" height="30"/>
+                                <rect key="frame" x="272" y="23" width="37" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Tabla">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -127,12 +127,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <imageView key="tableFooterView" userInteractionEnabled="NO" alpha="0.44999999999999962" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo-campo.jpg" id="T9b-yS-MGV">
-                            <rect key="frame" x="0.0" y="142" width="320" height="429"/>
+                            <rect key="frame" x="0.0" y="78" width="320" height="429"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="56" style="IBUITableViewCellStyleSubtitle" id="APP-Jq-pbX" customClass="CelldePuntos">
-                                <rect key="frame" x="0.0" y="86" width="320" height="56"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="APP-Jq-pbX" id="jmq-Dm-60I">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
@@ -239,6 +239,7 @@
     <resources>
         <image name="campo.jpg" width="640" height="1136"/>
         <image name="coche.png" width="154" height="93"/>
+        <image name="coche.png" width="154" height="93"/>
         <image name="flecha-brujula.png" width="252" height="250"/>
         <image name="fondo-brujula.png" width="250" height="250"/>
         <image name="fondo-campo.jpg" width="640" height="1136"/>
@@ -251,6 +252,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="E2T-F2-Cza"/>
+        <segue reference="Lyc-68-GfM"/>
     </inferredMetricsTieBreakers>
 </document>
