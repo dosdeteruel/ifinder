@@ -56,7 +56,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo-brujula.png" id="6TF-3O-maM">
-                                <rect key="frame" x="112" y="456" width="96" height="96.000000000000014"/>
+                                <rect key="frame" x="112" y="456" width="96" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flecha-brujula.png" id="GMM-UC-HYG">
@@ -116,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Akq-K0-kUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-204" y="-237"/>
+            <point key="canvasLocation" x="172" y="-253"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="9eK-yi-q0f">
@@ -202,6 +202,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="IFm-d6-aSl">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="Tnn-MD-WrJ">
+                            <connections>
+                                <action selector="volver:" destination="nlE-Ns-mSb" id="Et7-n2-sOF"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="h0f-RK-4fJ">
                             <connections>
                                 <action selector="EditarListado:" destination="nlE-Ns-mSb" id="E3P-QC-hzV"/>
@@ -214,24 +219,23 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZi-yn-34w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="684" y="-249"/>
+            <point key="canvasLocation" x="896" y="-253"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="J6G-TC-W2o">
+        <scene sceneID="8Nx-9g-DIl">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="21K-DU-ROi" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UTl-k5-YkC" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="nVD-Bm-dKJ"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fgj-eK-9RT">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lvR-If-WeV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="nlE-Ns-mSb" kind="relationship" relationship="rootViewController" id="E2T-F2-Cza"/>
+                        <segue destination="nlE-Ns-mSb" kind="relationship" relationship="rootViewController" id="ayB-Za-hqb"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aqT-fc-d1i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="prc-GM-AW8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="272" y="-249"/>
         </scene>
@@ -242,7 +246,6 @@
         <image name="coche.png" width="154" height="93"/>
         <image name="flecha-brujula.png" width="252" height="250"/>
         <image name="fondo-brujula.png" width="250" height="250"/>
-        <image name="fondo-campo.jpg" width="640" height="1136"/>
         <image name="monigote.png" width="135" height="250"/>
         <image name="pin.png" width="143" height="155"/>
     </resources>
