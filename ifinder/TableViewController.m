@@ -20,6 +20,7 @@
 @implementation TableViewController
 @synthesize zonasMutableArray;
 @synthesize elegidosArray;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -203,7 +204,7 @@
         [diccionariozonas addObject:diccionarioplist];
     }
     
-    //ficheroPlist =[NSPropertyListSerialization dataFromPropertyList:diccionariozonas format:NSPropertyListBinaryFormat_v1_0 errorDescription:nil];
+   
     ficheroPlist =[NSPropertyListSerialization dataFromPropertyList:self.zonasMutableArray format:NSPropertyListBinaryFormat_v1_0 errorDescription:nil];
     
     if (ficheroPlist)
