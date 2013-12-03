@@ -219,7 +219,7 @@
                                                             delegate:self
                                                    cancelButtonTitle:@"Cancelar"
                                               destructiveButtonTitle:@"Borrar todos los puntos"
-                                                   otherButtonTitles:@"Pintar puntos en mapa",@"Borrar puntos selecionados", nil];
+                                                   otherButtonTitles:@"Pintar puntos en mapa", nil];
     [myActionSheet showInView:self.view];
 
 }
@@ -246,11 +246,7 @@
         //
         
     }
-    if(buttonIndex == 2)
-    {
-        NSLog(@"Pulsate Borrar los puntos seleccionados...");
-    }
-    if (buttonIndex == 0)
+        if (buttonIndex == 0)
     {
         NSLog(@"boton 0 borrando todos...");
         self.zonasMutableArray = [[NSMutableArray alloc]init];
