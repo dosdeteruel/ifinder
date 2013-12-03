@@ -86,7 +86,7 @@
     cell.CellY.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
     NSDateFormatter* df = [[NSDateFormatter alloc]init];
     [df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
-    cell.CellDate.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
+    cell.CellFecha.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
     
     if([self.elegidosArray containsObject:indexPath])
     {
@@ -219,7 +219,7 @@
                                                             delegate:self
                                                    cancelButtonTitle:@"Cancelar"
                                               destructiveButtonTitle:@"Borrar todos los puntos"
-                                                   otherButtonTitles:@"Pintar puntos en mapa", nil];
+                                                   otherButtonTitles:@"Pintar puntos en mapa",@"Borrar puntos selecionados", nil];
     [myActionSheet showInView:self.view];
 
 }
@@ -245,6 +245,10 @@
         // aqui enviar elegidosArray al mapkit para que pinte los puntos en el y regresar al mapkit.
         //
         
+    }
+    if(buttonIndex == 2)
+    {
+        NSLog(@"Pulsate Borrar los puntos seleccionados...");
     }
     if (buttonIndex == 0)
     {

@@ -128,7 +128,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="56" style="IBUITableViewCellStyleSubtitle" id="APP-Jq-pbX">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="56" style="IBUITableViewCellStyleSubtitle" id="APP-Jq-pbX" customClass="CelldePuntos">
                                 <rect key="frame" x="0.0" y="86" width="320" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="APP-Jq-pbX" id="jmq-Dm-60I">
@@ -187,9 +187,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="CellDate" destination="cbY-iL-e24" id="fy6-ny-U6m"/>
-                                    <outlet property="CellX" destination="eZz-Vi-6GL" id="ZU2-78-q1L"/>
-                                    <outlet property="CellY" destination="K63-OE-GmJ" id="N6r-W3-WiG"/>
+                                    <outlet property="CellFecha" destination="cbY-iL-e24" id="L9l-Xs-ZDw"/>
+                                    <outlet property="CellX" destination="K63-OE-GmJ" id="sds-pz-hMe"/>
+                                    <outlet property="CellY" destination="eZz-Vi-6GL" id="gRL-3z-iKb"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
