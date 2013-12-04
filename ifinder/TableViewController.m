@@ -254,6 +254,8 @@
         //
         // aqui enviar elegidosArray al mapkit para que pinte los puntos en el y regresar al mapkit.
         //
+        //
+        //principalViewController * vistadepaso= (principalViewController)segue.sender (id)sender
         
     }
         if (buttonIndex == 0)

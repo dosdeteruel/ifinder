@@ -233,8 +233,8 @@ double miRumbo;
     
     NSString *texto;
     CLLocationCoordinate2D punto;
-  double x;
-double y;
+    double x;
+    double y;
     
     for (NSDictionary *unpunto in losPuntos)
     {
