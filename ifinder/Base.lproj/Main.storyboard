@@ -187,9 +187,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="CellDate" destination="cbY-iL-e24" id="fy6-ny-U6m"/>
-                                    <outlet property="CellX" destination="eZz-Vi-6GL" id="ZU2-78-q1L"/>
-                                    <outlet property="CellY" destination="K63-OE-GmJ" id="N6r-W3-WiG"/>
+                                    <outlet property="CellFecha" destination="cbY-iL-e24" id="L9l-Xs-ZDw"/>
+                                    <outlet property="CellX" destination="K63-OE-GmJ" id="sds-pz-hMe"/>
+                                    <outlet property="CellY" destination="eZz-Vi-6GL" id="gRL-3z-iKb"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
