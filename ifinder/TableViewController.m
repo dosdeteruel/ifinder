@@ -13,7 +13,7 @@
 
 @end
 
-
+@implementation TableViewController
 
 @synthesize zonasMutableArray;
 @synthesize elegidosArray;
@@ -90,7 +90,7 @@
     cell.CellY.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
     NSDateFormatter* df = [[NSDateFormatter alloc]init];
     [df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
-    cell.CellDate.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
+    cell.CellFecha.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
     //cell.contentView.backgroundColor = [UIColor clearColor];
     if([self.elegidosArray containsObject:indexPath])
     {
@@ -283,6 +283,7 @@
     
     NSLog(@"%d Registros recuperados en zonas.plist",zonasMutableArray.count);
 }
+
 
 
 @end
