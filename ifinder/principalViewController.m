@@ -196,6 +196,8 @@ double miRumbo;
             
             //guardo?? creo que si
         //    [self guardartodoAplist: miPunto];
+            
+           
             [self volcarArrayPlist:miPunto];
             
             break;
@@ -254,6 +256,20 @@ double y;
         [self.mapaView addAnnotation:elpunto];
  
        }
+}
+
+
+- (MKAnnotationView *) mapView: (MKMapView *) mapaView viewForAnnotation: (id) annotation {
+    MKPinAnnotationView *pin = (MKPinAnnotationView *) [self.mapaView dequeueReusableAnnotationViewWithIdentifier: @"myPin"];
+    if (pin == nil) {
+        pin = [[MKPinAnnotationView alloc] initWithAnnotation: annotation reuseIdentifier: @"myPin"]; // If you use ARC, take out 'autorelease'
+    } else {
+        pin.annotation = annotation;
+    }
+    pin.animatesDrop = YES;
+    pin.draggable = YES;
+    
+    return pin;
 }
 
 - (void) calculaelRumbo:(CLLocation *)posicion
@@ -324,6 +340,19 @@ double y;
     
    }
 
+
+
+- (void)mapView:(MKMapView *)mapView
+ annotationView:(MKAnnotationView *)annotationView
+didChangeDragState:(MKAnnotationViewDragState)newState
+   fromOldState:(MKAnnotationViewDragState)oldState
+{
+    if (newState == MKAnnotationViewDragStateEnding)
+    {
+        CLLocationCoordinate2D droppedAt = annotationView.annotation.coordinate;
+        NSLog(@"Pin dropped at %f,%f", droppedAt.latitude, droppedAt.longitude);
+    }
+}
 - (IBAction)iraCoche
 {
     tipoAccion=irCoche;  // ¡r coche
@@ -424,7 +453,7 @@ double y;
                 NSLog( @"Hecho plist" );
             }
        
-       [self pintarArrayPuntos: plistArray];
+   //    [self pintarArrayPuntos: plistArray];
             
             
             
