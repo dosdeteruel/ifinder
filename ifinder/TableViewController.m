@@ -15,9 +15,6 @@
 
 
 
-
-
-@implementation TableViewController
 @synthesize zonasMutableArray;
 @synthesize elegidosArray;
 
@@ -33,7 +30,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"fondo-campo.jpg"]]];
+    //NSInteger *Contador;
+    //Contador=0;
+	// Do any additional setup after loading the view.
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"fondo-campo.jpg"]]];
     self.zonasMutableArray = [[NSMutableArray alloc]init];
     self.elegidosArray=[[NSMutableArray alloc]init];
     //self.title = @"zonas";´
@@ -90,8 +90,8 @@
     cell.CellY.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
     NSDateFormatter* df = [[NSDateFormatter alloc]init];
     [df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
-    cell.CellFecha.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
-    
+    cell.CellDate.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
+    //cell.contentView.backgroundColor = [UIColor clearColor];
     if([self.elegidosArray containsObject:indexPath])
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -142,6 +142,12 @@
         }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+-(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPatH{
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectZero] ;
+    backView.backgroundColor = [UIColor clearColor];
+    cell.backgroundView = backView;
+}
+
 
 #pragma mark - Boton Editar.
 // pregunta si la tableview es editable.
@@ -235,7 +241,7 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex: (NSInteger )buttonIndex
 {
     
-    NSLog(@"ButtonsIndex: %i",buttonIndex);
+    NSLog(@"ButtonsIndex: %d",buttonIndex);
     
     if (buttonIndex==[actionSheet cancelButtonIndex]) //2
     {
