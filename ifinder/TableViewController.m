@@ -10,10 +10,14 @@
 
 @interface TableViewController ()
 
+
 @end
 
-@implementation TableViewController
 
+
+
+
+@implementation TableViewController
 @synthesize zonasMutableArray;
 @synthesize elegidosArray;
 
@@ -62,14 +66,14 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (int)numberOfSectionsInTableView:(UITableView *)tableView
 {
 //#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (int)tableView:(UITableView *)tableView numberOfRowsInSection:(int)section
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
