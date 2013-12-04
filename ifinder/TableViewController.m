@@ -10,13 +10,14 @@
 
 @interface TableViewController ()
 
+
 @end
 
-@implementation TableViewController
 
 
 @synthesize zonasMutableArray;
 @synthesize elegidosArray;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -65,14 +66,14 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (int)numberOfSectionsInTableView:(UITableView *)tableView
 {
 //#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (int)tableView:(UITableView *)tableView numberOfRowsInSection:(int)section
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
@@ -206,7 +207,7 @@
         [diccionariozonas addObject:diccionarioplist];
     }
     
-    //ficheroPlist =[NSPropertyListSerialization dataFromPropertyList:diccionariozonas format:NSPropertyListBinaryFormat_v1_0 errorDescription:nil];
+   
     ficheroPlist =[NSPropertyListSerialization dataFromPropertyList:self.zonasMutableArray format:NSPropertyListBinaryFormat_v1_0 errorDescription:nil];
     
     if (ficheroPlist)
@@ -230,21 +231,7 @@
                                               destructiveButtonTitle:@"Borrar todos los puntos"
                                                    otherButtonTitles:@"Pintar puntos en mapa", nil];
     [myActionSheet showInView:self.view];
-    
-    /*if (self.botonEditarBarButtonItem.tag == 0)
-    {
-        [self.tableView setEditing:YES animated:YES];
-        self.botonEditarBarButtonItem.tag=1;
-        self.botonEditarBarButtonItem.title=@"OK";
-        self.botonEditarBarButtonItem.style=UIBarButtonItemStyleDone;
-    }
-    else
-    {
-        [self.tableView setEditing:NO animated:YES];
-        self.botonEditarBarButtonItem.tag=0;
-        self.botonEditarBarButtonItem.title=@"Editar";
-        self.botonEditarBarButtonItem.style=UIBarButtonItemStyleBordered;
-    }*/
+
 }
 
 - (IBAction)volver:(id)sender
@@ -269,7 +256,7 @@
         //
         
     }
-    if (buttonIndex == 0)
+        if (buttonIndex == 0)
     {
         NSLog(@"boton 0 borrando todos...");
         self.zonasMutableArray = [[NSMutableArray alloc]init];
@@ -277,47 +264,8 @@
         
         [self salvarplist];
         [self dismissViewControllerAnimated:YES completion:nil];
-        //[TableViewController reload];
-        // falta borrar el fichero PuntosList.plist
     }
 }
-// Override to support conditional editing of the table view.
-/*
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 
 #pragma mark - de plist
 

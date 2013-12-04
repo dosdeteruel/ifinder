@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface CelldePuntos : UITableViewCell
-@property (strong, nonatomic) IBOutlet UILabel *CellX;
 @property (strong, nonatomic) IBOutlet UILabel *CellY;
-@property (strong, nonatomic) IBOutlet UILabel *CellDate;
 
+@property (strong, nonatomic) IBOutlet UILabel *CellX;
+
+@property (strong, nonatomic) IBOutlet UILabel *CellFecha;
 @end

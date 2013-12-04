@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fJC-XS-1Tj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fJC-XS-1Tj">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--Principal View Controller-->
@@ -146,9 +146,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="CellDate" destination="cbY-iL-e24" id="fy6-ny-U6m"/>
-                                    <outlet property="CellX" destination="eZz-Vi-6GL" id="ZU2-78-q1L"/>
-                                    <outlet property="CellY" destination="K63-OE-GmJ" id="N6r-W3-WiG"/>
+                                    <outlet property="CellFecha" destination="cbY-iL-e24" id="L9l-Xs-ZDw"/>
+                                    <outlet property="CellX" destination="K63-OE-GmJ" id="sds-pz-hMe"/>
+                                    <outlet property="CellY" destination="eZz-Vi-6GL" id="gRL-3z-iKb"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
