@@ -14,9 +14,13 @@
 		76E68F2C182C101F00FF604C /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E68F2B182C101F00FF604C /* TableViewController.m */; };
 		76E68F2F182C10B200FF604C /* PuntosList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 76E68F2E182C10B200FF604C /* PuntosList.plist */; };
 		76E68F32182C1BBF00FF604C /* punto.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E68F31182C1BBF00FF604C /* punto.m */; };
+		AE2E3A72184E9E2800A10F4B /* punto.png in Resources */ = {isa = PBXBuildFile; fileRef = AE2E3A70184E9E2800A10F4B /* punto.png */; };
+		AE2E3A75184EA07400A10F4B /* tabla.png in Resources */ = {isa = PBXBuildFile; fileRef = AE2E3A74184EA07400A10F4B /* tabla.png */; };
+		AE2E3A77184EA18C00A10F4B /* coche.png in Resources */ = {isa = PBXBuildFile; fileRef = AE2E3A76184EA18C00A10F4B /* coche.png */; };
+		AE2E3A7B184FCFA800A10F4B /* fondonew2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE2E3A7A184FCFA800A10F4B /* fondonew2x.jpg */; };
+		AE2E3A7D184FD04A00A10F4B /* fondonew.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE2E3A7C184FD04A00A10F4B /* fondonew.jpg */; };
 		AE5266D5182AF47800402D46 /* campo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE5266C4182AF47800402D46 /* campo.jpg */; };
 		AE5266D6182AF47800402D46 /* ciudad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE5266C5182AF47800402D46 /* ciudad.jpg */; };
-		AE5266D7182AF47800402D46 /* coche.png in Resources */ = {isa = PBXBuildFile; fileRef = AE5266C6182AF47800402D46 /* coche.png */; };
 		AE5266D8182AF47800402D46 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE5266C7182AF47800402D46 /* Default-568h@2x.png */; };
 		AE5266D9182AF47800402D46 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE5266C8182AF47800402D46 /* Default@2x.png */; };
 		AE5266DA182AF47800402D46 /* flecha-brujula.png in Resources */ = {isa = PBXBuildFile; fileRef = AE5266C9182AF47800402D46 /* flecha-brujula.png */; };
@@ -68,9 +72,13 @@
 		76E68F2E182C10B200FF604C /* PuntosList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PuntosList.plist; sourceTree = "<group>"; };
 		76E68F30182C1BBF00FF604C /* punto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = punto.h; path = ifinder/punto.h; sourceTree = "<group>"; };
 		76E68F31182C1BBF00FF604C /* punto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = punto.m; path = ifinder/punto.m; sourceTree = "<group>"; };
+		AE2E3A70184E9E2800A10F4B /* punto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = punto.png; sourceTree = "<group>"; };
+		AE2E3A74184EA07400A10F4B /* tabla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabla.png; sourceTree = "<group>"; };
+		AE2E3A76184EA18C00A10F4B /* coche.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coche.png; sourceTree = "<group>"; };
+		AE2E3A7A184FCFA800A10F4B /* fondonew2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fondonew2x.jpg; sourceTree = "<group>"; };
+		AE2E3A7C184FD04A00A10F4B /* fondonew.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fondonew.jpg; sourceTree = "<group>"; };
 		AE5266C4182AF47800402D46 /* campo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = campo.jpg; sourceTree = "<group>"; };
 		AE5266C5182AF47800402D46 /* ciudad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ciudad.jpg; sourceTree = "<group>"; };
-		AE5266C6182AF47800402D46 /* coche.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coche.png; sourceTree = "<group>"; };
 		AE5266C7182AF47800402D46 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		AE5266C8182AF47800402D46 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		AE5266C9182AF47800402D46 /* flecha-brujula.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flecha-brujula.png"; sourceTree = "<group>"; };
@@ -252,12 +260,16 @@
 		AED7762B18206D22006CFBF1 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				AE2E3A7C184FD04A00A10F4B /* fondonew.jpg */,
+				AE2E3A7A184FCFA800A10F4B /* fondonew2x.jpg */,
+				AE2E3A76184EA18C00A10F4B /* coche.png */,
+				AE2E3A74184EA07400A10F4B /* tabla.png */,
+				AE2E3A70184E9E2800A10F4B /* punto.png */,
 				AE92BA34182C4F1A00DAA16C /* icon58.png */,
 				AE92BA35182C4F1A00DAA16C /* icon80.png */,
 				AE92BA36182C4F1A00DAA16C /* icon120.png */,
 				AE5266C4182AF47800402D46 /* campo.jpg */,
 				AE5266C5182AF47800402D46 /* ciudad.jpg */,
-				AE5266C6182AF47800402D46 /* coche.png */,
 				AE5266C7182AF47800402D46 /* Default-568h@2x.png */,
 				AE5266C8182AF47800402D46 /* Default@2x.png */,
 				AE5266C9182AF47800402D46 /* flecha-brujula.png */,
@@ -356,17 +368,21 @@
 				AE5266E3182AF47800402D46 /* logo.png in Resources */,
 				AE5266DD182AF47800402D46 /* fondo-ciudad.jpg in Resources */,
 				AE5266D9182AF47800402D46 /* Default@2x.png in Resources */,
-				AE5266D7182AF47800402D46 /* coche.png in Resources */,
+				AE2E3A75184EA07400A10F4B /* tabla.png in Resources */,
 				AE5266D5182AF47800402D46 /* campo.jpg in Resources */,
 				76E68F2F182C10B200FF604C /* PuntosList.plist in Resources */,
 				AE5266DC182AF47800402D46 /* fondo-campo.jpg in Resources */,
 				AE5266DF182AF47800402D46 /* icon@2x.png in Resources */,
 				AE5266DB182AF47800402D46 /* fondo-brujula.png in Resources */,
+				AE2E3A72184E9E2800A10F4B /* punto.png in Resources */,
+				AE2E3A7D184FD04A00A10F4B /* fondonew.jpg in Resources */,
+				AE2E3A7B184FCFA800A10F4B /* fondonew2x.jpg in Resources */,
 				AE5266D6182AF47800402D46 /* ciudad.jpg in Resources */,
 				AE5266E5182AF47800402D46 /* pin.png in Resources */,
 				AED775FD18206C7E006CFBF1 /* InfoPlist.strings in Resources */,
 				AE92BA38182C4F1A00DAA16C /* icon80.png in Resources */,
 				AE5266D8182AF47800402D46 /* Default-568h@2x.png in Resources */,
+				AE2E3A77184EA18C00A10F4B /* coche.png in Resources */,
 				AE5266DA182AF47800402D46 /* flecha-brujula.png in Resources */,
 				AE92BA39182C4F1A00DAA16C /* icon120.png in Resources */,
 				AED7760618206C7E006CFBF1 /* Main.storyboard in Resources */,
