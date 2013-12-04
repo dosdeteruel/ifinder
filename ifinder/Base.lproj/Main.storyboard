@@ -13,7 +13,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="campo.jpg" id="L3D-gU-C39">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondonew2x.jpg" id="L3D-gU-C39">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -21,97 +21,57 @@
                                 <rect key="frame" x="6" y="99" width="308" height="388"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oHc-Vo-X3N">
-                                <rect key="frame" x="20" y="496" width="67" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Coche" image="coche.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="marcaCoche" destination="fJC-XS-1Tj" eventType="touchUpInside" id="dji-kI-LLg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AxP-QD-uCd">
-                                <rect key="frame" x="220" y="489" width="43" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <size key="titleShadowOffset" width="3" height="3"/>
-                                <state key="normal" title="monigote" image="monigote.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="iraCoche" destination="fJC-XS-1Tj" eventType="touchUpInside" id="VsM-IK-5jW"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="T8i-I6-FfB">
-                                <rect key="frame" x="128" y="5" width="64" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="pin" image="pin.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="marcaPunto" destination="fJC-XS-1Tj" eventType="touchUpInside" id="pK5-zI-RuY"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo-brujula.png" id="6TF-3O-maM">
-                                <rect key="frame" x="112" y="456" width="96" height="96"/>
+                                <rect key="frame" x="20" y="33.000005071956366" width="127" height="129"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flecha-brujula.png" id="GMM-UC-HYG">
-                                <rect key="frame" x="112" y="456" width="96" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                <rect key="frame" x="20" y="33" width="127" height="129.00000507195637"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rumbo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sMv-U4-HSO">
-                                <rect key="frame" x="127" y="122" width="94" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitud" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xSm-xb-oaH">
-                                <rect key="frame" x="25" y="70" width="86" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitud" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZgK-sy-hkV">
-                                <rect key="frame" x="127" y="70" width="116" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distancia" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="85p-jE-gp7">
-                                <rect key="frame" x="220" y="70" width="119" height="21"/>
+                            <toolbar clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="wfT-Tt-Oo9">
+                                <rect key="frame" x="-6" y="524" width="326" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.2083796789225186" green="0.79613759566326525" blue="0.13015654440497287" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <barButtonItem image="coche.png" width="70" style="plain" id="30v-C9-jV9">
+                                        <inset key="imageInsets" minX="0.0" minY="-3" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <action selector="marcaCoche" destination="fJC-XS-1Tj" id="hM0-PM-we0"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="monigote.png" width="70" id="kTy-4H-dcf">
+                                        <connections>
+                                            <action selector="iraCoche" destination="fJC-XS-1Tj" id="UMG-JO-0Pm"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="tabla.png" width="70" id="8tw-ET-JNF">
+                                        <connections>
+                                            <segue destination="UTl-k5-YkC" kind="modal" id="97D-j2-pkU"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="punto.png" width="70" id="0My-4J-MDy">
+                                        <connections>
+                                            <action selector="marcaPunto" destination="fJC-XS-1Tj" id="1Xe-o7-wS8"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123,45" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dAc-eb-NlN">
+                                <rect key="frame" x="239" y="70" width="75" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                <color key="textColor" red="0.84460698341836737" green="0.41133415533577439" blue="0.13291485320621807" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coche.png" id="UkX-lw-6X9">
-                                <rect key="frame" x="260" y="500" width="60" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RUL-g0-3Rw">
-                                <rect key="frame" x="243" y="20" width="37" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Tabla">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="21K-DU-ROi" kind="modal" id="6tO-81-AEA"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="compassImage" destination="GMM-UC-HYG" id="vC3-G9-04i"/>
-                        <outlet property="distanciaLabel" destination="85p-jE-gp7" id="bug-LK-lb3"/>
-                        <outlet property="latitudLabel" destination="xSm-xb-oaH" id="kOb-l1-gkA"/>
-                        <outlet property="longitudLabel" destination="ZgK-sy-hkV" id="d5c-e3-1Lg"/>
+                        <outlet property="distanciaLabel" destination="dAc-eb-NlN" id="Z22-ub-jud"/>
                         <outlet property="mapaView" destination="yyw-A6-YpF" id="Kxd-gm-cur"/>
-                        <outlet property="rumboLabel" destination="sMv-U4-HSO" id="bvx-lK-qZL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Akq-K0-kUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -127,7 +87,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="56" style="IBUITableViewCellStyleSubtitle" id="APP-Jq-pbX" customClass="CelldePuntos">
+                            <tableViewCell alpha="0.0" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="56" style="IBUITableViewCellStyleSubtitle" id="APP-Jq-pbX" customClass="CelldePuntos">
                                 <rect key="frame" x="0.0" y="86" width="320" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="APP-Jq-pbX" id="jmq-Dm-60I">
@@ -198,12 +158,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="IFm-d6-aSl">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="Tnn-MD-WrJ">
+                        <barButtonItem key="leftBarButtonItem" title="Volver" id="Tnn-MD-WrJ">
+                            <color key="tintColor" red="1" green="0.086705807656055844" blue="0.27892197128796681" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="volver:" destination="nlE-Ns-mSb" id="Et7-n2-sOF"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="h0f-RK-4fJ">
+                            <color key="tintColor" red="1" green="0.086705807656055844" blue="0.27892197128796681" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="EditarListado:" destination="nlE-Ns-mSb" id="E3P-QC-hzV"/>
                             </connections>
@@ -215,7 +177,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZi-yn-34w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="896" y="-253"/>
+            <point key="canvasLocation" x="1036" y="-253"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Nx-9g-DIl">
@@ -233,16 +195,17 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="prc-GM-AW8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="540" y="-253"/>
+            <point key="canvasLocation" x="601" y="-253"/>
         </scene>
     </scenes>
     <resources>
-        <image name="campo.jpg" width="640" height="1136"/>
-        <image name="coche.png" width="154" height="93"/>
+        <image name="coche.png" width="44" height="44"/>
         <image name="flecha-brujula.png" width="252" height="250"/>
         <image name="fondo-brujula.png" width="250" height="250"/>
-        <image name="monigote.png" width="135" height="250"/>
-        <image name="pin.png" width="143" height="155"/>
+        <image name="fondonew2x.jpg" width="640" height="1136"/>
+        <image name="monigote.png" width="24" height="44"/>
+        <image name="punto.png" width="41" height="44"/>
+        <image name="tabla.png" width="44" height="44"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

@@ -13,8 +13,10 @@
 @end
 
 @implementation TableViewController
+
+
 @synthesize zonasMutableArray;
-@synthesize contentArray;
+@synthesize elegidosArray;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,7 +32,7 @@
     //NSInteger *Contador;
     //Contador=0;
 	// Do any additional setup after loading the view.
-    //[self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"fondo-campo.jpg"]]];
+    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"fondo-campo.jpg"]]];
     self.zonasMutableArray = [[NSMutableArray alloc]init];
     self.elegidosArray=[[NSMutableArray alloc]init];
     //self.title = @"zonas";´
@@ -88,7 +90,7 @@
     NSDateFormatter* df = [[NSDateFormatter alloc]init];
     [df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
     cell.CellDate.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
-    
+    //cell.contentView.backgroundColor = [UIColor clearColor];
     if([self.elegidosArray containsObject:indexPath])
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -139,6 +141,12 @@
         }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+-(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPatH{
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectZero] ;
+    backView.backgroundColor = [UIColor clearColor];
+    cell.backgroundView = backView;
+}
+
 
 #pragma mark - Boton Editar.
 // pregunta si la tableview es editable.
@@ -246,7 +254,7 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex: (NSInteger )buttonIndex
 {
     
-    NSLog(@"ButtonsIndex: %i",buttonIndex);
+    NSLog(@"ButtonsIndex: %d",buttonIndex);
     
     if (buttonIndex==[actionSheet cancelButtonIndex]) //2
     {
