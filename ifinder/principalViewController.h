@@ -25,6 +25,13 @@
 @property (nonatomic, retain) IBOutlet UIImageView *compassImage;
 @property (strong, nonatomic) IBOutlet UILabel *distanciaLabel;
 
+@property (retain, nonatomic) IBOutlet UILabel *queQuieresHacerlabel;
+@property (retain, nonatomic) IBOutlet UILabel *iraCochelabel;
+@property (retain, nonatomic) IBOutlet UILabel *iraPuntolabel;
+@property (retain, nonatomic) IBOutlet UIButton *iraCocheButton;
+@property (retain, nonatomic) IBOutlet UIButton *iraPuntoButton;
+@property (retain, nonatomic) IBOutlet UIView *iraView;
+
 - (IBAction)irTabla:(UIStoryboard *)segue;
 
 @property (nonatomic, retain) IBOutlet UILabel *rumboLabel;
@@ -33,6 +40,8 @@
 
 - (void) calculaelRumbo:(CLLocation *)posicion;
 - (IBAction)iraCoche;
+- (IBAction)iraPunto;
+- (IBAction)iraAlgo;
 - (IBAction)marcaCoche;
 - (IBAction)marcaPunto;
 
@@ -41,5 +50,7 @@
 - (void) pintarArrayPuntos:(NSMutableArray *) losPuntos;
 
 - (void) volcarArrayPlist:(punto *) miPunto;
+
+
 
 @end

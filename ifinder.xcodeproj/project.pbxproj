@@ -48,6 +48,7 @@
 		AED7761C18206C7E006CFBF1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AED7761A18206C7E006CFBF1 /* InfoPlist.strings */; };
 		AED7761E18206C7E006CFBF1 /* ifinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AED7761D18206C7E006CFBF1 /* ifinderTests.m */; };
 		AED7762918206CE4006CFBF1 /* principalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED7762818206CE4006CFBF1 /* principalViewController.m */; };
+		AEE2214D184FF12700139B68 /* fondotabla.png in Resources */ = {isa = PBXBuildFile; fileRef = AEE2214C184FF12700139B68 /* fondotabla.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		AED7761D18206C7E006CFBF1 /* ifinderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ifinderTests.m; sourceTree = "<group>"; };
 		AED7762718206CE4006CFBF1 /* principalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = principalViewController.h; sourceTree = "<group>"; };
 		AED7762818206CE4006CFBF1 /* principalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = principalViewController.m; sourceTree = "<group>"; };
+		AEE2214C184FF12700139B68 /* fondotabla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondotabla.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +262,7 @@
 		AED7762B18206D22006CFBF1 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				AEE2214C184FF12700139B68 /* fondotabla.png */,
 				AE2E3A7C184FD04A00A10F4B /* fondonew.jpg */,
 				AE2E3A7A184FCFA800A10F4B /* fondonew2x.jpg */,
 				AE2E3A76184EA18C00A10F4B /* coche.png */,
@@ -333,7 +336,7 @@
 				ORGANIZATIONNAME = "German Bonilla Monterde";
 				TargetAttributes = {
 					AED775EE18206C7E006CFBF1 = {
-						DevelopmentTeam = XAET4E576S;
+						DevelopmentTeam = F3WW7CD638;
 					};
 					AED7760F18206C7E006CFBF1 = {
 						TestTargetID = AED775EE18206C7E006CFBF1;
@@ -375,6 +378,7 @@
 				AE5266DF182AF47800402D46 /* icon@2x.png in Resources */,
 				AE5266DB182AF47800402D46 /* fondo-brujula.png in Resources */,
 				AE2E3A72184E9E2800A10F4B /* punto.png in Resources */,
+				AEE2214D184FF12700139B68 /* fondotabla.png in Resources */,
 				AE2E3A7D184FD04A00A10F4B /* fondonew.jpg in Resources */,
 				AE2E3A7B184FCFA800A10F4B /* fondonew2x.jpg in Resources */,
 				AE5266D6182AF47800402D46 /* ciudad.jpg in Resources */,
