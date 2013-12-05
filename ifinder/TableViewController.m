@@ -140,7 +140,7 @@
     {
         cell.accessoryType = UITableViewCellAccessoryNone;
         [self.elegidosArray removeObject:indexPath];
-        NSLog(@"celda borrada.. :-(");
+        NSLog(@"celda borrada.. ");
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
