@@ -95,7 +95,9 @@ double miRumbo;
     
    
     punto *miPunto =[[punto alloc] init];
-    
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"dd-MM-yyyy hh:mm:ss"];
+    NSDate * fecha =[[NSDate alloc] init];
   
     double posx;
     double posy;
@@ -158,10 +160,6 @@ double miRumbo;
             break;
             
         case guardaPunto:
-        //    [[NSUserDefaults standardUserDefaults] setFloat:posy forKey:@"puntolatitud"];
-        //    [[NSUserDefaults standardUserDefaults] setFloat:posx forKey:@"puntolongitud"];
-            
-        //    [[NSUserDefaults standardUserDefaults] synchronize];
             
             tipoAccion=hacerNada;
             [locationManager stopUpdatingLocation];
@@ -170,9 +168,6 @@ double miRumbo;
          
             miPunto.x = [NSNumber numberWithDouble:posx];
             miPunto.y = [NSNumber numberWithDouble:posy];
-            miPunto.fecha= [NSDate date];
-
-            [arrayPuntos addObject:miPunto];
             
             
             [self volcarArrayPlist:miPunto];
@@ -240,15 +235,11 @@ double miRumbo;
         
     }
     
-    
        puntoAnotacion *elpunto =[[puntoAnotacion alloc] initWithTitle: punto
                                   
                                                          andCoordinate:puntoFin];
    
-   
        [self.mapaView addAnnotation:elpunto];
-
-  
     
    
     float uLat = (puntoInicio.latitude * M_PI)/ 180.0;
@@ -256,9 +247,6 @@ double miRumbo;
     
     float fLat = (puntoFin.latitude *  M_PI)/ 180.0;
     float fLng = (puntoFin.longitude * M_PI)/ 180.0;
-  
-    
-    
     
     miRumbo =  atan2(sin(fLng-uLng)*cos(fLat), cos(uLat)*sin(fLat)-sin(uLat)*cos(fLat)*cos(fLng-uLng));
     miRumbo = (miRumbo * 180.0 /M_PI);
@@ -274,11 +262,8 @@ double miRumbo;
     self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
     self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo) * M_PI / 180);
     
-    
-    
     rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
-    
-    
+  
    }
 
 
@@ -300,11 +285,39 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 
 - (IBAction)iraCoche
 {
+    self.iraView.hidden=YES;
+    self.iraView.alpha=0;
+    [self.iraCocheButton setEnabled:NO];
+    self.iraCocheButton.alpha =0;
+    [self.iraPuntoButton setEnabled:NO];
+    self.iraPuntoButton.alpha =0;
+    self.iraCochelabel.alpha =0;
+    self.iraPuntolabel.alpha =0;
+    self.queQuieresHacerlabel.alpha =0;
+    
     tipoAccion=irCoche;  // ¡r coche
     [locationManager startUpdatingLocation];
     [locationManager startUpdatingHeading];
     
 }
+- (IBAction)iraPunto
+{
+    self.iraView.hidden=YES;
+    self.iraView.alpha=0;
+    [self.iraCocheButton setEnabled:NO];
+    self.iraCocheButton.alpha =0;
+    [self.iraPuntoButton setEnabled:NO];
+    self.iraPuntoButton.alpha =0;
+    self.iraCochelabel.alpha =0;
+    self.iraPuntolabel.alpha =0;
+    self.queQuieresHacerlabel.alpha =0;
+    
+    tipoAccion=irCoche;  // ¡r coche
+    [locationManager startUpdatingLocation];
+    [locationManager startUpdatingHeading];
+    
+}
+
 - (IBAction)marcaCoche
 {
     
