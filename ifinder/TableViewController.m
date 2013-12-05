@@ -88,11 +88,14 @@
     
     cell.CellX.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"] stringValue];
     cell.CellY.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
-    //NSDateFormatter* df = [[NSDateFormatter alloc]init];
-    //[df setDateFormat:@"dd-MM-yyyy hh:mm:ss"];
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
+    
+    cell.CellFecha.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
+
     //cell.CellFecha.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
     //cell.contentView.backgroundColor = [UIColor clearColor];
-    cell.CellFecha.text=[[self.zonasMutableArray objectAtIndex:indexPath.row]valueForKey:@"fecha"];
+    cell.CellFecha.text=[df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row]valueForKey:@"fecha"]];
     if([self.elegidosArray containsObject:indexPath])
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
