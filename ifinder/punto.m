@@ -12,8 +12,5 @@
 @synthesize x;
 @synthesize y;
 @synthesize fecha;
-@synthesize dato;
-@synthesize imagen;
-@synthesize zona;
-@synthesize marca;
+
 @end

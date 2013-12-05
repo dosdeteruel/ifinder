@@ -178,10 +178,6 @@ double miRumbo;
             break;
             
         case guardaPunto:
-        //    [[NSUserDefaults standardUserDefaults] setFloat:posy forKey:@"puntolatitud"];
-        //    [[NSUserDefaults standardUserDefaults] setFloat:posx forKey:@"puntolongitud"];
-            
-        //    [[NSUserDefaults standardUserDefaults] synchronize];
             
             tipoAccion=hacerNada;
             [locationManager stopUpdatingLocation];
@@ -190,13 +186,13 @@ double miRumbo;
          
             miPunto.x = [NSNumber numberWithDouble:posx];
             miPunto.y = [NSNumber numberWithDouble:posy];
-            miPunto.fecha= [NSDate date];
-
+            
+            fecha=[NSDate date];
+            
+            miPunto.fecha= [df stringFromDate:fecha];
+            
             [arrayPuntos addObject:miPunto];
-            
-            //guardo?? creo que si
-        //    [self guardartodoAplist: miPunto];
-            
+
            
             [self volcarArrayPlist:miPunto];
             

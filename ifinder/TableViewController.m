@@ -46,6 +46,7 @@
     NSLog(@"%@",fooPath);
     self.zonasMutableArray  = [NSMutableArray arrayWithContentsOfFile:fooPath];
     NSLog(@"%d Registros recuperados en PuntosList.plist",self.zonasMutableArray.count);
+    NSLog(@"array %@ ",self.zonasMutableArray);
    /* NSInteger *Contador = [self.zonasMutableArray count];
     if (Contador==0)
     {
@@ -88,10 +89,11 @@
     
     cell.CellX.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"] stringValue];
     cell.CellY.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
-    NSDateFormatter* df = [[NSDateFormatter alloc]init];
-    [df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
-    cell.CellFecha.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
+    //NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    //[df setDateFormat:@"dd-MM-yyyy hh:mm:ss"];
+    //cell.CellFecha.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
     //cell.contentView.backgroundColor = [UIColor clearColor];
+    cell.CellFecha.text=[[self.zonasMutableArray objectAtIndex:indexPath.row]valueForKey:@"fecha"];
     if([self.elegidosArray containsObject:indexPath])
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -135,11 +137,12 @@
         
         self.botonEditarBarButtonItem.title=@"Acción";
     }
-    else {
+    else
+    {
         cell.accessoryType = UITableViewCellAccessoryNone;
         [self.elegidosArray removeObject:indexPath];
         NSLog(@"celda borrada.. :-(");
-        }
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 -(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPatH{
@@ -168,10 +171,11 @@
         {
             [self.tableView setEditing:NO animated:YES];
             self.botonEditarBarButtonItem.tag=0;
-            self.botonEditarBarButtonItem.title=@"Editar";
+            self.botonEditarBarButtonItem.title=@"";
             self.botonEditarBarButtonItem.style=UIBarButtonItemStyleBordered;
             self.botonEditarBarButtonItem.enabled=NO;
         }
+        NSLog(@"registros en tableview %d",[self.zonasMutableArray count]);
         [self salvarplist];
         
     }
@@ -199,8 +203,8 @@
         // for (id myArrayElement in self.zonasMutableArray)
     {
         //guarda datos en estructura
-        NSLog(@"esta es la zona:%@",puntos);
-        diccionarioplist = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: puntos.fecha, puntos.x, puntos.y, nil] forKeys:[NSArray arrayWithObjects:@"fecha",@"x",@"y",nil]];
+        NSLog(@"esta es el punto:%@",puntos);
+        diccionarioplist = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: puntos.fecha , puntos.x, puntos.y, nil] forKeys:[NSArray arrayWithObjects:@"fecha",@"x",@"y",nil]];
         //guardo estructura en array.
         //
         NSLog(@"fallo aqui");
