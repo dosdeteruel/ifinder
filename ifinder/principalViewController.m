@@ -113,7 +113,9 @@ double miRumbo;
     
    
     punto *miPunto =[[punto alloc] init];
-    
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"dd-MM-yyyy hh:mm:ss"];
+    NSDate * fecha =[[NSDate alloc] init];
   
     double posx;
     double posy;
