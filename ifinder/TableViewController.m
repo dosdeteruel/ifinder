@@ -8,12 +8,12 @@
 
 #import "tableViewController.h"
 #import "principalViewController.h"
+
 @interface TableViewController ()
-
-
 @end
 
 @implementation TableViewController
+
 NSMutableArray * zonasMutableArray;
 NSMutableArray * elegidosArray;
 //@synthesize zonasMutableArray;
@@ -37,8 +37,8 @@ NSMutableArray * elegidosArray;
     zonasMutableArray = [[NSMutableArray alloc]init];
     elegidosArray=[[NSMutableArray alloc]init];
     //self.title = @"zonas";´
-    self.botonEditarBarButtonItem.enabled=NO;
-    self.botonEditarBarButtonItem.title=@"";
+    //self.botonEditarBarButtonItem.enabled=NO;
+    //self.botonEditarBarButtonItem.title=@"";
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0];
     
@@ -89,29 +89,29 @@ NSMutableArray * elegidosArray;
     
     cell.CellX.text=[[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"] stringValue];
     cell.CellY.text=[[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
- // NSDateFormatter* df = [[NSDateFormatter alloc]init];
+//NSDateFormatter* df = [[NSDateFormatter alloc]init];
 
-//    NSDate fecha;
-//    [df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
-    NSString *fecha;
+//NSDate fecha;
+//[df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
+    //NSString *fecha;
     
-   fecha= [[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"];
+   cell.CellFecha.text= [[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"];
 
- //   cell.CellFecha.text= fecha;
-    
-    //cell.CellFecha.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
-    //cell.contentView.backgroundColor = [UIColor clearColor];
- //   cell.CellFecha.text=[df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row]valueForKey:@"fecha"]];
-    /*if([elegidosArray containsObject:indexPath])
+//cell.CellFecha.text= fecha;
+//cell.CellFecha.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
+//cell.contentView.backgroundColor = [UIColor clearColor];
+//cell.CellFecha.text=[df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row]valueForKey:@"fecha"]];
+/*if([elegidosArray containsObject:indexPath])
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     else
     {
         cell.accessoryType = UITableViewCellAccessoryNone;
-    }*/
-    //cell.tag=indexPath.row;
-    // Configure the cell...
+    }
+*/
+//cell.tag=indexPath.row;
+// Configure the cell...
     return cell;
 }
 
@@ -130,7 +130,8 @@ NSMutableArray * elegidosArray;
 }
 #pragma mark - Table view delegate
 
-/*- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *) indexPath
+/*
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *) indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
@@ -152,7 +153,8 @@ NSMutableArray * elegidosArray;
         NSLog(@"celda borrada.. ");
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}*/
+}
+*/
 -(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPatH{
     UIView *backView = [[UIView alloc] initWithFrame:CGRectZero] ;
     backView.backgroundColor = [UIColor clearColor];
@@ -178,17 +180,13 @@ NSMutableArray * elegidosArray;
         if ([zonasMutableArray count] ==0)
         {
             [self.tableView setEditing:NO animated:YES];
-            self.botonEditarBarButtonItem.tag=0;
-            self.botonEditarBarButtonItem.title=@"";
-            self.botonEditarBarButtonItem.style=UIBarButtonItemStyleBordered;
-            self.botonEditarBarButtonItem.enabled=NO;
+            //self.botonEditarBarButtonItem.tag=0;
+            //self.botonEditarBarButtonItem.title=@"";
+            //self.botonEditarBarButtonItem.style=UIBarButtonItemStyleBordered;
+            //self.botonEditarBarButtonItem.enabled=NO;
         }
         NSLog(@"registros en tableview %d",[zonasMutableArray count]);
         [self salvarplist];
-        //for (punto *puntos in self.zonasMutableArray)
-        //{
-        //    [self volcarArrayPlist:puntos];
-        //}
     }
 }
 #pragma mark -salvado plist.
@@ -231,11 +229,12 @@ NSMutableArray * elegidosArray;
     [myActionSheet showInView:self.view];
 
 }
-
+*/
 - (IBAction)volver:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+/*
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex: (NSInteger )buttonIndex
 {
     
