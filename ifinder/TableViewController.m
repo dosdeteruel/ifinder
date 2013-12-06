@@ -87,29 +87,29 @@ NSMutableArray * elegidosArray;
     static NSString *CellIdentifier = @"Cell";
     CelldePuntos *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.CellX.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"] stringValue];
-    cell.CellY.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
+    cell.CellX.text=[[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"] stringValue];
+    cell.CellY.text=[[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
  // NSDateFormatter* df = [[NSDateFormatter alloc]init];
 
 //    NSDate fecha;
 //    [df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
     NSString *fecha;
     
-   fecha= [[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"];
+   fecha= [[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"];
 
  //   cell.CellFecha.text= fecha;
     
     //cell.CellFecha.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
     //cell.contentView.backgroundColor = [UIColor clearColor];
  //   cell.CellFecha.text=[df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row]valueForKey:@"fecha"]];
-    if([self.elegidosArray containsObject:indexPath])
+    /*if([elegidosArray containsObject:indexPath])
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     else
     {
         cell.accessoryType = UITableViewCellAccessoryNone;
-    }
+    }*/
     //cell.tag=indexPath.row;
     // Configure the cell...
     return cell;
@@ -130,7 +130,7 @@ NSMutableArray * elegidosArray;
 }
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *) indexPath
+/*- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *) indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
@@ -140,7 +140,7 @@ NSMutableArray * elegidosArray;
         
         [elegidosArray addObject:indexPath];
         
-        NSLog(@"%d registros seled", elegidosArray.count);
+        NSLog(@"%d registros selecionados", elegidosArray.count);
         self.botonEditarBarButtonItem.enabled=YES;
         
         self.botonEditarBarButtonItem.title=@"Acción";
@@ -148,11 +148,11 @@ NSMutableArray * elegidosArray;
     else
     {
         cell.accessoryType = UITableViewCellAccessoryNone;
-        [self.elegidosArray removeObject:indexPath];
+        [elegidosArray removeObject:indexPath];
         NSLog(@"celda borrada.. ");
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
+}*/
 -(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPatH{
     UIView *backView = [[UIView alloc] initWithFrame:CGRectZero] ;
     backView.backgroundColor = [UIColor clearColor];
@@ -204,25 +204,7 @@ NSMutableArray * elegidosArray;
     NSData *ficheroPlist;
     // NSMutableArray *myArrayElement;
     
-    for (punto *puntos in self.zonasMutableArray)
-        // for (id myArrayElement in self.zonasMutableArray)
-    {
-        //guarda datos en estructura
-        
-        
-        NSLog(@"esta es el punto:%@",puntos);
-        
-        NSLog(@"este es el punto MALDITOOOO:%@",puntos);
-        NSLog(@"FECHA:%@",puntos.fecha);
-        NSLog(@"X :%@",puntos.x);
-        NSLog(@"y :%@",puntos.y);
-        NSLog(@"esto es lo que tienen los puntos");
-        diccionarioplist = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: puntos.fecha , puntos.x, puntos.y, nil] forKeys:[NSArray arrayWithObjects:@"fecha",@"x",@"y",nil]];
-        //guardo estructura en array.
-        //
-        NSLog(@"fallo aqui");
-        [diccionariozonas addObject:diccionarioplist];
-    }
+
     
     ficheroPlist =[NSPropertyListSerialization dataFromPropertyList:zonasMutableArray format:NSPropertyListBinaryFormat_v1_0 errorDescription:nil];
     
@@ -239,7 +221,7 @@ NSMutableArray * elegidosArray;
 
 
 #pragma mark - IBAction
-- (IBAction)EditarListado:(id)sender
+/*- (IBAction)EditarListado:(id)sender
 {
     UIActionSheet *myActionSheet=[[UIActionSheet alloc]initWithTitle:@"Acciones..."
                                                             delegate:self
@@ -283,7 +265,7 @@ NSMutableArray * elegidosArray;
         [self salvarplist];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
-}
+}*/
 
 
 
