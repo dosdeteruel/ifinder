@@ -8,12 +8,12 @@
 
 #import "tableViewController.h"
 #import "principalViewController.h"
+
 @interface TableViewController ()
-
-
 @end
 
 @implementation TableViewController
+
 NSMutableArray * zonasMutableArray;
 NSMutableArray * elegidosArray;
 //@synthesize zonasMutableArray;
@@ -37,8 +37,8 @@ NSMutableArray * elegidosArray;
     zonasMutableArray = [[NSMutableArray alloc]init];
     elegidosArray=[[NSMutableArray alloc]init];
     //self.title = @"zonas";´
-    self.botonEditarBarButtonItem.enabled=NO;
-    self.botonEditarBarButtonItem.title=@"";
+    //self.botonEditarBarButtonItem.enabled=NO;
+    //self.botonEditarBarButtonItem.title=@"";
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0];
     
@@ -102,8 +102,9 @@ NSMutableArray * elegidosArray;
     {
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
-    //cell.tag=indexPath.row;
-    // Configure the cell...
+*/
+//cell.tag=indexPath.row;
+// Configure the cell...
     return cell;
 }
 
@@ -122,6 +123,7 @@ NSMutableArray * elegidosArray;
 }
 #pragma mark - Table view delegate
 
+/*
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *) indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -132,7 +134,7 @@ NSMutableArray * elegidosArray;
         
         [elegidosArray addObject:indexPath];
         
-        NSLog(@"%d registros seled", elegidosArray.count);
+        NSLog(@"%d registros selecionados", elegidosArray.count);
         self.botonEditarBarButtonItem.enabled=YES;
         
         self.botonEditarBarButtonItem.title=@"Acción";
@@ -145,6 +147,7 @@ NSMutableArray * elegidosArray;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+*/
 -(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPatH{
     UIView *backView = [[UIView alloc] initWithFrame:CGRectZero] ;
     backView.backgroundColor = [UIColor clearColor];
@@ -170,17 +173,13 @@ NSMutableArray * elegidosArray;
         if ([zonasMutableArray count] ==0)
         {
             [self.tableView setEditing:NO animated:YES];
-            self.botonEditarBarButtonItem.tag=0;
-            self.botonEditarBarButtonItem.title=@"";
-            self.botonEditarBarButtonItem.style=UIBarButtonItemStyleBordered;
-            self.botonEditarBarButtonItem.enabled=NO;
+            //self.botonEditarBarButtonItem.tag=0;
+            //self.botonEditarBarButtonItem.title=@"";
+            //self.botonEditarBarButtonItem.style=UIBarButtonItemStyleBordered;
+            //self.botonEditarBarButtonItem.enabled=NO;
         }
         NSLog(@"registros en tableview %d",[zonasMutableArray count]);
         [self salvarplist];
-        //for (punto *puntos in self.zonasMutableArray)
-        //{
-        //    [self volcarArrayPlist:puntos];
-        //}
     }
 }
 #pragma mark -salvado plist.
@@ -192,7 +191,7 @@ NSMutableArray * elegidosArray;
     // busca el fichero plist concreto.
     NSString *path_a_plist =[rootPath stringByAppendingPathComponent:@"PuntosList.plist"];
     NSLog(@"Ruta al fichero: %@", path_a_plist);
-    
+    // ya funciona...
     NSData *ficheroPlist;
     
     ficheroPlist =[NSPropertyListSerialization dataFromPropertyList:zonasMutableArray format:NSPropertyListBinaryFormat_v1_0 errorDescription:nil];
@@ -210,7 +209,7 @@ NSMutableArray * elegidosArray;
 
 
 #pragma mark - IBAction
-- (IBAction)EditarListado:(id)sender
+/*- (IBAction)EditarListado:(id)sender
 {
     UIActionSheet *myActionSheet=[[UIActionSheet alloc]initWithTitle:@"Acciones..."
                                                             delegate:self
@@ -220,11 +219,12 @@ NSMutableArray * elegidosArray;
     [myActionSheet showInView:self.view];
 
 }
-
+*/
 - (IBAction)volver:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+/*
 -(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex: (NSInteger )buttonIndex
 {
     
@@ -254,7 +254,7 @@ NSMutableArray * elegidosArray;
         [self salvarplist];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
-}
+}*/
 
 
 

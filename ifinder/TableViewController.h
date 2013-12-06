@@ -17,12 +17,12 @@
    // NSMutableArray *zonasMutableArray;
 }
 
-@property (nonatomic,strong) IBOutlet UIBarButtonItem *botonEditarBarButtonItem;
+//@property (nonatomic,strong) IBOutlet UIBarButtonItem *botonEditarBarButtonItem;
 
 //@property (nonatomic,strong) NSMutableArray * zonasMutableArray;
 //@property (nonatomic,strong) NSMutableArray * elegidosArray;
 
-- (IBAction)EditarListado:(id)sender;
+//- (IBAction)EditarListado:(id)sender;
 
 - (IBAction)volver:(id)sender;
 
