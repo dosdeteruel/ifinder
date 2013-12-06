@@ -192,7 +192,7 @@ NSMutableArray * elegidosArray;
     // busca el fichero plist concreto.
     NSString *path_a_plist =[rootPath stringByAppendingPathComponent:@"PuntosList.plist"];
     NSLog(@"Ruta al fichero: %@", path_a_plist);
-    
+    // ya funciona...
     NSData *ficheroPlist;
     
     ficheroPlist =[NSPropertyListSerialization dataFromPropertyList:zonasMutableArray format:NSPropertyListBinaryFormat_v1_0 errorDescription:nil];
