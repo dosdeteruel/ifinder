@@ -13,14 +13,14 @@
 
 @interface TableViewController : UITableViewController < UITableViewDelegate , UITableViewDataSource>
 {
-    NSMutableArray *elegidosArray;
-    NSMutableArray *zonasMutableArray;
+   // NSMutableArray *elegidosArray;
+   // NSMutableArray *zonasMutableArray;
 }
 
 @property (nonatomic,strong) IBOutlet UIBarButtonItem *botonEditarBarButtonItem;
 
-@property (nonatomic,strong) NSMutableArray * zonasMutableArray;
-@property (nonatomic,strong) NSMutableArray * elegidosArray;
+//@property (nonatomic,strong) NSMutableArray * zonasMutableArray;
+//@property (nonatomic,strong) NSMutableArray * elegidosArray;
 
 - (IBAction)EditarListado:(id)sender;
 

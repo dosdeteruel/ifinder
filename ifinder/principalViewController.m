@@ -96,7 +96,7 @@ double miRumbo;
    
     punto *miPunto =[[punto alloc] init];
     NSDateFormatter* df = [[NSDateFormatter alloc]init];
-    [df setDateFormat:@"dd-MM-yyyy hh:mm:ss"];
+    [df setDateFormat:@"dd.MM.yyyy hh:mm:ss Z"];
     NSDate * fecha =[[NSDate alloc] init];
   
     double posx;
@@ -405,18 +405,15 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 
     NSString *ruta;
     NSString *pathArray =    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    
     NSDictionary *plistDictionary;
-    
     ruta= [pathArray stringByAppendingPathComponent:@"PuntosList.plist"];
     if (ruta)
     {
-        
-        
-        plistDictionary = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: miPunto.fecha, miPunto.x, miPunto.y, nil] forKeys:[NSArray arrayWithObjects:@"fecha",@"x",@"y",nil]];
-     
-        
-        // recogo datos del fichero a ver si tiene algo
+        plistDictionary = [NSDictionary dictionaryWithObjects:
+                           [NSArray arrayWithObjects: miPunto.fecha, miPunto.x, miPunto.y, nil] forKeys:
+                           [NSArray arrayWithObjects:@"fecha",@"x",@"y",nil]
+                           ];
+     // recogo datos del fichero a ver si tiene algo
         NSMutableArray* plistArray = [[NSMutableArray alloc] initWithContentsOfFile:ruta];
         if(plistArray)
             
@@ -427,10 +424,11 @@ didChangeDragState:(MKAnnotationViewDragState)newState
             {
                 NSLog( @"No grabo en plist" );
             }
-            else{
+            else
+            {
                 NSLog( @"Hecho plist" );
             }
-       }
+        }
         else
         {
         
@@ -441,12 +439,10 @@ didChangeDragState:(MKAnnotationViewDragState)newState
             {
                 NSLog( @"No grabo en plist vacio" );
             }
-            else{
+            else
+            {
                 NSLog( @"Hecho plist desde vacio" );
             }
-         
-
-        
         }
     }
     
@@ -487,4 +483,5 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 - (IBAction)irTabla:(id)sender
 {
 }
+
 @end
