@@ -88,14 +88,19 @@
     
     cell.CellX.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"] stringValue];
     cell.CellY.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
-    NSDateFormatter* df = [[NSDateFormatter alloc]init];
-    [df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
-    
-    cell.CellFecha.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
+ // NSDateFormatter* df = [[NSDateFormatter alloc]init];
 
+//    NSDate fecha;
+//    [df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
+    NSString *fecha;
+    
+   fecha= [[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"];
+
+ //   cell.CellFecha.text= fecha;
+    
     //cell.CellFecha.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
     //cell.contentView.backgroundColor = [UIColor clearColor];
-    cell.CellFecha.text=[df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row]valueForKey:@"fecha"]];
+ //   cell.CellFecha.text=[df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row]valueForKey:@"fecha"]];
     if([self.elegidosArray containsObject:indexPath])
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -205,7 +210,15 @@
         // for (id myArrayElement in self.zonasMutableArray)
     {
         //guarda datos en estructura
+        
+        
         NSLog(@"esta es el punto:%@",puntos);
+        
+        NSLog(@"este es el punto MALDITOOOO:%@",puntos);
+        NSLog(@"FECHA:%@",puntos.fecha);
+        NSLog(@"X :%@",puntos.x);
+        NSLog(@"y :%@",puntos.y);
+        NSLog(@"esto es lo que tienen los puntos");
         diccionarioplist = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: puntos.fecha , puntos.x, puntos.y, nil] forKeys:[NSArray arrayWithObjects:@"fecha",@"x",@"y",nil]];
         //guardo estructura en array.
         //
