@@ -7,16 +7,17 @@
 //
 
 #import "tableViewController.h"
-
+#import "principalViewController.h"
 @interface TableViewController ()
 
 
 @end
 
 @implementation TableViewController
-
-@synthesize zonasMutableArray;
-@synthesize elegidosArray;
+NSMutableArray * zonasMutableArray;
+NSMutableArray * elegidosArray;
+//@synthesize zonasMutableArray;
+//@synthesize elegidosArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,8 +34,8 @@
     //NSInteger *Contador;
     //Contador=0;
 	// Do any additional setup after loading the view.
-    self.zonasMutableArray = [[NSMutableArray alloc]init];
-    self.elegidosArray=[[NSMutableArray alloc]init];
+    zonasMutableArray = [[NSMutableArray alloc]init];
+    elegidosArray=[[NSMutableArray alloc]init];
     //self.title = @"zonas";´
     self.botonEditarBarButtonItem.enabled=NO;
     self.botonEditarBarButtonItem.title=@"";
@@ -43,9 +44,9 @@
     
     NSString *fooPath = [documentsPath stringByAppendingPathComponent:@"PuntosList.plist"];
     NSLog(@"%@",fooPath);
-    self.zonasMutableArray  = [NSMutableArray arrayWithContentsOfFile:fooPath];
-    NSLog(@"%d Registros recuperados en PuntosList.plist",self.zonasMutableArray.count);
-    NSLog(@"array %@ ",self.zonasMutableArray);
+    zonasMutableArray  = [NSMutableArray arrayWithContentsOfFile:fooPath];
+    NSLog(@"%d Registros recuperados en PuntosList.plist",zonasMutableArray.count);
+    NSLog(@"array %@ ",zonasMutableArray);
    /* NSInteger *Contador = [self.zonasMutableArray count];
     if (Contador==0)
     {
@@ -77,8 +78,8 @@
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    NSLog(@"%d registros en zonasMutableArray", self.zonasMutableArray.count );
-    return self.zonasMutableArray.count;
+    NSLog(@"%d registros en zonasMutableArray",zonasMutableArray.count );
+    return zonasMutableArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -86,14 +87,14 @@
     static NSString *CellIdentifier = @"Cell";
     CelldePuntos *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.CellX.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"] stringValue];
-    cell.CellY.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
+    cell.CellX.text=[[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"] stringValue];
+    cell.CellY.text=[[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
     //NSDateFormatter* df = [[NSDateFormatter alloc]init];
-    //[df setDateFormat:@"dd-MM-yyyy hh:mm:ss"];
+    //[df setDateFormat:@"dd.MM.yyyy HH:mm:ss"];
     //cell.CellFecha.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
     //cell.contentView.backgroundColor = [UIColor clearColor];
-    cell.CellFecha.text=[[self.zonasMutableArray objectAtIndex:indexPath.row]valueForKey:@"fecha"];
-    if([self.elegidosArray containsObject:indexPath])
+    cell.CellFecha.text=[[zonasMutableArray objectAtIndex:indexPath.row]valueForKey:@"fecha"];
+    if([elegidosArray containsObject:indexPath])
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
@@ -129,9 +130,9 @@
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         
-        [self.elegidosArray addObject:indexPath];
+        [elegidosArray addObject:indexPath];
         
-        NSLog(@"%d registros seled", self.elegidosArray.count);
+        NSLog(@"%d registros seled", elegidosArray.count);
         self.botonEditarBarButtonItem.enabled=YES;
         
         self.botonEditarBarButtonItem.title=@"Acción";
@@ -139,7 +140,7 @@
     else
     {
         cell.accessoryType = UITableViewCellAccessoryNone;
-        [self.elegidosArray removeObject:indexPath];
+        [elegidosArray removeObject:indexPath];
         NSLog(@"celda borrada.. :-(");
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -164,9 +165,9 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        [self.zonasMutableArray removeObjectAtIndex:indexPath.row];
+        [zonasMutableArray removeObjectAtIndex:indexPath.row];
         [self.tableView reloadData];
-        if ([self.zonasMutableArray count] ==0)
+        if ([zonasMutableArray count] ==0)
         {
             [self.tableView setEditing:NO animated:YES];
             self.botonEditarBarButtonItem.tag=0;
@@ -174,44 +175,27 @@
             self.botonEditarBarButtonItem.style=UIBarButtonItemStyleBordered;
             self.botonEditarBarButtonItem.enabled=NO;
         }
-        NSLog(@"registros en tableview %d",[self.zonasMutableArray count]);
+        NSLog(@"registros en tableview %d",[zonasMutableArray count]);
         [self salvarplist];
-        
+        //for (punto *puntos in self.zonasMutableArray)
+        //{
+        //    [self volcarArrayPlist:puntos];
+        //}
     }
 }
 #pragma mark -salvado plist.
 - (void) salvarplist
 {
-    // aqui empieza el guardado al plist...
     
     NSString *rootPath =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     
     // busca el fichero plist concreto.
-    
     NSString *path_a_plist =[rootPath stringByAppendingPathComponent:@"PuntosList.plist"];
     NSLog(@"Ruta al fichero: %@", path_a_plist);
     
-    //creo el dictionary que sirve de structura para añadir al array que luego se volcara en el plist.
-    
-    NSDictionary *diccionarioplist;
-    NSMutableArray *diccionariozonas=[[NSMutableArray alloc] init];
     NSData *ficheroPlist;
-    // NSMutableArray *myArrayElement;
     
-    for (punto *puntos in self.zonasMutableArray)
-        // for (id myArrayElement in self.zonasMutableArray)
-    {
-        //guarda datos en estructura
-        NSLog(@"esta es el punto:%@",puntos);
-        diccionarioplist = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: puntos.fecha , puntos.x, puntos.y, nil] forKeys:[NSArray arrayWithObjects:@"fecha",@"x",@"y",nil]];
-        //guardo estructura en array.
-        //
-        NSLog(@"fallo aqui");
-        [diccionariozonas addObject:diccionarioplist];
-    }
-    
-   
-    ficheroPlist =[NSPropertyListSerialization dataFromPropertyList:self.zonasMutableArray format:NSPropertyListBinaryFormat_v1_0 errorDescription:nil];
+    ficheroPlist =[NSPropertyListSerialization dataFromPropertyList:zonasMutableArray format:NSPropertyListBinaryFormat_v1_0 errorDescription:nil];
     
     if (ficheroPlist)
     {
@@ -264,28 +248,14 @@
         if (buttonIndex == 0)
     {
         NSLog(@"boton 0 borrando todos...");
-        self.zonasMutableArray = [[NSMutableArray alloc]init];
-        self.elegidosArray=[[NSMutableArray alloc] init];
+        zonasMutableArray = [[NSMutableArray alloc]init];
+        elegidosArray=[[NSMutableArray alloc] init];
         
         [self salvarplist];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 
-#pragma mark - de plist
 
-- (void) cargardePlist
-{
-  
-    zonasMutableArray = [[NSMutableArray alloc]init];
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
-    NSString *documentsPath = [paths objectAtIndex:0];
-    NSString *fooPath = [documentsPath stringByAppendingPathComponent:@"zonas.plist"];
-    
-    NSLog(@"%@",fooPath);
-    
-    zonasMutableArray  = [NSMutableArray arrayWithContentsOfFile:fooPath];
-    
-    NSLog(@"%d Registros recuperados en zonas.plist",zonasMutableArray.count);
-}
+
 @end
