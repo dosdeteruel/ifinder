@@ -87,22 +87,14 @@ NSMutableArray * elegidosArray;
     static NSString *CellIdentifier = @"Cell";
     CelldePuntos *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.CellX.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"] stringValue];
-    cell.CellY.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
- // NSDateFormatter* df = [[NSDateFormatter alloc]init];
-
-//    NSDate fecha;
-//    [df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
-    NSString *fecha;
-    
-   fecha= [[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"];
-
- //   cell.CellFecha.text= fecha;
-    
+    cell.CellX.text=[[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"] stringValue];
+    cell.CellY.text=[[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
+    //NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    //[df setDateFormat:@"dd.MM.yyyy HH:mm:ss"];
     //cell.CellFecha.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
     //cell.contentView.backgroundColor = [UIColor clearColor];
- //   cell.CellFecha.text=[df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row]valueForKey:@"fecha"]];
-    if([self.elegidosArray containsObject:indexPath])
+    cell.CellFecha.text=[[zonasMutableArray objectAtIndex:indexPath.row]valueForKey:@"fecha"];
+    if([elegidosArray containsObject:indexPath])
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
@@ -148,8 +140,8 @@ NSMutableArray * elegidosArray;
     else
     {
         cell.accessoryType = UITableViewCellAccessoryNone;
-        [self.elegidosArray removeObject:indexPath];
-        NSLog(@"celda borrada.. ");
+        [elegidosArray removeObject:indexPath];
+        NSLog(@"celda borrada.. :-(");
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -202,27 +194,6 @@ NSMutableArray * elegidosArray;
     NSLog(@"Ruta al fichero: %@", path_a_plist);
     
     NSData *ficheroPlist;
-    // NSMutableArray *myArrayElement;
-    
-    for (punto *puntos in self.zonasMutableArray)
-        // for (id myArrayElement in self.zonasMutableArray)
-    {
-        //guarda datos en estructura
-        
-        
-        NSLog(@"esta es el punto:%@",puntos);
-        
-        NSLog(@"este es el punto MALDITOOOO:%@",puntos);
-        NSLog(@"FECHA:%@",puntos.fecha);
-        NSLog(@"X :%@",puntos.x);
-        NSLog(@"y :%@",puntos.y);
-        NSLog(@"esto es lo que tienen los puntos");
-        diccionarioplist = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: puntos.fecha , puntos.x, puntos.y, nil] forKeys:[NSArray arrayWithObjects:@"fecha",@"x",@"y",nil]];
-        //guardo estructura en array.
-        //
-        NSLog(@"fallo aqui");
-        [diccionariozonas addObject:diccionarioplist];
-    }
     
     ficheroPlist =[NSPropertyListSerialization dataFromPropertyList:zonasMutableArray format:NSPropertyListBinaryFormat_v1_0 errorDescription:nil];
     

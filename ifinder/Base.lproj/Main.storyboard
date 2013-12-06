@@ -97,7 +97,7 @@
                                     </barButtonItem>
                                     <barButtonItem image="tabla.png" width="70" id="8tw-ET-JNF">
                                         <connections>
-                                            <segue destination="UTl-k5-YkC" kind="modal" identifier="goToTable" modalTransitionStyle="coverVertical" id="97D-j2-pkU"/>
+                                            <segue destination="UTl-k5-YkC" kind="modal" identifier="goToTable" modalTransitionStyle="partialCurl" id="97D-j2-pkU"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem image="punto.png" width="70" id="0My-4J-MDy">
