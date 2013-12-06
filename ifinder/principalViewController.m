@@ -169,10 +169,10 @@ double miRumbo;
             miPunto.x = [NSNumber numberWithDouble:posx];
             miPunto.y = [NSNumber numberWithDouble:posy];
             
-           fecha=[NSDate date];
+            fecha=[NSDate date];
             
-           miPunto.fecha= [df stringFromDate:fecha];
-            //miPunto.fecha = [NSDate date];
+            miPunto.fecha= [df stringFromDate:fecha];
+            
             [arrayPuntos addObject:miPunto];
 
            
@@ -287,7 +287,20 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 }
 
 
-#pragma mark - IBActions
+- (IBAction)iraAlgo{
+    
+    self.iraView.hidden=NO;
+    self.iraView.alpha=1;
+    [self.iraCocheButton setEnabled:YES];
+    self.iraCocheButton.alpha =1;
+    [self.iraPuntoButton setEnabled:YES];
+    self.iraPuntoButton.alpha =1;
+    self.iraCochelabel.alpha =1;
+    self.iraPuntolabel.alpha =1;
+    self.queQuieresHacerlabel.alpha =1;
+    
+    
+}
 
 - (IBAction)iraCoche
 {
