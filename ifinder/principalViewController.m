@@ -45,19 +45,14 @@ double miRumbo;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-    }
+       }
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    //NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
-    //nombrezona= [defaults stringForKey:@"zona"];
-	// Do any additional setup after loading the view, typically from a nib.
-    
+
     locationManager=[[CLLocationManager alloc] init];
     
     // Establecemos la precisión como la mejor.
@@ -69,14 +64,7 @@ double miRumbo;
     
     // Establecemos al propio controlador como el delegado de localización.
     locationManager.delegate=self;
-    
-    // Al igual que con los ángulos, con la posición ponemos que se avise de cambios en cuanto haya uno mínimo.
-  //  locationManager.distanceFilter = kCLDistanceFilterNone;
-    
- //   MKCoordinateRegion region;
- //   region.span = MKCoordinateSpanMake(0.2, 0.1);
- //   region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
- //                                              locationManager.location.coordinate.longitude);
+
     [locationManager startUpdatingHeading];
     self.mapaView.showsUserLocation = YES;
     tipoAccion=hacerNada;
@@ -94,13 +82,7 @@ double miRumbo;
     NSLog(@"angulo: %f",miRumbo);
    
    
- //   CLLocationDirection direccion = newHeading.magneticHeading;
- //   CGFloat radianes = -direccion / 180.0* M_PI;
-    
-    
-    
- //   self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
-  
+ 
     self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo-newHeading.trueHeading) * M_PI / 180);
     
     
@@ -146,8 +128,6 @@ double miRumbo;
     
     [mapaView setRegion:region];
     self.mapaView.showsUserLocation = YES;
-    
-    
     
   
     NSLog(@"entrando");
@@ -213,47 +193,11 @@ double miRumbo;
             //añado el punto del coche al array
             miPunto.x = [NSNumber numberWithDouble:posx];
             miPunto.y = [NSNumber numberWithDouble:posy];
-         //   miPunto.x = posx;
-            
-            //[arrayPuntos addObject:miPunto];
-            
-           // [self guardarAPlist: miPunto];
             break;
             
     }
   
     
-}
-
-- (void) pintarArrayPuntos:(NSMutableArray *) losPuntos
-
-{
-    
-    NSString *texto;
-    CLLocationCoordinate2D punto;
-    double x;
-    double y;
-    
-    for (NSDictionary *unpunto in losPuntos)
-    {
-    
-        texto = [unpunto objectForKey:@"fecha"];
-                  
-        x = [[unpunto objectForKey:@"x"] doubleValue];
-        punto.longitude = x;
-                            
-        y = [[unpunto objectForKey:@"y"] doubleValue];
-        punto.longitude = y;
-                            
-       
-         puntoAnotacion *elpunto =[[puntoAnotacion alloc] initWithTitle: @"punto"
-                              
-                                                     andCoordinate:punto];
-   
-    
-        [self.mapaView addAnnotation:elpunto];
- 
-       }
 }
 
 
@@ -343,20 +287,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 }
 
 
-- (IBAction)iraAlgo{
-    
-    self.iraView.hidden=NO;
-    self.iraView.alpha=1;
-    [self.iraCocheButton setEnabled:YES];
-    self.iraCocheButton.alpha =1;
-    [self.iraPuntoButton setEnabled:YES];
-    self.iraPuntoButton.alpha =1;
-    self.iraCochelabel.alpha =1;
-    self.iraPuntolabel.alpha =1;
-    self.queQuieresHacerlabel.alpha =1;
-    
-    
-}
+#pragma mark - IBActions
 
 - (IBAction)iraCoche
 {
@@ -407,6 +338,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 }
 
 
+#pragma mark - funciones
 - (void) Calculadistancia
 {
     
@@ -502,6 +434,39 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     }
     
 }
+- (void) pintarArrayPuntos:(NSMutableArray *) losPuntos
+
+{
+    
+    NSString *texto;
+    CLLocationCoordinate2D punto;
+    double x;
+    double y;
+    
+    for (NSDictionary *unpunto in losPuntos)
+    {
+        
+        texto = [unpunto objectForKey:@"fecha"];
+        
+        x = [[unpunto objectForKey:@"x"] doubleValue];
+        punto.longitude = x;
+        
+        y = [[unpunto objectForKey:@"y"] doubleValue];
+        punto.longitude = y;
+        
+        
+        puntoAnotacion *elpunto =[[puntoAnotacion alloc] initWithTitle: @"punto"
+                                  
+                                                         andCoordinate:punto];
+        
+        
+        [self.mapaView addAnnotation:elpunto];
+        
+    }
+}
+
+
+
 - (IBAction)irTabla:(id)sender
 {
 }
