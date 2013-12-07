@@ -45,19 +45,14 @@ double miRumbo;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-    }
+       }
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    //NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
-    //nombrezona= [defaults stringForKey:@"zona"];
-	// Do any additional setup after loading the view, typically from a nib.
-    
+
     locationManager=[[CLLocationManager alloc] init];
     
     // Establecemos la precisión como la mejor.
@@ -69,14 +64,7 @@ double miRumbo;
     
     // Establecemos al propio controlador como el delegado de localización.
     locationManager.delegate=self;
-    
-    // Al igual que con los ángulos, con la posición ponemos que se avise de cambios en cuanto haya uno mínimo.
-  //  locationManager.distanceFilter = kCLDistanceFilterNone;
-    
- //   MKCoordinateRegion region;
- //   region.span = MKCoordinateSpanMake(0.2, 0.1);
- //   region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
- //                                              locationManager.location.coordinate.longitude);
+
     [locationManager startUpdatingHeading];
     self.mapaView.showsUserLocation = YES;
     tipoAccion=hacerNada;
@@ -95,13 +83,7 @@ double miRumbo;
     NSLog(@"angulo: %f",miRumbo);
    
    
- //   CLLocationDirection direccion = newHeading.magneticHeading;
- //   CGFloat radianes = -direccion / 180.0* M_PI;
-    
-    
-    
- //   self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
-  
+ 
     self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo-newHeading.trueHeading) * M_PI / 180);
     
     
@@ -114,7 +96,9 @@ double miRumbo;
     
    
     punto *miPunto =[[punto alloc] init];
-    
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"dd.MM.yyyy hh:mm:ss Z"];
+    NSDate * fecha =[[NSDate alloc] init];
   
     double posx;
     double posy;
@@ -145,8 +129,6 @@ double miRumbo;
     
     [mapaView setRegion:region];
     self.mapaView.showsUserLocation = YES;
-    
-    
     
   
     NSLog(@"entrando");
@@ -179,10 +161,6 @@ double miRumbo;
             break;
             
         case guardaPunto:
-        //    [[NSUserDefaults standardUserDefaults] setFloat:posy forKey:@"puntolatitud"];
-        //    [[NSUserDefaults standardUserDefaults] setFloat:posx forKey:@"puntolongitud"];
-            
-        //    [[NSUserDefaults standardUserDefaults] synchronize];
             
             tipoAccion=hacerNada;
             [locationManager stopUpdatingLocation];
@@ -191,13 +169,13 @@ double miRumbo;
          
             miPunto.x = [NSNumber numberWithDouble:posx];
             miPunto.y = [NSNumber numberWithDouble:posy];
-            miPunto.fecha= [NSDate date];
-
+            
+            fecha=[NSDate date];
+            
+            miPunto.fecha= [df stringFromDate:fecha];
+            
             [arrayPuntos addObject:miPunto];
-            
-            //guardo?? creo que si
-        //    [self guardartodoAplist: miPunto];
-            
+
            
             [self volcarArrayPlist:miPunto];
             
@@ -216,47 +194,11 @@ double miRumbo;
             //añado el punto del coche al array
             miPunto.x = [NSNumber numberWithDouble:posx];
             miPunto.y = [NSNumber numberWithDouble:posy];
-         //   miPunto.x = posx;
-            
-            //[arrayPuntos addObject:miPunto];
-            
-           // [self guardarAPlist: miPunto];
             break;
             
     }
   
     
-}
-
-- (void) pintarArrayPuntos:(NSMutableArray *) losPuntos
-
-{
-    
-    NSString *texto;
-    CLLocationCoordinate2D punto;
-    double x;
-    double y;
-    
-    for (NSDictionary *unpunto in losPuntos)
-    {
-    
-        texto = [unpunto objectForKey:@"fecha"];
-                  
-        x = [[unpunto objectForKey:@"x"] doubleValue];
-        punto.longitude = x;
-                            
-        y = [[unpunto objectForKey:@"y"] doubleValue];
-        punto.longitude = y;
-                            
-       
-         puntoAnotacion *elpunto =[[puntoAnotacion alloc] initWithTitle: @"punto"
-                              
-                                                     andCoordinate:punto];
-   
-    
-        [self.mapaView addAnnotation:elpunto];
- 
-       }
 }
 
 
@@ -410,6 +352,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 }
 
 
+#pragma mark - funciones
 - (void) Calculadistancia
 {
     
@@ -463,18 +406,15 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 
     NSString *ruta;
     NSString *pathArray =    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    
     NSDictionary *plistDictionary;
-    
     ruta= [pathArray stringByAppendingPathComponent:@"PuntosList.plist"];
     if (ruta)
     {
-        
-        
-        plistDictionary = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: miPunto.fecha, miPunto.x, miPunto.y, nil] forKeys:[NSArray arrayWithObjects:@"fecha",@"x",@"y",nil]];
-     
-        
-        // recogo datos del fichero a ver si tiene algo
+        plistDictionary = [NSDictionary dictionaryWithObjects:
+                           [NSArray arrayWithObjects: miPunto.fecha, miPunto.x, miPunto.y, nil] forKeys:
+                           [NSArray arrayWithObjects:@"fecha",@"x",@"y",nil]
+                           ];
+     // recogo datos del fichero a ver si tiene algo
         NSMutableArray* plistArray = [[NSMutableArray alloc] initWithContentsOfFile:ruta];
         if(plistArray)
             
@@ -485,15 +425,10 @@ didChangeDragState:(MKAnnotationViewDragState)newState
             {
                 NSLog( @"No grabo en plist" );
             }
-            else{
+            else
+            {
                 NSLog( @"Hecho plist" );
             }
-       
-   //    [self pintarArrayPuntos: plistArray];
-            
-            
-            
-
         }
         else
         {
@@ -505,17 +440,49 @@ didChangeDragState:(MKAnnotationViewDragState)newState
             {
                 NSLog( @"No grabo en plist vacio" );
             }
-            else{
+            else
+            {
                 NSLog( @"Hecho plist desde vacio" );
             }
-         
-
-        
         }
     }
     
 }
+- (void) pintarArrayPuntos:(NSMutableArray *) losPuntos
+
+{
+    
+    NSString *texto;
+    CLLocationCoordinate2D punto;
+    double x;
+    double y;
+    
+    for (NSDictionary *unpunto in losPuntos)
+    {
+        
+        texto = [unpunto objectForKey:@"fecha"];
+        
+        x = [[unpunto objectForKey:@"x"] doubleValue];
+        punto.longitude = x;
+        
+        y = [[unpunto objectForKey:@"y"] doubleValue];
+        punto.longitude = y;
+        
+        
+        puntoAnotacion *elpunto =[[puntoAnotacion alloc] initWithTitle: @"punto"
+                                  
+                                                         andCoordinate:punto];
+        
+        
+        [self.mapaView addAnnotation:elpunto];
+        
+    }
+}
+
+
+
 - (IBAction)irTabla:(id)sender
 {
 }
+
 @end

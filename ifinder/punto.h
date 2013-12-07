@@ -12,20 +12,15 @@
 {
     NSNumber *x;
     NSNumber *y;
-NSDate *fecha;
-    NSString *dato;
-    NSString *zona;
-    NSString *imagen;
-    NSNumber *marca;
+    NSString *fecha;
+    //NSDate *fecha;
+    
 }
 
 @property (nonatomic,retain) NSNumber *x;
 @property (nonatomic,retain) NSNumber *y;
-@property (nonatomic,retain) NSDate *fecha;
-@property (nonatomic,retain) NSString *dato;
-@property (nonatomic,retain) NSString *zona;
-@property (nonatomic,retain) NSString *imagen;
-@property (nonatomic,retain) NSNumber *marca;
+@property (nonatomic,retain) NSString *fecha;
+
 
 
 @end
