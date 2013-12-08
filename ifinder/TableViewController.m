@@ -87,12 +87,12 @@ NSMutableArray * elegidosArray;
     static NSString *CellIdentifier = @"Cell";
     CelldePuntos *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.CellX.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"] stringValue];
-    cell.CellY.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
+    cell.CellX.text=[[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"] stringValue];
+    cell.CellY.text=[[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
     NSDateFormatter* df = [[NSDateFormatter alloc]init];
     [df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
-    cell.CellFecha.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
-    if([self.elegidosArray containsObject:indexPath])
+    cell.CellFecha.text= [df stringFromDate:[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
+    if([elegidosArray containsObject:indexPath])
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
@@ -100,7 +100,7 @@ NSMutableArray * elegidosArray;
     {
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
-*/
+
 //cell.tag=indexPath.row;
 // Configure the cell...
     return cell;
