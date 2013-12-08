@@ -87,21 +87,12 @@ NSMutableArray * elegidosArray;
     static NSString *CellIdentifier = @"Cell";
     CelldePuntos *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.CellX.text=[[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"] stringValue];
-    cell.CellY.text=[[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
-//NSDateFormatter* df = [[NSDateFormatter alloc]init];
-
-//NSDate fecha;
-//[df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
-    //NSString *fecha;
-    
-   cell.CellFecha.text= [[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"];
-
-//cell.CellFecha.text= fecha;
-//cell.CellFecha.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
-//cell.contentView.backgroundColor = [UIColor clearColor];
-//cell.CellFecha.text=[df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row]valueForKey:@"fecha"]];
-/*if([elegidosArray containsObject:indexPath])
+    cell.CellX.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"] stringValue];
+    cell.CellY.text=[[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
+    cell.CellFecha.text= [df stringFromDate:[[self.zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
+    if([self.elegidosArray containsObject:indexPath])
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
