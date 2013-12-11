@@ -26,6 +26,7 @@ CGRect screen;
 @synthesize rumboLabel;
 @synthesize locationManager;
 @synthesize mapaView;
+@synthesize mipuntodetalle;
 NSUserDefaults *userDefaults;
 int tipoAccion;
 
@@ -68,7 +69,49 @@ double miRumbo;
     [locationManager startUpdatingHeading];
     self.mapaView.showsUserLocation = YES;
     tipoAccion=hacerNada;
+    
+ if (mipuntodetalle)
+ {
+     // pintar punto
+  //   punto *mipunto = mipuntodetalle;
+    
+     CLLocationCoordinate2D punto;  //= [[CLLocationCoordinate2D alloc] init];
+     double x;
+     double y;
+     
+     //   texto = [elPunto.fecha];
+     
+     x = [mipuntodetalle.x doubleValue];
+     punto.longitude = x;
+     
+     y = [mipuntodetalle.y doubleValue];
+     punto.longitude = y;
+     
+     
+     puntoAnotacion *elpunto =[[puntoAnotacion alloc] initWithTitle: @"punto"
+                               
+                                                      andCoordinate:punto];
+     
+     
+     [self.mapaView addAnnotation:elpunto];
+     
 
+     
+     
+ //      [self pintarPunto:(mipunto)];
+     NSLog (@"pinto: %@", mipuntodetalle.x);
+     
+     
+     
+ }
+     else
+     {
+         
+         NSLog (@"pinto: %@", mipuntodetalle.x);
+         
+        }
+ 
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -447,6 +490,32 @@ didChangeDragState:(MKAnnotationViewDragState)newState
         }
     }
     
+}
+
+- (void) pintarPunto:(punto *) elPunto
+{
+  //  NSString *texto;
+    CLLocationCoordinate2D punto;
+    double x;
+    double y;
+    
+ //   texto = [elPunto.fecha];
+    
+    x = [elPunto.x doubleValue];
+    punto.longitude = x;
+    
+    y = [elPunto.y doubleValue];
+    punto.longitude = y;
+    
+    
+    puntoAnotacion *elpunto =[[puntoAnotacion alloc] initWithTitle: @"punto"
+                              
+                                                     andCoordinate:punto];
+    
+    
+    [self.mapaView addAnnotation:elpunto];
+
+
 }
 - (void) pintarArrayPuntos:(NSMutableArray *) losPuntos
 

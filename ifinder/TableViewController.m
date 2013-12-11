@@ -112,15 +112,27 @@ NSMutableArray * elegidosArray;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"GoToTable"])
+    if ([segue.identifier isEqualToString:@"GoToPrincipal"])
     {
     // Aqui envio el punto elegido en la tableview...
         UITableViewCell *MyCell = (UITableViewCell *)sender;
         principalViewController *midetalledepuntoaprincipal =(principalViewController *)segue.destinationViewController;
         // envido el detalle del punto a mipuntodetalle del principal...
         
-        midetalledepuntoaprincipal.mipuntodetalle=[zonasMutableArray objectAtIndex:MyCell.tag];
+        punto *mipunto;
+        
+        mipunto.x =[NSNumber numberWithDouble: [[[zonasMutableArray objectAtIndex:MyCell.tag] valueForKey:@"x"]];
+        mipunto.y =[[][zonasMutableArray objectAtIndex:MyCell.tag] valueForKey:@"y"] doubleValue];
+        mipunto.x= [NSNumber numberWithDouble:location.coordinate.longitude];
 
+        
+     //   mipunto=[zonasMutableArray objectAtIndex:MyCell.tag];
+      
+      //  x = [mipuntodetalle.x doubleValue];
+
+        NSLog(@"punto %@",mipunto.x);
+
+  midetalledepuntoaprincipal.mipuntodetalle = mipunto;
     }
     else if([segue.identifier isEqualToString:@"GoToNew"])
     {
