@@ -89,17 +89,21 @@ NSMutableArray * elegidosArray;
     
     cell.CellX.text=[[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"] stringValue];
     cell.CellY.text=[[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
-    NSDateFormatter* df = [[NSDateFormatter alloc]init];
-    [df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
-    cell.CellFecha.text= [df stringFromDate:[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
-    if([elegidosArray containsObject:indexPath])
+    cell.CellFecha.text=[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"];
+    cell.tag=indexPath.row;
+    
+    //NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    //[df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
+    //cell.CellFecha.text= [df stringFromDate:[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
+    
+    /*if([elegidosArray containsObject:indexPath])
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     else
     {
         cell.accessoryType = UITableViewCellAccessoryNone;
-    }
+    }*/
 
 //cell.tag=indexPath.row;
 // Configure the cell...
@@ -137,6 +141,7 @@ NSMutableArray * elegidosArray;
     else if([segue.identifier isEqualToString:@"GoToNew"])
     {
     }
+    
 }
 #pragma mark - Table view delegate
 
