@@ -68,6 +68,7 @@ double miRumbo;
     [locationManager startUpdatingHeading];
     self.mapaView.showsUserLocation = YES;
     tipoAccion=hacerNada;
+
 }
 
 - (void)didReceiveMemoryWarning
