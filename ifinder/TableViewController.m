@@ -123,23 +123,36 @@ NSMutableArray * elegidosArray;
         principalViewController *midetalledepuntoaprincipal =(principalViewController *)segue.destinationViewController;
         // envido el detalle del punto a mipuntodetalle del principal...
         
-        punto *mipunto;
         
-        mipunto.x =[NSNumber numberWithDouble: [[[zonasMutableArray objectAtIndex:MyCell.tag] valueForKey:@"x"]];
-        mipunto.y =[[][zonasMutableArray objectAtIndex:MyCell.tag] valueForKey:@"y"] doubleValue];
-        mipunto.x= [NSNumber numberWithDouble:location.coordinate.longitude];
+        double x;
+        double y;
+        punto *mipunto = [[punto alloc]init];
+        
+        
+        x=[[[zonasMutableArray objectAtIndex:MyCell.tag] valueForKey:@"x"]doubleValue];
+        NSLog(@"punto %f",x);
+
+         mipunto.x=[NSNumber numberWithDouble:x];
+
+        y=[[[zonasMutableArray objectAtIndex:MyCell.tag] valueForKey:@"y"]doubleValue];
+        
+        mipunto.y=[NSNumber numberWithDouble:x];
 
         
-     //   mipunto=[zonasMutableArray objectAtIndex:MyCell.tag];
-      
-      //  x = [mipuntodetalle.x doubleValue];
-
+    //    mipunto.y =[[][zonasMutableArray objectAtIndex:MyCell.tag] valueForKey:@"y"] doubleValue];
+      //  mipunto.x= [NSNumber numberWithDouble:location.coordinate.longitude];
+        
+        
+        //   mipunto=[zonasMutableArray objectAtIndex:MyCell.tag];
+        
+        //  x = [mipuntodetalle.x doubleValue];
+        
         NSLog(@"punto %@",mipunto.x);
+        
 
-  midetalledepuntoaprincipal.mipuntodetalle = mipunto;
-    }
-    else if([segue.identifier isEqualToString:@"GoToNew"])
-    {
+        
+        
+        midetalledepuntoaprincipal.mipuntodetalle=  mipunto; // [zonasMutableArray objectAtIndex:MyCell.tag];
     }
     
 }
