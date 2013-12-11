@@ -31,7 +31,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *iraCocheButton;
 @property (retain, nonatomic) IBOutlet UIButton *iraPuntoButton;
 @property (retain, nonatomic) IBOutlet UIView *iraView;
-
+@property (nonatomic,strong) punto *mipuntodetalle;
 - (IBAction)irTabla:(UIStoryboard *)segue;
 
 @property (nonatomic, retain) IBOutlet UILabel *rumboLabel;

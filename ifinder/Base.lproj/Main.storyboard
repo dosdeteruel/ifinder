@@ -105,7 +105,7 @@
                                     </barButtonItem>
                                     <barButtonItem image="tabla.png" width="70" id="8tw-ET-JNF">
                                         <connections>
-                                            <segue destination="UTl-k5-YkC" kind="modal" identifier="goToTable" modalTransitionStyle="partialCurl" id="97D-j2-pkU"/>
+                                            <segue destination="UTl-k5-YkC" kind="modal" identifier="GoToTable" modalTransitionStyle="coverVertical" id="97D-j2-pkU"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem image="punto.png" width="70" id="0My-4J-MDy">
@@ -141,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Akq-K0-kUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="172" y="-253"/>
+            <point key="canvasLocation" x="441" y="-201"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="9eK-yi-q0f">
@@ -217,6 +217,7 @@
                                     <outlet property="CellFecha" destination="cbY-iL-e24" id="L9l-Xs-ZDw"/>
                                     <outlet property="CellX" destination="K63-OE-GmJ" id="sds-pz-hMe"/>
                                     <outlet property="CellY" destination="eZz-Vi-6GL" id="gRL-3z-iKb"/>
+                                    <segue destination="fJC-XS-1Tj" kind="modal" identifier="GoToPrincipal" id="Fiv-FZ-073"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -236,7 +237,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZi-yn-34w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="861" y="586"/>
+            <point key="canvasLocation" x="1367" y="-444"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Nx-9g-DIl">
@@ -254,7 +255,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="prc-GM-AW8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="601" y="-253"/>
+            <point key="canvasLocation" x="901" y="87"/>
         </scene>
     </scenes>
     <resources>
