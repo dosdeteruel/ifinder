@@ -139,14 +139,6 @@ NSMutableArray * elegidosArray;
         mipunto.y=[NSNumber numberWithDouble:x];
 
         
-    //    mipunto.y =[[][zonasMutableArray objectAtIndex:MyCell.tag] valueForKey:@"y"] doubleValue];
-      //  mipunto.x= [NSNumber numberWithDouble:location.coordinate.longitude];
-        
-        
-        //   mipunto=[zonasMutableArray objectAtIndex:MyCell.tag];
-        
-        //  x = [mipuntodetalle.x doubleValue];
-        
         NSLog(@"punto %@",mipunto.x);
         
 
