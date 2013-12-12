@@ -398,12 +398,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 #pragma mark - funciones
 - (void) Calculadistancia
 {
-    
-    
-    
     CLLocationCoordinate2D puntoFin ;
-    
-    
     if (tipoAccion==irPunto)
     {
         puntoFin.latitude = [[NSUserDefaults standardUserDefaults] doubleForKey:@"puntolatitud"];
@@ -413,34 +408,24 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     {
         puntoFin.latitude = [[NSUserDefaults standardUserDefaults] doubleForKey:@"cochelatitud"];
         puntoFin.longitude= [[NSUserDefaults standardUserDefaults] doubleForKey:@"cochelongitud"];
-        
-        
     }
+    CLLocation *loc = [[CLLocation alloc] initWithLatitude:puntoFin.latitude longitude:puntoFin.longitude];
+    CLLocation *loc2 = [[CLLocation alloc] initWithLatitude:self.mapaView.userLocation.coordinate.latitude longitude:self.mapaView.userLocation.coordinate.longitude];
     
+    NSLog(@"LOC  = %f, %f", loc.coordinate.latitude,  loc.coordinate.longitude);
+    NSLog(@"LOC2 = %f, %f", loc2.coordinate.latitude, loc2.coordinate.longitude);
     
-    
-        CLLocation *loc = [[CLLocation alloc] initWithLatitude:puntoFin.latitude longitude:puntoFin.longitude];
-       CLLocation *loc2 = [[CLLocation alloc] initWithLatitude:self.mapaView.userLocation.coordinate.latitude longitude:self.mapaView.userLocation.coordinate.longitude];
-    
-        NSLog(@"LOC  = %f, %f", loc.coordinate.latitude,  loc.coordinate.longitude);
-        NSLog(@"LOC2 = %f, %f", loc2.coordinate.latitude, loc2.coordinate.longitude);
-    
-        CLLocationDistance dist = [loc distanceFromLocation:loc2];
-    
-    if (dist > 1000) {
+    CLLocationDistance dist = [loc distanceFromLocation:loc2];
+    if (dist > 1000)
+    {
         dist = dist /1000;
         distanciaLabel.text = [[NSString stringWithFormat:@"%f",dist] stringByAppendingString:@"  metros"] ;
-        
     }
     else
     {
-    
         distanciaLabel.text = [[NSString stringWithFormat:@"%f",dist] stringByAppendingString:@" Km"] ;
-        
     }
-        NSLog(@"DIST: %f", dist);
-    
-    
+    NSLog(@"DIST: %f", dist);
 }
 
 
@@ -507,20 +492,13 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     y = [elPunto.y doubleValue];
     punto.longitude = y;
     
-    
     puntoAnotacion *elpunto =[[puntoAnotacion alloc] initWithTitle: @"punto"
-                              
                                                      andCoordinate:punto];
-    
-    
     [self.mapaView addAnnotation:elpunto];
-
-
 }
-- (void) pintarArrayPuntos:(NSMutableArray *) losPuntos
 
+- (void) pintarArrayPuntos:(NSMutableArray *) losPuntos
 {
-    
     NSString *texto;
     CLLocationCoordinate2D punto;
     double x;
@@ -528,7 +506,6 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     
     for (NSDictionary *unpunto in losPuntos)
     {
-        
         texto = [unpunto objectForKey:@"fecha"];
         
         x = [[unpunto objectForKey:@"x"] doubleValue];
@@ -536,15 +513,10 @@ didChangeDragState:(MKAnnotationViewDragState)newState
         
         y = [[unpunto objectForKey:@"y"] doubleValue];
         punto.longitude = y;
-        
-        
+
         puntoAnotacion *elpunto =[[puntoAnotacion alloc] initWithTitle: @"punto"
-                                  
                                                          andCoordinate:punto];
-        
-        
         [self.mapaView addAnnotation:elpunto];
-        
     }
 }
 
