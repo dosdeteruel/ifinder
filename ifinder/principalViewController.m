@@ -35,7 +35,8 @@ typedef NS_ENUM(NSInteger, TipoPuntoDef){
     irPunto = 1,
     irCoche = 2,
     guardaPunto=3,
-    guardaCoche=4
+    guardaCoche=4,
+    pintarPunto=5
 };
 
 NSMutableArray *arrayPuntos;
@@ -85,16 +86,22 @@ double miRumbo;
      punto.longitude = x;
      
      y = [mipuntodetalle.y doubleValue];
-     punto.longitude = y;
+     punto.latitude= y;
      
      
      puntoAnotacion *elpunto =[[puntoAnotacion alloc] initWithTitle: @"punto"
                                
                                                       andCoordinate:punto];
+     [[NSUserDefaults standardUserDefaults] setFloat:y forKey:@"puntolatitud"];
+     [[NSUserDefaults standardUserDefaults] setFloat:x forKey:@"puntolongitud"];
+     
+     [[NSUserDefaults standardUserDefaults] synchronize];
      
      
      [self.mapaView addAnnotation:elpunto];
-     
+ 
+     tipoAccion=pintarPunto;
+     [locationManager startUpdatingLocation];
 
      
      
@@ -107,7 +114,7 @@ double miRumbo;
      else
      {
          
-         NSLog (@"pinto: %@", mipuntodetalle.x);
+      //   NSLog (@"pinto: %@", mipuntodetalle.x);
          
         }
  
@@ -239,6 +246,9 @@ double miRumbo;
             miPunto.y = [NSNumber numberWithDouble:posy];
             break;
             
+        case pintarPunto:
+            break;
+            
     }
   
     
@@ -328,6 +338,9 @@ didChangeDragState:(MKAnnotationViewDragState)newState
         CLLocationCoordinate2D droppedAt = annotationView.annotation.coordinate;
         NSLog(@"Pin dropped at %f,%f", droppedAt.latitude, droppedAt.longitude);
     }
+    
+    
+    
 }
 
 
@@ -392,6 +405,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 {
     tipoAccion=guardaPunto;  //punto marcar coche
     [locationManager startUpdatingLocation];
+    
 }
 
 
