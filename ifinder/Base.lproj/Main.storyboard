@@ -261,12 +261,10 @@
     <resources>
         <image name="cabecera.jpg" width="640" height="333"/>
         <image name="coche.png" width="44" height="44"/>
-        <image name="coche.png" width="44" height="44"/>
         <image name="flecha-brujula.png" width="252" height="250"/>
         <image name="fondo-brujula.png" width="250" height="250"/>
         <image name="monigote.png" width="24" height="44"/>
         <image name="pie.jpg" width="640" height="97"/>
-        <image name="pin.png" width="16" height="53"/>
         <image name="pin.png" width="16" height="53"/>
         <image name="punto.png" width="41" height="44"/>
         <image name="tabla.png" width="44" height="44"/>

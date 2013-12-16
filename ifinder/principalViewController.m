@@ -247,6 +247,10 @@ double miRumbo;
             break;
             
         case pintarPunto:
+            tipoAccion=hacerNada;
+            [locationManager stopUpdatingLocation];
+            
+            
             break;
             
     }
