@@ -17,6 +17,7 @@
 		AE2E3A72184E9E2800A10F4B /* punto.png in Resources */ = {isa = PBXBuildFile; fileRef = AE2E3A70184E9E2800A10F4B /* punto.png */; };
 		AE2E3A75184EA07400A10F4B /* tabla.png in Resources */ = {isa = PBXBuildFile; fileRef = AE2E3A74184EA07400A10F4B /* tabla.png */; };
 		AE2E3A77184EA18C00A10F4B /* coche.png in Resources */ = {isa = PBXBuildFile; fileRef = AE2E3A76184EA18C00A10F4B /* coche.png */; };
+		AE37C29918874514000F21EE /* aspa.png in Resources */ = {isa = PBXBuildFile; fileRef = AE37C29818874514000F21EE /* aspa.png */; };
 		AE4F5E691853A4D800F40FE1 /* titulos.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE4F5E661853A4D800F40FE1 /* titulos.jpg */; };
 		AE4F5E6A1853A4D800F40FE1 /* pie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE4F5E671853A4D800F40FE1 /* pie.jpg */; };
 		AE4F5E6B1853A4D800F40FE1 /* cabecera.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AE4F5E681853A4D800F40FE1 /* cabecera.jpg */; };
@@ -77,6 +78,7 @@
 		AE2E3A70184E9E2800A10F4B /* punto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = punto.png; sourceTree = "<group>"; };
 		AE2E3A74184EA07400A10F4B /* tabla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabla.png; sourceTree = "<group>"; };
 		AE2E3A76184EA18C00A10F4B /* coche.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coche.png; sourceTree = "<group>"; };
+		AE37C29818874514000F21EE /* aspa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aspa.png; sourceTree = "<group>"; };
 		AE4F5E661853A4D800F40FE1 /* titulos.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = titulos.jpg; sourceTree = "<group>"; };
 		AE4F5E671853A4D800F40FE1 /* pie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pie.jpg; sourceTree = "<group>"; };
 		AE4F5E681853A4D800F40FE1 /* cabecera.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cabecera.jpg; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 		AED7762B18206D22006CFBF1 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				AE37C29818874514000F21EE /* aspa.png */,
 				AE4F5E661853A4D800F40FE1 /* titulos.jpg */,
 				AE4F5E671853A4D800F40FE1 /* pie.jpg */,
 				AE4F5E681853A4D800F40FE1 /* cabecera.jpg */,
@@ -339,7 +342,7 @@
 				ORGANIZATIONNAME = "German Bonilla Monterde";
 				TargetAttributes = {
 					AED775EE18206C7E006CFBF1 = {
-						DevelopmentTeam = XAET4E576S;
+						DevelopmentTeam = F3WW7CD638;
 					};
 					AED7760F18206C7E006CFBF1 = {
 						TestTargetID = AED775EE18206C7E006CFBF1;
@@ -372,6 +375,7 @@
 			files = (
 				AE5266DE182AF47800402D46 /* icon.png in Resources */,
 				AE5266E3182AF47800402D46 /* logo.png in Resources */,
+				AE37C29918874514000F21EE /* aspa.png in Resources */,
 				AE4F5E6A1853A4D800F40FE1 /* pie.jpg in Resources */,
 				AE5266DD182AF47800402D46 /* fondo-ciudad.jpg in Resources */,
 				AE5266D9182AF47800402D46 /* Default@2x.png in Resources */,
@@ -546,7 +550,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Maria Jose Medrano (MW2V8HGK8D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ifinder/ifinder-Prefix.pch";
 				INFOPLIST_FILE = "ifinder/ifinder-Info.plist";
@@ -561,7 +565,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Maria Jose Medrano (MW2V8HGK8D)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ifinder/ifinder-Prefix.pch";
 				INFOPLIST_FILE = "ifinder/ifinder-Info.plist";
