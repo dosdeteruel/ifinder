@@ -31,7 +31,9 @@
 @property (retain, nonatomic) IBOutlet UIButton *iraCocheButton;
 @property (retain, nonatomic) IBOutlet UIButton *iraPuntoButton;
 @property (retain, nonatomic) IBOutlet UIView *iraView;
+@property (weak, nonatomic) IBOutlet UIButton *cerrarIraAlgoButton;
 @property (nonatomic,strong) punto *mipuntodetalle;
+@property (weak, nonatomic) IBOutlet UIImageView *cocheGuardadoImage;
 - (IBAction)irTabla:(UIStoryboard *)segue;
 
 @property (nonatomic, retain) IBOutlet UILabel *rumboLabel;
@@ -44,7 +46,8 @@
 - (IBAction)iraAlgo;
 - (IBAction)marcaCoche;
 - (IBAction)marcaPunto;
-
+- (void)showMessageCoche;
+- (void)showMessagePunto;
 - (void) Calculadistancia;
 
 - (void) pintarArrayPuntos:(NSMutableArray *) losPuntos;

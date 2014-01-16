@@ -54,7 +54,8 @@ double miRumbo;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    
     locationManager=[[CLLocationManager alloc] init];
     
        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -218,6 +219,7 @@ double miRumbo;
 
            
             [self volcarArrayPlist:miPunto];
+          
             
             break;
             
@@ -234,6 +236,8 @@ double miRumbo;
            
             miPunto.x = [NSNumber numberWithDouble:posx];
             miPunto.y = [NSNumber numberWithDouble:posy];
+            self.cocheGuardadoImage.alpha=1;
+            
             break;
             
         case pintarPunto:
@@ -261,6 +265,7 @@ double miRumbo;
     
     return pin;
 }
+
 
 - (void) calculaelRumbo:(CLLocation *)posicion
 {
@@ -336,6 +341,23 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     
     
 }
+- (void)showMessageCoche{
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Coche guardado"
+                                                      message:@"Pulse OK para continuar"
+                                                     delegate:nil
+                                            cancelButtonTitle:@"OK"
+                                            otherButtonTitles:nil];
+    [message show];
+}
+
+- (void)showMessagePunto{
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Punto guardado"
+                                                      message:@"Pulse OK para continuar"
+                                                     delegate:nil
+                                            cancelButtonTitle:@"OK"
+                                            otherButtonTitles:nil];
+    [message show];
+}
 
 
 - (IBAction)iraAlgo{
@@ -349,6 +371,8 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     self.iraCochelabel.alpha =1;
     self.iraPuntolabel.alpha =1;
     self.queQuieresHacerlabel.alpha =1;
+    [self.cerrarIraAlgoButton setEnabled:YES];
+    self.cerrarIraAlgoButton.alpha=1;
     
     
 }
@@ -364,6 +388,8 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     self.iraCochelabel.alpha =0;
     self.iraPuntolabel.alpha =0;
     self.queQuieresHacerlabel.alpha =0;
+    [self.cerrarIraAlgoButton setEnabled:NO];
+    self.cerrarIraAlgoButton.alpha=0;
     
     tipoAccion=irCoche;  // ¡r coche
     [locationManager startUpdatingLocation];
@@ -381,23 +407,42 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     self.iraCochelabel.alpha =0;
     self.iraPuntolabel.alpha =0;
     self.queQuieresHacerlabel.alpha =0;
+    [self.cerrarIraAlgoButton setEnabled:NO];
+    self.cerrarIraAlgoButton.alpha=0;
     
     tipoAccion=irCoche;  // ¡r coche
     [locationManager startUpdatingLocation];
     [locationManager startUpdatingHeading];
     
 }
+- (IBAction)cerrarIraAlgoButton:(id)sender {
+    self.iraView.hidden=YES;
+    self.iraView.alpha=0;
+    [self.iraCocheButton setEnabled:NO];
+    self.iraCocheButton.alpha =0;
+    [self.iraPuntoButton setEnabled:NO];
+    self.iraPuntoButton.alpha =0;
+    self.iraCochelabel.alpha =0;
+    self.iraPuntolabel.alpha =0;
+    self.queQuieresHacerlabel.alpha =0;
+    [self.cerrarIraAlgoButton setEnabled:NO];
+    self.cerrarIraAlgoButton.alpha=0;
+    
+    tipoAccion=hacerNada;  // ¡r coche
+}
 
 - (IBAction)marcaCoche
 {
     
     tipoAccion=guardaCoche;  //punto marcar coche
+    self.showMessageCoche;
     [locationManager startUpdatingLocation];
 }
 
 - (IBAction)marcaPunto
 {
     tipoAccion=guardaPunto;  //punto marcar coche
+    self.showMessagePunto;
     [locationManager startUpdatingLocation];
     
 }
