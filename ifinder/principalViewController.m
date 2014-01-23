@@ -58,12 +58,9 @@ double miRumbo;
     
     locationManager=[[CLLocationManager alloc] init];
     
-    // Establecemos la precisión como la mejor.
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+       locationManager.desiredAccuracy = kCLLocationAccuracyBest;
       locationManager.distanceFilter=1;
 
-    // El ángulo mínimo que debe cambiar para que se actualize el valor y así iOS informe al sistema del cambio.
-  //  locationManager.headingFilter = kCLDistanceFilterNone;
     
     // Establecemos al propio controlador como el delegado de localización.
     locationManager.delegate=self;
@@ -75,7 +72,6 @@ double miRumbo;
  if (mipuntodetalle)
  {
      // pintar punto
-  //   punto *mipunto = mipuntodetalle;
     
      CLLocationCoordinate2D punto;  //= [[CLLocationCoordinate2D alloc] init];
      double x;
@@ -103,19 +99,13 @@ double miRumbo;
  
      tipoAccion=pintarPunto;
      [locationManager startUpdatingLocation];
-
-     
-     
- //      [self pintarPunto:(mipunto)];
-     NSLog (@"pinto: %@", mipuntodetalle.x);
-     
+   
      
      
  }
      else
      {
          
-      //   NSLog (@"pinto: %@", mipuntodetalle.x);
          
         }
  
@@ -125,7 +115,7 @@ double miRumbo;
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading{
@@ -239,7 +229,7 @@ double miRumbo;
             
             tipoAccion=hacerNada;
             [locationManager stopUpdatingLocation];
-            //añado el punto del coche al array
+           
             miPunto.x = [NSNumber numberWithDouble:posx];
             miPunto.y = [NSNumber numberWithDouble:posy];
             self.cocheGuardadoImage.alpha=1;
@@ -262,7 +252,7 @@ double miRumbo;
 - (MKAnnotationView *) mapView: (MKMapView *) mapaView viewForAnnotation: (id) annotation {
     MKPinAnnotationView *pin = (MKPinAnnotationView *) [self.mapaView dequeueReusableAnnotationViewWithIdentifier: @"myPin"];
     if (pin == nil) {
-        pin = [[MKPinAnnotationView alloc] initWithAnnotation: annotation reuseIdentifier: @"myPin"]; // If you use ARC, take out 'autorelease'
+        pin = [[MKPinAnnotationView alloc] initWithAnnotation: annotation reuseIdentifier: @"myPin"];
     } else {
         pin.annotation = annotation;
     }
@@ -472,8 +462,6 @@ double miRumbo;
     CLLocation *loc = [[CLLocation alloc] initWithLatitude:puntoFin.latitude longitude:puntoFin.longitude];
     CLLocation *loc2 = [[CLLocation alloc] initWithLatitude:self.mapaView.userLocation.coordinate.latitude longitude:self.mapaView.userLocation.coordinate.longitude];
     
-    NSLog(@"LOC  = %f, %f", loc.coordinate.latitude,  loc.coordinate.longitude);
-    NSLog(@"LOC2 = %f, %f", loc2.coordinate.latitude, loc2.coordinate.longitude);
     
     CLLocationDistance dist = [loc distanceFromLocation:loc2];
     if (dist > 1000)
@@ -512,11 +500,11 @@ double miRumbo;
             BOOL success = [plistArray writeToFile: ruta atomically: YES];
             if( success == NO)
             {
-                NSLog( @"No grabo en plist" );
+               
             }
             else
             {
-                NSLog( @"Hecho plist" );
+               
             }
         }
         else
@@ -527,12 +515,10 @@ double miRumbo;
             BOOL success = [plistvacio writeToFile: ruta atomically: YES];
             if( success == NO)
             {
-                NSLog( @"No grabo en plist vacio" );
-            }
+                            }
             else
             {
-                NSLog( @"Hecho plist desde vacio" );
-            }
+                            }
         }
     }
     
@@ -540,12 +526,11 @@ double miRumbo;
 
 - (void) pintarPunto:(punto *) elPunto
 {
-  //  NSString *texto;
+  
     CLLocationCoordinate2D punto;
     double x;
     double y;
     
- //   texto = [elPunto.fecha];
     
     x = [elPunto.x doubleValue];
     punto.longitude = x;
