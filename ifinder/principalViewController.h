@@ -48,6 +48,7 @@
 - (IBAction)marcaPunto;
 - (void)showMessageCoche;
 - (void)showMessagePunto;
+- (void)showMessageMeta;
 - (void) Calculadistancia;
 
 - (void) pintarArrayPuntos:(NSMutableArray *) losPuntos;

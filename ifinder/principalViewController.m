@@ -166,13 +166,10 @@ double miRumbo;
         
         self.latitudLabel.text =[NSString stringWithFormat:@"%f", posy];
         self.longitudLabel.text = [NSString stringWithFormat:@"%f", posx];
-        
-        
-        NSLog(@"Latitud: %f Longitud: %f",  posy, posx);
-        
+    
         MKCoordinateRegion region;
-          region.span = MKCoordinateSpanMake(0.005, 0.005);
-      //  region.center = location.coordinate;
+     // region.span = MKCoordinateSpanMake(0.005, 0.005);
+     // region.center = location.coordinate;
     
     region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
                                                 locationManager.location.coordinate.longitude);
@@ -182,7 +179,6 @@ double miRumbo;
     self.mapaView.showsUserLocation = YES;
     
   
-    NSLog(@"entrando");
     
     switch (tipoAccion) {
             
@@ -280,7 +276,7 @@ double miRumbo;
 - (void) calculaelRumbo:(CLLocation *)posicion
 {
     
-    NSString *punto;
+    NSString *punto=[[NSString alloc]init];
     
     CLLocationCoordinate2D puntoInicio;
     CLLocationCoordinate2D puntoFin;
@@ -293,21 +289,16 @@ double miRumbo;
     {
         puntoFin.latitude = [[NSUserDefaults standardUserDefaults] doubleForKey:@"puntolatitud"];
         puntoFin.longitude= [[NSUserDefaults standardUserDefaults] doubleForKey:@"puntolongitud"];
-        
-       punto = @"Punto";
+        punto = @"Punto";
     }
     else if (tipoAccion==irCoche)
     {
         puntoFin.latitude = [[NSUserDefaults standardUserDefaults] doubleForKey:@"cochelatitud"];
         puntoFin.longitude= [[NSUserDefaults standardUserDefaults] doubleForKey:@"cochelongitud"];
-          punto = @"Coche";
-        
+        punto = @"Coche";
     }
     
-       puntoAnotacion *elpunto =[[puntoAnotacion alloc] initWithTitle: punto
-                                  
-                                                         andCoordinate:puntoFin];
-   
+       puntoAnotacion *elpunto =[[puntoAnotacion alloc] initWithTitle: punto andCoordinate:puntoFin];
        [self.mapaView addAnnotation:elpunto];
     
    
@@ -338,18 +329,16 @@ double miRumbo;
 
 
 - (void)mapView:(MKMapView *)mapView
- annotationView:(MKAnnotationView *)annotationView
-didChangeDragState:(MKAnnotationViewDragState)newState
-   fromOldState:(MKAnnotationViewDragState)oldState
-{
+  annotationView:(MKAnnotationView *)annotationView
+  didChangeDragState:(MKAnnotationViewDragState)newState
+  fromOldState:(MKAnnotationViewDragState)oldState
+   {
     if (newState == MKAnnotationViewDragStateEnding)
     {
         CLLocationCoordinate2D droppedAt = annotationView.annotation.coordinate;
         NSLog(@"Pin dropped at %f,%f", droppedAt.latitude, droppedAt.longitude);
     }
-    
-    
-    
+
 }
 - (void)showMessageCoche{
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Coche guardado"
@@ -369,6 +358,14 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     [message show];
 }
 
+- (void)showMessageMeta{
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Ha llegado a su destino "
+                                                      message:@"Pulse OK para continuar"
+                                                     delegate:nil
+                                            cancelButtonTitle:@"OK"
+                                            otherButtonTitles:nil];
+    [message show];
+}
 
 - (IBAction)iraAlgo{
     
@@ -420,7 +417,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     [self.cerrarIraAlgoButton setEnabled:NO];
     self.cerrarIraAlgoButton.alpha=0;
     
-    tipoAccion=irCoche;  // ¡r coche
+    tipoAccion=irPunto;  // ¡r coche
     [locationManager startUpdatingLocation];
     [locationManager startUpdatingHeading];
     
@@ -445,14 +442,14 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 {
     
     tipoAccion=guardaCoche;  //punto marcar coche
-    self.showMessageCoche;
+    [self showMessageCoche];
     [locationManager startUpdatingLocation];
 }
 
 - (IBAction)marcaPunto
 {
     tipoAccion=guardaPunto;  //punto marcar coche
-    self.showMessagePunto;
+    [self showMessagePunto];
     [locationManager startUpdatingLocation];
     
 }
@@ -488,9 +485,10 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     {
         distanciaLabel.text = [[NSString stringWithFormat:@"%f",dist] stringByAppendingString:@" Km"] ;
     }
-    NSLog(@"DIST: %f", dist);
+    if (dist<5){
+        [self showMessageMeta];
+    }
 }
-
 
 - (void) volcarArrayPlist:(punto *) miPunto
 {
@@ -555,8 +553,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     y = [elPunto.y doubleValue];
     punto.longitude = y;
     
-    puntoAnotacion *elpunto =[[puntoAnotacion alloc] initWithTitle: @"punto"
-                                                     andCoordinate:punto];
+    puntoAnotacion *elpunto =[[puntoAnotacion alloc] initWithTitle: @"punto" andCoordinate:punto];
     [self.mapaView addAnnotation:elpunto];
 }
 
