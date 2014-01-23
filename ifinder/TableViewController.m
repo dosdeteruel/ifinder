@@ -57,6 +57,9 @@ NSMutableArray * elegidosArray;
             [self.zonasMutableArray addObject: [ NSString  stringWithFormat: @ "Opción% i" , i ] ] ;
         }
     }*/
+//    elegidosArray = nil;
+ //   zonasMutableArray = nil;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -108,6 +111,8 @@ NSMutableArray * elegidosArray;
 //cell.tag=indexPath.row;
 // Configure the cell...
     return cell;
+    cell=nil;
+    
 }
 
 
@@ -122,7 +127,9 @@ NSMutableArray * elegidosArray;
         UITableViewCell *MyCell = (UITableViewCell *)sender;
         principalViewController *midetalledepuntoaprincipal =(principalViewController *)segue.destinationViewController;
         // envido el detalle del punto a mipuntodetalle del principal...
-        
+    //    principalViewController *midetalledepuntoaprincipa=[[principalViewController alloc] init];
+    //    midetalledepuntoaprincipal = (principalViewController *)segue.destinationViewController;
+
         
         double x;
         double y;
@@ -136,7 +143,7 @@ NSMutableArray * elegidosArray;
 
         y=[[[zonasMutableArray objectAtIndex:MyCell.tag] valueForKey:@"y"]doubleValue];
         
-        mipunto.y=[NSNumber numberWithDouble:x];
+        mipunto.y=[NSNumber numberWithDouble:y];
 
         
         NSLog(@"punto %@",mipunto.x);
@@ -145,6 +152,9 @@ NSMutableArray * elegidosArray;
         
         
         midetalledepuntoaprincipal.mipuntodetalle=  mipunto; // [zonasMutableArray objectAtIndex:MyCell.tag];
+        midetalledepuntoaprincipal = nil;
+        mipunto = nil;
+        
     }
     
 }

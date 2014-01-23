@@ -51,9 +51,20 @@ double miRumbo;
     return self;
 }
 
+- (void) dealloc {
+ if ([locationManager delegate]==self)
+ {
+     [locationManager setDelegate:nil];
+     }
+    
+}
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    distanciaLabel.text=@"";
     
     
     locationManager=[[CLLocationManager alloc] init];
@@ -100,6 +111,8 @@ double miRumbo;
      tipoAccion=pintarPunto;
      [locationManager startUpdatingLocation];
    
+   //  locationManager = nil;
+   // elpunto=nil;
      
      
  }
@@ -139,7 +152,7 @@ double miRumbo;
     punto *miPunto =[[punto alloc] init];
     NSDateFormatter* df = [[NSDateFormatter alloc]init];
     [df setDateFormat:@"dd.MM.yyyy hh:mm:ss Z"];
-    NSDate * fecha =[[NSDate alloc] init];
+  //  NSDate * fecha =[[NSDate alloc] init];
   
     double posx;
     double posy;
@@ -161,16 +174,16 @@ double miRumbo;
         NSLog(@"Latitud: %f Longitud: %f",  posy, posx);
         
         MKCoordinateRegion region;
-          region.span = MKCoordinateSpanMake(0.005, 0.005);
-     //   region.center = location.coordinate;
+  //        region.span = MKCoordinateSpanMake(0.005, 0.005);
     
-    region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
-                                                locationManager.location.coordinate.longitude);
+  //  region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
+  //                                              locationManager.location.coordinate.longitude);
     
     
-    [mapaView setRegion:region];
+ //   [mapaView setRegion:region];
     self.mapaView.showsUserLocation = YES;
-    
+    NSDate *fecha=[NSDate date];
+
   
     NSLog(@"entrando");
     
@@ -211,7 +224,7 @@ double miRumbo;
             miPunto.x = [NSNumber numberWithDouble:posx];
             miPunto.y = [NSNumber numberWithDouble:posy];
             
-            fecha=[NSDate date];
+      //      NSDate *fecha=[NSDate date];
             
             miPunto.fecha= [df stringFromDate:fecha];
             
@@ -229,7 +242,6 @@ double miRumbo;
             [[NSUserDefaults standardUserDefaults] setFloat:posx forKey:@"cochelongitud"];
             
             [[NSUserDefaults standardUserDefaults] synchronize];
-            
             
             tipoAccion=hacerNada;
             [locationManager stopUpdatingLocation];
@@ -249,6 +261,9 @@ double miRumbo;
             
     }
   
+    miPunto=nil;
+    df = nil;
+    
     
 }
 
@@ -264,6 +279,10 @@ double miRumbo;
     pin.draggable = YES;
     
     return pin;
+//    pin=nil;
+    
+    
+    
 }
 
 
@@ -278,6 +297,7 @@ double miRumbo;
     puntoInicio.latitude = posicion.coordinate.latitude;
     puntoInicio.longitude = posicion.coordinate.longitude;
     
+    punto =@"";
     
        if (tipoAccion==irPunto)
     {
@@ -323,6 +343,9 @@ double miRumbo;
     
     rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
   
+    
+    elpunto = nil;
+    
    }
 
 
@@ -410,7 +433,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     [self.cerrarIraAlgoButton setEnabled:NO];
     self.cerrarIraAlgoButton.alpha=0;
     
-    tipoAccion=irCoche;  // ¡r coche
+    tipoAccion=irPunto;  // ¡r coche
     [locationManager startUpdatingLocation];
     [locationManager startUpdatingHeading];
     
@@ -435,14 +458,14 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 {
     
     tipoAccion=guardaCoche;  //punto marcar coche
-    self.showMessageCoche;
+    [self showMessageCoche];
     [locationManager startUpdatingLocation];
 }
 
 - (IBAction)marcaPunto
 {
     tipoAccion=guardaPunto;  //punto marcar coche
-    self.showMessagePunto;
+    [self showMessagePunto];
     [locationManager startUpdatingLocation];
     
 }
@@ -451,7 +474,8 @@ didChangeDragState:(MKAnnotationViewDragState)newState
 #pragma mark - funciones
 - (void) Calculadistancia
 {
-    CLLocationCoordinate2D puntoFin ;
+    CLLocationCoordinate2D puntoFin;
+    
     if (tipoAccion==irPunto)
     {
         puntoFin.latitude = [[NSUserDefaults standardUserDefaults] doubleForKey:@"puntolatitud"];
@@ -470,11 +494,13 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     if (dist > 1000)
     {
         dist = dist /1000;
-        distanciaLabel.text = [[NSString stringWithFormat:@"%f",dist] stringByAppendingString:@"  metros"] ;
+        distanciaLabel.text = [[NSString stringWithFormat:@"%f",dist] stringByAppendingString:@"  km"] ;
     }
     else
     {
-        distanciaLabel.text = [[NSString stringWithFormat:@"%f",dist] stringByAppendingString:@" Km"] ;
+        
+        distanciaLabel.text = [[NSString stringWithFormat:@"%f",dist] stringByAppendingString:@" metros"] ;
+        
     }
     NSLog(@"DIST: %f", dist);
 }
@@ -538,33 +564,37 @@ didChangeDragState:(MKAnnotationViewDragState)newState
     punto.longitude = x;
     
     y = [elPunto.y doubleValue];
-    punto.longitude = y;
+    punto.latitude = y;
     
     puntoAnotacion *elpunto =[[puntoAnotacion alloc] initWithTitle: @"punto"
                                                      andCoordinate:punto];
     [self.mapaView addAnnotation:elpunto];
+    
+    
 }
 
 - (void) pintarArrayPuntos:(NSMutableArray *) losPuntos
 {
-    NSString *texto;
+ //   NSString *texto;
     CLLocationCoordinate2D punto;
     double x;
     double y;
     
     for (NSDictionary *unpunto in losPuntos)
     {
-        texto = [unpunto objectForKey:@"fecha"];
+   //     texto = [unpunto objectForKey:@"fecha"];
         
         x = [[unpunto objectForKey:@"x"] doubleValue];
         punto.longitude = x;
         
         y = [[unpunto objectForKey:@"y"] doubleValue];
-        punto.longitude = y;
+        punto.latitude = y;
 
         puntoAnotacion *elpunto =[[puntoAnotacion alloc] initWithTitle: @"punto"
                                                          andCoordinate:punto];
         [self.mapaView addAnnotation:elpunto];
+        elpunto = nil;
+        
     }
 }
 
