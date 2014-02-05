@@ -151,9 +151,9 @@ double miRumbo;
    
     punto *miPunto =[[punto alloc] init];
     NSDateFormatter* df = [[NSDateFormatter alloc]init];
-    [df setDateFormat:@"dd.MM.yyyy hh:mm:ss Z"];
+    [df setDateFormat:@"dd.MM.yyyy HH:mm:ss"];
   //  NSDate * fecha =[[NSDate alloc] init];
-  
+//  [currentDate setDateFormat:@"yyyy-MM-dd HH:mm"];
     double posx;
     double posy;
     
@@ -173,11 +173,12 @@ double miRumbo;
         MKCoordinateRegion region;
   //        region.span = MKCoordinateSpanMake(0.005, 0.005);
     
-  //  region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
-  //                                              locationManager.location.coordinate.longitude);
+  region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
+                                              locationManager.location.coordinate.longitude);
     
     
- //   [mapaView setRegion:region];
+[mapaView setRegion:region];
+    
     self.mapaView.showsUserLocation = YES;
     NSDate *fecha=[NSDate date];
 
@@ -193,7 +194,7 @@ double miRumbo;
         case irPunto:
             //ahora comprobar si hay que coger
             [self calculaelRumbo:location];
-            
+            [self Calculadistancia];
       
             rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
             
@@ -202,7 +203,7 @@ double miRumbo;
             //ahora comprobar si hay que coger
             
          [self calculaelRumbo:location];
-            NSLog(@"rumbo: %f",miRumbo);
+           
            [self Calculadistancia];
          
             rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
@@ -410,7 +411,7 @@ double miRumbo;
     self.queQuieresHacerlabel.alpha =0;
     [self.cerrarIraAlgoButton setEnabled:NO];
     self.cerrarIraAlgoButton.alpha=0;
-    
+    // aqui hacer zoom
     tipoAccion=irCoche;  // ¡r coche
     [locationManager startUpdatingLocation];
     [locationManager startUpdatingHeading];
@@ -429,6 +430,7 @@ double miRumbo;
     self.queQuieresHacerlabel.alpha =0;
     [self.cerrarIraAlgoButton setEnabled:NO];
     self.cerrarIraAlgoButton.alpha=0;
+    // aqui hacer zoom
     
     tipoAccion=irPunto;  // ¡r coche
     [locationManager startUpdatingLocation];
@@ -491,16 +493,17 @@ double miRumbo;
     if (dist > 1000)
     {
         dist = dist /1000;
-        distanciaLabel.text = [[NSString stringWithFormat:@"%f",dist] stringByAppendingString:@"  km"] ;
+        distanciaLabel.text = [[NSString stringWithFormat:@"%.2f",dist] stringByAppendingString:@"  km"] ;
     }
     else
     {
         
-        distanciaLabel.text = [[NSString stringWithFormat:@"%f",dist] stringByAppendingString:@" metros"] ;
+        distanciaLabel.text = [[NSString stringWithFormat:@"%.2f",dist] stringByAppendingString:@" m"] ;
         
     }
-    if (dist<5){
+    if (dist<0.01){
         [self showMessageMeta];
+        tipoAccion=hacerNada;
     }
 }
 
