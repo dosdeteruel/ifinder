@@ -81,7 +81,7 @@ NSMutableArray * elegidosArray;
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    NSLog(@"%d registros en zonasMutableArray",zonasMutableArray.count );
+ //   NSLog(@"%d registros en zonasMutableArray",zonasMutableArray.count );
     return zonasMutableArray.count;
 }
 

@@ -153,7 +153,7 @@ double miRumbo;
     NSDateFormatter* df = [[NSDateFormatter alloc]init];
     [df setDateFormat:@"dd.MM.yyyy HH:mm:ss"];
   //  NSDate * fecha =[[NSDate alloc] init];
-  
+//  [currentDate setDateFormat:@"yyyy-MM-dd HH:mm"];
     double posx;
     double posy;
     
@@ -173,11 +173,12 @@ double miRumbo;
         MKCoordinateRegion region;
   //        region.span = MKCoordinateSpanMake(0.005, 0.005);
     
-  //  region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
-  //                                              locationManager.location.coordinate.longitude);
+  region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
+                                              locationManager.location.coordinate.longitude);
     
     
- //   [mapaView setRegion:region];
+[mapaView setRegion:region];
+    
     self.mapaView.showsUserLocation = YES;
     NSDate *fecha=[NSDate date];
 
@@ -413,7 +414,7 @@ double miRumbo;
     self.queQuieresHacerlabel.alpha =0;
     [self.cerrarIraAlgoButton setEnabled:NO];
     self.cerrarIraAlgoButton.alpha=0;
-    
+    // aqui hacer zoom
     tipoAccion=irCoche;  // ¡r coche
     [locationManager startUpdatingLocation];
     [locationManager startUpdatingHeading];
@@ -433,6 +434,7 @@ double miRumbo;
     self.queQuieresHacerlabel.alpha =0;
     [self.cerrarIraAlgoButton setEnabled:NO];
     self.cerrarIraAlgoButton.alpha=0;
+    // aqui hacer zoom
     
     tipoAccion=irPunto;  // ¡r coche
     [locationManager startUpdatingLocation];
