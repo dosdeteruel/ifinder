@@ -248,52 +248,12 @@ NSMutableArray * elegidosArray;
 
 
 #pragma mark - IBAction
-/*- (IBAction)EditarListado:(id)sender
-{
-    UIActionSheet *myActionSheet=[[UIActionSheet alloc]initWithTitle:@"Acciones..."
-                                                            delegate:self
-                                                   cancelButtonTitle:@"Cancelar"
-                                              destructiveButtonTitle:@"Borrar todos los puntos"
-                                                   otherButtonTitles:@"Pintar puntos en mapa", nil];
-    [myActionSheet showInView:self.view];
 
-}
-*/
 - (IBAction)volver:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-/*
--(void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex: (NSInteger )buttonIndex
-{
-    
-    NSLog(@"ButtonsIndex: %d",buttonIndex);
-    
-    if (buttonIndex==[actionSheet cancelButtonIndex]) //2
-    {
-        NSLog(@"Cancelled");//2
-    }
-    
-    if (buttonIndex == [actionSheet firstOtherButtonIndex])//1
-    {
-        NSLog(@"primer boton de otros: %@",[actionSheet buttonTitleAtIndex:buttonIndex]);
-        //
-        // aqui enviar elegidosArray al mapkit para que pinte los puntos en el y regresar al mapkit.
-        //
-        //
-        //principalViewController * vistadepaso= (principalViewController)segue.sender (id)sender
-        
-    }
-        if (buttonIndex == 0)
-    {
-        NSLog(@"boton 0 borrando todos...");
-        zonasMutableArray = [[NSMutableArray alloc]init];
-        elegidosArray=[[NSMutableArray alloc] init];
-        
-        [self salvarplist];
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
-}*/
+
 
 
 

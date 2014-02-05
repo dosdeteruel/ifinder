@@ -151,7 +151,7 @@ double miRumbo;
    
     punto *miPunto =[[punto alloc] init];
     NSDateFormatter* df = [[NSDateFormatter alloc]init];
-    [df setDateFormat:@"dd.MM.yyyy hh:mm:ss Z"];
+    [df setDateFormat:@"dd.MM.yyyy HH:mm:ss"];
   //  NSDate * fecha =[[NSDate alloc] init];
   
     double posx;
@@ -193,16 +193,15 @@ double miRumbo;
         case irPunto:
             //ahora comprobar si hay que coger
             [self calculaelRumbo:location];
+            [self Calculadistancia];
             
-      
             rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
             
             break;
         case irCoche:
             //ahora comprobar si hay que coger
             
-         [self calculaelRumbo:location];
-            NSLog(@"rumbo: %f",miRumbo);
+           [self calculaelRumbo:location];
            [self Calculadistancia];
          
             rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
@@ -380,7 +379,9 @@ double miRumbo;
     [message show];
 }
 
-- (IBAction)iraAlgo{
+- (IBAction)iraAlgo
+{
+    // Abrir el cuadro de diálogo para ir a algún sitio
     
     self.iraView.hidden=NO;
     self.iraView.alpha=1;
@@ -399,6 +400,8 @@ double miRumbo;
 
 - (IBAction)iraCoche
 {
+    // Elegimos ir al coche
+    
     self.iraView.hidden=YES;
     self.iraView.alpha=0;
     [self.iraCocheButton setEnabled:NO];
@@ -418,6 +421,7 @@ double miRumbo;
 }
 - (IBAction)iraPunto
 {
+    // Elegimos ir a un punto
     self.iraView.hidden=YES;
     self.iraView.alpha=0;
     [self.iraCocheButton setEnabled:NO];
@@ -491,16 +495,17 @@ double miRumbo;
     if (dist > 1000)
     {
         dist = dist /1000;
-        distanciaLabel.text = [[NSString stringWithFormat:@"%f",dist] stringByAppendingString:@"  km"] ;
+        distanciaLabel.text = [[NSString stringWithFormat:@"%.2f",dist] stringByAppendingString:@"  km"] ;
     }
     else
     {
         
-        distanciaLabel.text = [[NSString stringWithFormat:@"%f",dist] stringByAppendingString:@" metros"] ;
+        distanciaLabel.text = [[NSString stringWithFormat:@"%.2f",dist] stringByAppendingString:@" metros"] ;
         
     }
-    if (dist<5){
+    if (dist<0.01){
         [self showMessageMeta];
+        tipoAccion=hacerNada;
     }
 }
 
