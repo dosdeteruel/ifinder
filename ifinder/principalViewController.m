@@ -69,17 +69,32 @@ double miRumbo;
     
     locationManager=[[CLLocationManager alloc] init];
     
-       locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-      locationManager.distanceFilter=1;
-
+    //   locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
+    //  locationManager.distanceFilter=1;
+
+    locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
+    
+    locationManager.distanceFilter=kCLDistanceFilterNone;
+
     // Establecemos al propio controlador como el delegado de localización.
     locationManager.delegate=self;
 
     [locationManager startUpdatingHeading];
     self.mapaView.showsUserLocation = YES;
     tipoAccion=hacerNada;
+ 
     
+    
+    
+    MKCoordinateRegion region;
+           region.span = MKCoordinateSpanMake(0.005, 0.005);
+    
+    region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
+                                               locationManager.location.coordinate.longitude);
+    
+    
+    [mapaView setRegion:region];
  if (mipuntodetalle)
  {
      // pintar punto
@@ -141,7 +156,7 @@ double miRumbo;
     self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo-newHeading.trueHeading) * M_PI / 180);
     
     
-        rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
+      //  rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
 }
 
 
@@ -163,7 +178,7 @@ double miRumbo;
     NSTimeInterval transcurrido=[eventDate timeIntervalSinceNow];
     if (abs(transcurrido) < 15.0) {
         // es reciente
-    }
+   
         posy= location.coordinate.latitude;
         posx =location.coordinate.longitude;
         
@@ -175,9 +190,9 @@ double miRumbo;
     
   region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
                                               locationManager.location.coordinate.longitude);
+   
     
-    
-[mapaView setRegion:region];
+//[mapaView setRegion:region];
     
     self.mapaView.showsUserLocation = YES;
     NSDate *fecha=[NSDate date];
@@ -201,7 +216,10 @@ double miRumbo;
             break;
         case irCoche:
             //ahora comprobar si hay que coger
+            locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
             
+            locationManager.distanceFilter=kCLDistanceFilterNone;
+
          [self calculaelRumbo:location];
            
            [self Calculadistancia];
@@ -258,9 +276,7 @@ double miRumbo;
             
     }
   
-    miPunto=nil;
-    df = nil;
-    
+      }
     
 }
 
@@ -336,9 +352,7 @@ double miRumbo;
     rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
   
     
-    elpunto = nil;
-    
-   }
+    }
 
 
 
