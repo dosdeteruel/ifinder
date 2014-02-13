@@ -51,6 +51,7 @@
 		AED7761E18206C7E006CFBF1 /* ifinderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AED7761D18206C7E006CFBF1 /* ifinderTests.m */; };
 		AED7762918206CE4006CFBF1 /* principalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED7762818206CE4006CFBF1 /* principalViewController.m */; };
 		AEE2214D184FF12700139B68 /* fondotabla.png in Resources */ = {isa = PBXBuildFile; fileRef = AEE2214C184FF12700139B68 /* fondotabla.png */; };
+		AEF5942818AC3BDD003E8FAF /* cabecera-eng.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AEF5942718AC3BDD003E8FAF /* cabecera-eng.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		AED7762718206CE4006CFBF1 /* principalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = principalViewController.h; sourceTree = "<group>"; };
 		AED7762818206CE4006CFBF1 /* principalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = principalViewController.m; sourceTree = "<group>"; };
 		AEE2214C184FF12700139B68 /* fondotabla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondotabla.png; sourceTree = "<group>"; };
+		AEF5942718AC3BDD003E8FAF /* cabecera-eng.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cabecera-eng.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +268,7 @@
 		AED7762B18206D22006CFBF1 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				AEF5942718AC3BDD003E8FAF /* cabecera-eng.jpg */,
 				AE37C29818874514000F21EE /* aspa.png */,
 				AE4F5E661853A4D800F40FE1 /* titulos.jpg */,
 				AE4F5E671853A4D800F40FE1 /* pie.jpg */,
@@ -342,7 +345,7 @@
 				ORGANIZATIONNAME = "German Bonilla Monterde";
 				TargetAttributes = {
 					AED775EE18206C7E006CFBF1 = {
-						DevelopmentTeam = XAET4E576S;
+						DevelopmentTeam = F3WW7CD638;
 					};
 					AED7760F18206C7E006CFBF1 = {
 						TestTargetID = AED775EE18206C7E006CFBF1;
@@ -373,6 +376,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEF5942818AC3BDD003E8FAF /* cabecera-eng.jpg in Resources */,
 				AE5266DE182AF47800402D46 /* icon.png in Resources */,
 				AE5266E3182AF47800402D46 /* logo.png in Resources */,
 				AE37C29918874514000F21EE /* aspa.png in Resources */,

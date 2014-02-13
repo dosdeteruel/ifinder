@@ -23,7 +23,6 @@ CGRect screen;
 @synthesize latitudLabel;
 @synthesize longitudLabel;
 @synthesize distanciaLabel;
-@synthesize rumboLabel;
 @synthesize locationManager;
 @synthesize mapaView;
 @synthesize mipuntodetalle;
@@ -70,9 +69,8 @@ double miRumbo;
     
     locationManager=[[CLLocationManager alloc] init];
     
-    //   locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    
-    //  locationManager.distanceFilter=1;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;;
+    locationManager.distanceFilter=kCLDistanceFilterNone;
 
     locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     
@@ -95,7 +93,13 @@ double miRumbo;
                                                locationManager.location.coordinate.longitude);
     
     
+    MKCoordinateRegion region;
+    region.span = MKCoordinateSpanMake(0.005, 0.005);
+    
+    region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
+                                               locationManager.location.coordinate.longitude);
     [mapaView setRegion:region];
+    
  if (mipuntodetalle)
  {
      // pintar punto
@@ -130,12 +134,6 @@ double miRumbo;
      
      
  }
-     else
-     {
-         
-         
-        }
- 
     
 }
 
@@ -174,7 +172,7 @@ double miRumbo;
     NSTimeInterval transcurrido=[eventDate timeIntervalSinceNow];
     if (abs(transcurrido) < 15.0) {
         // es reciente
-   
+    
         posy= location.coordinate.latitude;
         posx =location.coordinate.longitude;
         
@@ -182,20 +180,19 @@ double miRumbo;
   //      self.longitudLabel.text = [NSString stringWithFormat:@"%f", posx];
     
         MKCoordinateRegion region;
-  //        region.span = MKCoordinateSpanMake(0.005, 0.005);
+
     
-  region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
+        region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
                                               locationManager.location.coordinate.longitude);
    
     
-//[mapaView setRegion:region];
     
-    self.mapaView.showsUserLocation = YES;
-    NSDate *fecha=[NSDate date];
+        self.mapaView.showsUserLocation = YES;
+        NSDate *fecha=[NSDate date];
 
   
     
-    switch (tipoAccion) {
+        switch (tipoAccion) {
             
         case hacerNada:
               [locationManager stopUpdatingLocation];
@@ -212,10 +209,7 @@ double miRumbo;
             //ahora comprobar si hay que coger
             locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
             
-            locationManager.distanceFilter=kCLDistanceFilterNone;
-
-         [self calculaelRumbo:location];
-           
+           [self calculaelRumbo:location];
            [self Calculadistancia];
          
             
@@ -267,8 +261,10 @@ double miRumbo;
             
     }
   
-      }
+    miPunto=nil;
+    df = nil;
     
+   }
 }
 
 
@@ -340,6 +336,8 @@ double miRumbo;
     self.compassImage.hidden = NO;
     self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
     self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo) * M_PI / 180);
+   
+    elpunto = nil;
     
   //  rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
   
@@ -387,7 +385,9 @@ double miRumbo;
     [message show];
 }
 
-- (IBAction)iraAlgo{
+- (IBAction)iraAlgo
+{
+    // Abrir el cuadro de diálogo para ir a algún sitio
     
     self.iraView.hidden=NO;
     self.iraView.alpha=1;
@@ -406,6 +406,8 @@ double miRumbo;
 
 - (IBAction)iraCoche
 {
+    // Elegimos ir al coche
+    
     self.iraView.hidden=YES;
     self.iraView.alpha=0;
     [self.iraCocheButton setEnabled:NO];
@@ -425,6 +427,7 @@ double miRumbo;
 }
 - (IBAction)iraPunto
 {
+    // Elegimos ir a un punto
     self.iraView.hidden=YES;
     self.iraView.alpha=0;
     [self.iraCocheButton setEnabled:NO];
