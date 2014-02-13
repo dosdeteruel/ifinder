@@ -71,13 +71,26 @@ double miRumbo;
     locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;;
     locationManager.distanceFilter=kCLDistanceFilterNone;
 
+    locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     
+    locationManager.distanceFilter=kCLDistanceFilterNone;
+
     // Establecemos al propio controlador como el delegado de localización.
     locationManager.delegate=self;
 
     [locationManager startUpdatingHeading];
     self.mapaView.showsUserLocation = YES;
     tipoAccion=hacerNada;
+ 
+    
+    
+    
+    MKCoordinateRegion region;
+           region.span = MKCoordinateSpanMake(0.005, 0.005);
+    
+    region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
+                                               locationManager.location.coordinate.longitude);
+    
     
     MKCoordinateRegion region;
     region.span = MKCoordinateSpanMake(0.005, 0.005);
@@ -168,6 +181,7 @@ double miRumbo;
     
         region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
                                               locationManager.location.coordinate.longitude);
+   
     
     
         self.mapaView.showsUserLocation = YES;
@@ -191,6 +205,7 @@ double miRumbo;
             break;
         case irCoche:
             //ahora comprobar si hay que coger
+            locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
             
            [self calculaelRumbo:location];
            [self Calculadistancia];
