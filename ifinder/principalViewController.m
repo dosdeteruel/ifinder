@@ -36,7 +36,8 @@ typedef NS_ENUM(NSInteger, TipoPuntoDef){
     irCoche = 2,
     guardaPunto=3,
     guardaCoche=4,
-    pintarPunto=5
+    pintarPunto=5,
+    
 };
 
 NSMutableArray *arrayPuntos;
@@ -79,11 +80,11 @@ double miRumbo;
 
     // Establecemos al propio controlador como el delegado de localización.
     locationManager.delegate=self;
-
+    [locationManager startUpdatingLocation];
     [locationManager startUpdatingHeading];
-    self.mapaView.showsUserLocation = YES;
-    tipoAccion=hacerNada;
- 
+    self.mapaView.showsUserLocation = YES;   tipoAccion=hacerNada;
+
+    
     
     
     
@@ -103,9 +104,7 @@ double miRumbo;
      double x;
      double y;
      
-     //   texto = [elPunto.fecha];
-     
-     x = [mipuntodetalle.x doubleValue];
+       x = [mipuntodetalle.x doubleValue];
      punto.longitude = x;
      
      y = [mipuntodetalle.y doubleValue];
@@ -127,7 +126,7 @@ double miRumbo;
      [locationManager startUpdatingLocation];
    
    //  locationManager = nil;
-   // elpunto=nil;
+  elpunto=nil;
      
      
  }
@@ -156,8 +155,7 @@ double miRumbo;
     self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo-newHeading.trueHeading) * M_PI / 180);
     
     
-      //  rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
-}
+     }
 
 
 - (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
@@ -167,9 +165,7 @@ double miRumbo;
     punto *miPunto =[[punto alloc] init];
     NSDateFormatter* df = [[NSDateFormatter alloc]init];
     [df setDateFormat:@"dd.MM.yyyy HH:mm:ss"];
-  //  NSDate * fecha =[[NSDate alloc] init];
-//  [currentDate setDateFormat:@"yyyy-MM-dd HH:mm"];
-    double posx;
+      double posx;
     double posy;
     
     
@@ -182,8 +178,8 @@ double miRumbo;
         posy= location.coordinate.latitude;
         posx =location.coordinate.longitude;
         
-        self.latitudLabel.text =[NSString stringWithFormat:@"%f", posy];
-        self.longitudLabel.text = [NSString stringWithFormat:@"%f", posx];
+  //      self.latitudLabel.text =[NSString stringWithFormat:@"%f", posy];
+  //      self.longitudLabel.text = [NSString stringWithFormat:@"%f", posx];
     
         MKCoordinateRegion region;
   //        region.span = MKCoordinateSpanMake(0.005, 0.005);
@@ -201,7 +197,6 @@ double miRumbo;
     
     switch (tipoAccion) {
             
-            
         case hacerNada:
               [locationManager stopUpdatingLocation];
             break;
@@ -211,7 +206,6 @@ double miRumbo;
             [self calculaelRumbo:location];
             [self Calculadistancia];
       
-            rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
             
             break;
         case irCoche:
@@ -224,7 +218,6 @@ double miRumbo;
            
            [self Calculadistancia];
          
-            rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
             
             
             break;
@@ -239,9 +232,7 @@ double miRumbo;
             miPunto.x = [NSNumber numberWithDouble:posx];
             miPunto.y = [NSNumber numberWithDouble:posy];
             
-      //      NSDate *fecha=[NSDate date];
-            
-            miPunto.fecha= [df stringFromDate:fecha];
+               miPunto.fecha= [df stringFromDate:fecha];
             
             [arrayPuntos addObject:miPunto];
 
@@ -345,11 +336,12 @@ double miRumbo;
              miRumbo = miRumbo  + 360;
          }
     
-    NSLog(@"angulo: %f",miRumbo);
+//    NSLog(@"angulo: %f",miRumbo);
+    self.compassImage.hidden = NO;
     self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
     self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo) * M_PI / 180);
     
-    rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
+  //  rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
   
     
     }
