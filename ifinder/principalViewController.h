@@ -34,12 +34,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *cerrarIraAlgoButton;
 @property (nonatomic,strong) punto *mipuntodetalle;
 @property (weak, nonatomic) IBOutlet UIImageView *cocheGuardadoImage;
-- (IBAction)irTabla:(UIStoryboard *)segue;
 
-@property (nonatomic, retain) IBOutlet UILabel *rumboLabel;
+
+
 @property (retain, nonatomic) IBOutlet MKMapView *mapaView;
 
-
+- (IBAction)irTabla:(UIStoryboard *)segue;
 - (void) calculaelRumbo:(CLLocation *)posicion;
 - (IBAction)iraCoche;
 - (IBAction)iraPunto;

@@ -23,7 +23,6 @@ CGRect screen;
 @synthesize latitudLabel;
 @synthesize longitudLabel;
 @synthesize distanciaLabel;
-@synthesize rumboLabel;
 @synthesize locationManager;
 @synthesize mapaView;
 @synthesize mipuntodetalle;
@@ -69,8 +68,8 @@ double miRumbo;
     
     locationManager=[[CLLocationManager alloc] init];
     
-       locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-      locationManager.distanceFilter=1;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;;
+    locationManager.distanceFilter=kCLDistanceFilterNone;
 
     
     // Establecemos al propio controlador como el delegado de localización.
@@ -79,6 +78,13 @@ double miRumbo;
     [locationManager startUpdatingHeading];
     self.mapaView.showsUserLocation = YES;
     tipoAccion=hacerNada;
+    
+    MKCoordinateRegion region;
+    region.span = MKCoordinateSpanMake(0.005, 0.005);
+    
+    region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
+                                               locationManager.location.coordinate.longitude);
+    [mapaView setRegion:region];
     
  if (mipuntodetalle)
  {
@@ -110,18 +116,7 @@ double miRumbo;
  
      tipoAccion=pintarPunto;
      [locationManager startUpdatingLocation];
-   
-   //  locationManager = nil;
-   // elpunto=nil;
-     
-     
  }
-     else
-     {
-         
-         
-        }
- 
     
 }
 
@@ -140,8 +135,7 @@ double miRumbo;
  
     self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo-newHeading.trueHeading) * M_PI / 180);
     
-    
-        rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
+
 }
 
 
@@ -152,8 +146,7 @@ double miRumbo;
     punto *miPunto =[[punto alloc] init];
     NSDateFormatter* df = [[NSDateFormatter alloc]init];
     [df setDateFormat:@"dd.MM.yyyy HH:mm:ss"];
-  //  NSDate * fecha =[[NSDate alloc] init];
-//  [currentDate setDateFormat:@"yyyy-MM-dd HH:mm"];
+ 
     double posx;
     double posy;
     
@@ -163,7 +156,7 @@ double miRumbo;
     NSTimeInterval transcurrido=[eventDate timeIntervalSinceNow];
     if (abs(transcurrido) < 15.0) {
         // es reciente
-    }
+    
         posy= location.coordinate.latitude;
         posx =location.coordinate.longitude;
         
@@ -171,20 +164,18 @@ double miRumbo;
         self.longitudLabel.text = [NSString stringWithFormat:@"%f", posx];
     
         MKCoordinateRegion region;
-  //        region.span = MKCoordinateSpanMake(0.005, 0.005);
+
     
-  region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
+        region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
                                               locationManager.location.coordinate.longitude);
     
     
-[mapaView setRegion:region];
-    
-    self.mapaView.showsUserLocation = YES;
-    NSDate *fecha=[NSDate date];
+        self.mapaView.showsUserLocation = YES;
+        NSDate *fecha=[NSDate date];
 
   
     
-    switch (tipoAccion) {
+        switch (tipoAccion) {
             
             
         case hacerNada:
@@ -195,8 +186,7 @@ double miRumbo;
             //ahora comprobar si hay que coger
             [self calculaelRumbo:location];
             [self Calculadistancia];
-            
-            rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
+    
             
             break;
         case irCoche:
@@ -205,7 +195,6 @@ double miRumbo;
            [self calculaelRumbo:location];
            [self Calculadistancia];
          
-            rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
             
             
             break;
@@ -260,7 +249,7 @@ double miRumbo;
     miPunto=nil;
     df = nil;
     
-    
+   }
 }
 
 
@@ -328,13 +317,10 @@ double miRumbo;
              miRumbo = miRumbo  + 360;
          }
     
-    NSLog(@"angulo: %f",miRumbo);
+    self.compassImage.hidden = NO;
     self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
     self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo) * M_PI / 180);
-    
-    rumboLabel.text = [NSString stringWithFormat:@"%f",miRumbo];
-  
-    
+   
     elpunto = nil;
     
    }
@@ -502,7 +488,7 @@ double miRumbo;
     else
     {
         
-        distanciaLabel.text = [[NSString stringWithFormat:@"%.2f",dist] stringByAppendingString:@" metros"] ;
+        distanciaLabel.text = [[NSString stringWithFormat:@"%.2f",dist] stringByAppendingString:@" m"] ;
         
     }
     if (dist<0.01){
