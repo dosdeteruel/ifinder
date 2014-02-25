@@ -45,8 +45,8 @@ NSMutableArray * elegidosArray;
     NSString *fooPath = [documentsPath stringByAppendingPathComponent:@"PuntosList.plist"];
     NSLog(@"%@",fooPath);
     zonasMutableArray  = [NSMutableArray arrayWithContentsOfFile:fooPath];
-    NSLog(@"%d Registros recuperados en PuntosList.plist",zonasMutableArray.count);
-    NSLog(@"array %@ ",zonasMutableArray);
+  //  NSLog(@"%d Registros recuperados en PuntosList.plist",zonasMutableArray.count);
+ //   NSLog(@"array %@ ",zonasMutableArray);
    /* NSInteger *Contador = [self.zonasMutableArray count];
     if (Contador==0)
     {
@@ -92,12 +92,13 @@ NSMutableArray * elegidosArray;
     
     cell.CellX.text=[[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"] stringValue];
     cell.CellY.text=[[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
-    cell.CellFecha.text=[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"];
+   cell.CellFecha.text=[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"];
     cell.tag=indexPath.row;
-    
-    //NSDateFormatter* df = [[NSDateFormatter alloc]init];
-    //[df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
-    //cell.CellFecha.text= [df stringFromDate:[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
+    NSLog(@"El contador vale %@", [[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]);
+
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
+ //   cell.CellFecha.text= [df stringFromDate:[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
     
     /*if([elegidosArray containsObject:indexPath])
     {
@@ -215,7 +216,7 @@ NSMutableArray * elegidosArray;
             //self.botonEditarBarButtonItem.style=UIBarButtonItemStyleBordered;
             //self.botonEditarBarButtonItem.enabled=NO;
         }
-        NSLog(@"registros en tableview %d",[zonasMutableArray count]);
+   //     NSLog(@"registros en tableview %d",[zonasMutableArray count]);
         [self salvarplist];
     }
 }
