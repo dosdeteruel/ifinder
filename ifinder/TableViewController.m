@@ -92,13 +92,13 @@ NSMutableArray * elegidosArray;
     
     cell.CellX.text=[[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"x"] stringValue];
     cell.CellY.text=[[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"y"] stringValue];
-   cell.CellFecha.text=[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"];
+   cell.CellFecha.text=[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"] ;
     cell.tag=indexPath.row;
-    NSLog(@"El contador vale %@", [[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]);
+   NSLog(@"El contador vale %@", [[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]);
 
-    NSDateFormatter* df = [[NSDateFormatter alloc]init];
-    [df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
- //   cell.CellFecha.text= [df stringFromDate:[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
+  //  NSDateFormatter* df = [[NSDateFormatter alloc]init];
+ //  [df setDateFormat:@"dd/MM/yyyy hh:mm:ss"];
+ //  cell.CellFecha.text= [df stringFromDate:[[zonasMutableArray objectAtIndex:indexPath.row] valueForKey:@"fecha"]];
     
     /*if([elegidosArray containsObject:indexPath])
     {
@@ -112,7 +112,7 @@ NSMutableArray * elegidosArray;
 //cell.tag=indexPath.row;
 // Configure the cell...
     return cell;
-    cell=nil;
+   // cell=nil;
     
 }
 

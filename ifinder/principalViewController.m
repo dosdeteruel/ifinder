@@ -38,6 +38,9 @@ typedef NS_ENUM(NSInteger, TipoPuntoDef){
     pintarPunto=5
 };
 
+int hecho;
+
+
 NSMutableArray *arrayPuntos;
 NSString *nombrezona;
 double miRumbo;
@@ -65,15 +68,15 @@ double miRumbo;
     [super viewDidLoad];
     distanciaLabel.text=@"";
     
-    
+    hecho=0;
     locationManager=[[CLLocationManager alloc] init];
     
     locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;;
     locationManager.distanceFilter=kCLDistanceFilterNone;
 
-    locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
+  //  locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     
-    locationManager.distanceFilter=kCLDistanceFilterNone;
+  ///  locationManager.distanceFilter=kCLDistanceFilterNone;
 
     // Establecemos al propio controlador como el delegado de localización.
     locationManager.delegate=self;
@@ -194,10 +197,13 @@ double miRumbo;
             
         case hacerNada:
               [locationManager stopUpdatingLocation];
+                distanciaLabel.text=@"";
+
             break;
             
         case irPunto:
             //ahora comprobar si hay que coger
+                   hecho=0;
             [self calculaelRumbo:location];
             [self Calculadistancia];
    
@@ -229,26 +235,27 @@ double miRumbo;
         case irCoche:
             //ahora comprobar si hay que coger
             locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
-            
+                hecho=0;
            [self calculaelRumbo:location];
            [self Calculadistancia];
                 
-                MKPointAnnotation * point11 = [[MKPointAnnotation alloc] init];
-                point11.coordinate = CLLocationCoordinate2DMake(posx, posy);
+            
+             //   MKPointAnnotation * point11 = [[MKPointAnnotation alloc] init];
+             //   point11.coordinate = CLLocationCoordinate2DMake(posx, posy);
               
                 
-                puntoFin.latitude = [[NSUserDefaults standardUserDefaults] doubleForKey:@"cochelatitud"];
-                puntoFin.longitude= [[NSUserDefaults standardUserDefaults] doubleForKey:@"cochelongitud"];
+             //   puntoFin.latitude = [[NSUserDefaults standardUserDefaults] doubleForKey:@"cochelatitud"];
+             //   puntoFin.longitude= [[NSUserDefaults standardUserDefaults] doubleForKey:@"cochelongitud"];
 
                 
-                MKPointAnnotation *point22 = [[MKPointAnnotation alloc] init];
-                point22.coordinate  = CLLocationCoordinate2DMake(puntoFin.latitude, puntoFin.longitude);
-                point22.title  = @"Car";
+              //  MKPointAnnotation *point22 = [[MKPointAnnotation alloc] init];
+              //  point22.coordinate  = CLLocationCoordinate2DMake(puntoFin.latitude, puntoFin.longitude);
+               // point22.title  = @"Car";
                 
                 
-                [self.mapaView showAnnotations:@[point11, point22] animated:YES];
-                point11=nil;
-                point22=nil;
+              //  [self.mapaView showAnnotations:@[point11, point22] animated:YES];
+             //   point11=nil;
+             //   point22=nil;
                 
             break;
             
@@ -297,7 +304,56 @@ double miRumbo;
             
     }
   
-    miPunto=nil;
+        if (tipoAccion==irPunto && hecho==0)
+        {
+            
+               MKPointAnnotation * point11 = [[MKPointAnnotation alloc] init];
+               point11.coordinate = CLLocationCoordinate2DMake(posy, posx);
+            
+            puntoFin.latitude = [[NSUserDefaults standardUserDefaults] doubleForKey:@"puntolatitud"];
+             puntoFin.longitude = [[NSUserDefaults standardUserDefaults] doubleForKey:@"puntolongitud"];
+            
+            
+            
+              MKPointAnnotation *point22 = [[MKPointAnnotation alloc] init];
+              point22.coordinate  = CLLocationCoordinate2DMake(puntoFin.latitude, puntoFin.longitude);
+             point22.title  = @"Car";
+            
+            
+              [self.mapaView showAnnotations:@[point11, point22] animated:YES];
+               point11=nil;
+               point22=nil;
+            hecho=1;
+        
+        }
+
+        if (tipoAccion==irCoche && hecho==0)
+        {
+            
+            MKPointAnnotation * point11 = [[MKPointAnnotation alloc] init];
+            point11.coordinate = CLLocationCoordinate2DMake(posy, posx);
+            
+            
+            puntoFin.latitude = [[NSUserDefaults standardUserDefaults] doubleForKey:@"cochelatitud"];
+            puntoFin.longitude= [[NSUserDefaults standardUserDefaults] doubleForKey:@"cochelongitud"];
+            
+            
+            
+            MKPointAnnotation *point22 = [[MKPointAnnotation alloc] init];
+            point22.coordinate  = CLLocationCoordinate2DMake(puntoFin.latitude, puntoFin.longitude);
+            point22.title  = @"Car";
+            
+            
+            [self.mapaView showAnnotations:@[point11, point22] animated:YES];
+            point11=nil;
+            point22=nil;
+            hecho=1;
+            
+        }
+
+        
+        
+        miPunto=nil;
     df = nil;
     
    }
@@ -368,7 +424,7 @@ double miRumbo;
              miRumbo = miRumbo  + 360;
          }
     
-//    NSLog(@"angulo: %f",miRumbo);
+  NSLog(@"angulo: %f",miRumbo);
     self.compassImage.hidden = NO;
     self.compassImage.center = CGPointMake(self.compassImage.center.x, self.compassImage.center.y);
     self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo) * M_PI / 180);
@@ -544,8 +600,10 @@ double miRumbo;
         
     }
     if (dist<0.01){
+         distanciaLabel.text = [[NSString stringWithFormat:@"%.2f",dist] stringByAppendingString:@" m"] ;
         [self showMessageMeta];
         tipoAccion=hacerNada;
+        
     }
 }
 
