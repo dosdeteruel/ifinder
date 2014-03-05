@@ -81,7 +81,7 @@ double miRumbo;
     // Establecemos al propio controlador como el delegado de localización.
     locationManager.delegate=self;
     [locationManager startUpdatingLocation];
-    [locationManager startUpdatingHeading];
+ //   [locationManager startUpdatingHeading];
     self.mapaView.showsUserLocation = YES;   tipoAccion=hacerNada;
 
     
@@ -93,14 +93,7 @@ double miRumbo;
     
     region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
                                                locationManager.location.coordinate.longitude);
-    
-    
-//    MKCoordinateRegion region;
-   // region.span = MKCoordinateSpanMake(0.005, 0.005);
-    
-  //  region.center = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude,
-        //                                       locationManager.location.coordinate.longitude);
-    [mapaView setRegion:region];
+                                               [mapaView setRegion:region];
     
  if (mipuntodetalle)
  {
@@ -153,7 +146,8 @@ double miRumbo;
    
  
     self.compassImage.transform = CGAffineTransformMakeRotation ((miRumbo-newHeading.trueHeading) * M_PI / 180);
-    
+  //  [self calculaelRumbo:location];
+
 
 }
 
@@ -196,6 +190,8 @@ double miRumbo;
         switch (tipoAccion) {
             
         case hacerNada:
+                [locationManager stopUpdatingHeading];
+
               [locationManager stopUpdatingLocation];
                 distanciaLabel.text=@"";
 
@@ -203,61 +199,28 @@ double miRumbo;
             
         case irPunto:
             //ahora comprobar si hay que coger
-                   hecho=0;
-            [self calculaelRumbo:location];
+             //      hecho=0;
+                [locationManager startUpdatingHeading];
+
+           [self calculaelRumbo:location];
             [self Calculadistancia];
    
                 locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
                 
-           //     MKPointAnnotation *point111 = [[MKPointAnnotation alloc] init];
-           //     point111.coordinate   = CLLocationCoordinate2DMake(posx, posy);
-           //     point111.title = @"Me";
-                
-              
-             
-           //    puntoFin.latitude = [[NSUserDefaults standardUserDefaults] doubleForKey:@"puntolatitud"];
-           //     puntoFin.longitude = [[NSUserDefaults standardUserDefaults] doubleForKey:@"puntolongitud"];
-                
-          //           MKPointAnnotation *point12 = [[MKPointAnnotation alloc] init];
-                
-          //    point12.coordinate= CLLocationCoordinate2DMake(puntoFin.latitude, puntoFin.longitude);
-          //   point12.title = @"Car";
-                
-          //   [self.mapaView showAnnotations:@[point1, point12] animated:YES];
-                
-
-          //      point1=nil;
-          //     point12=nil;
-
                 
             break;
                 
         case irCoche:
             //ahora comprobar si hay que coger
-            locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
-                hecho=0;
+                [locationManager startUpdatingHeading];
+
+                locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
+             //   hecho=0;
            [self calculaelRumbo:location];
            [self Calculadistancia];
                 
             
-             //   MKPointAnnotation * point11 = [[MKPointAnnotation alloc] init];
-             //   point11.coordinate = CLLocationCoordinate2DMake(posx, posy);
-              
-                
-             //   puntoFin.latitude = [[NSUserDefaults standardUserDefaults] doubleForKey:@"cochelatitud"];
-             //   puntoFin.longitude= [[NSUserDefaults standardUserDefaults] doubleForKey:@"cochelongitud"];
-
-                
-              //  MKPointAnnotation *point22 = [[MKPointAnnotation alloc] init];
-              //  point22.coordinate  = CLLocationCoordinate2DMake(puntoFin.latitude, puntoFin.longitude);
-               // point22.title  = @"Car";
-                
-                
-              //  [self.mapaView showAnnotations:@[point11, point22] animated:YES];
-             //   point11=nil;
-             //   point22=nil;
-                
-            break;
+                  break;
             
         case guardaPunto:
             
@@ -591,16 +554,16 @@ double miRumbo;
     if (dist > 1000)
     {
         dist = dist /1000;
-        distanciaLabel.text = [[NSString stringWithFormat:@"%.2f",dist] stringByAppendingString:@"  km"] ;
+        distanciaLabel.text = [[NSString stringWithFormat:@"%.1f",dist] stringByAppendingString:@" km"] ;
     }
     else
     {
         
-        distanciaLabel.text = [[NSString stringWithFormat:@"%.2f",dist] stringByAppendingString:@" m"] ;
+        distanciaLabel.text = [[NSString stringWithFormat:@"%.1f",dist] stringByAppendingString:@" m"] ;
         
     }
     if (dist<0.01){
-         distanciaLabel.text = [[NSString stringWithFormat:@"%.2f",dist] stringByAppendingString:@" m"] ;
+         distanciaLabel.text = [[NSString stringWithFormat:@"%.1f",dist] stringByAppendingString:@" m"] ;
         [self showMessageMeta];
         tipoAccion=hacerNada;
         

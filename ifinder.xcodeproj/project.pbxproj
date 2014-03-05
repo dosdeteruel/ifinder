@@ -346,6 +346,11 @@
 				TargetAttributes = {
 					AED775EE18206C7E006CFBF1 = {
 						DevelopmentTeam = XAET4E576S;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					AED7760F18206C7E006CFBF1 = {
 						TestTargetID = AED775EE18206C7E006CFBF1;
